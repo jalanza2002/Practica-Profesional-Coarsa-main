@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Coarza</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+        /* Estilo general del cuerpo */
+        body {
+            font-family: Arial, sans-serif;
+            background-color:white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+
+        /* Contenedor principal */
+        .contenedor {
+            background-color: #FFCE00;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+
+
+         .titulo {
+            text-align: center;
+            color: #000000;
+            margin-bottom: 20px;
+        }
+
+
+        .texto {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+    
+        .button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #0060A9;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .contenedor button:hover {
+            background-color: #004c8c;
+        }
+    </style>
+    <style>
+        body {
+          font-family: "Lato", sans-serif;
+        }
+        .open-menu{
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 30px;
+            cursor:pointer;
+        }
+        .sidenav {
+          height: 100%;
+          width: 0;
+          position: fixed;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          background-color: #0060A9;
+          overflow-x: hidden;
+          transition: 0.5s;
+          padding-top: 60px;
+        }
+        
+        .sidenav a {
+          padding: 8px 8px 8px 32px;
+          text-decoration: none;
+          font-size: 30px;
+          color: #000000;
+          display: block;
+          transition: 0.3s;
+        }
+        
+        .sidenav a:hover {
+          color: #ffffff;
+        }
+        
+        .sidenav .closebtn {
+          position: absolute;
+          top: 0;
+          right: 25px;
+          font-size: 36px;
+          margin-left: 50px;
+        }
+        @media screen and (max-height: 450px) {
+          .sidenav {padding-top: 15px;}
+          .sidenav a {font-size: 18px;}
+        }
+        
+
+</style>  
+</head>
+<body>
+    <span class="open-menu" onclick="openNav()">&#9776; Sobre Nosotros</span> 
+    <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "260px";
+        }
+        
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+        }
+        </script>
+<div id="mySidenav" class="sidenav">
+<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">Atras</a>
+<a href="Mision y Vision.html">Valores</a>
+<a href="Vacantes.html">Vacantes</a>
+<a href="Log In.html">Log In</a>
+</div>
+
+<div class="contenedor">
+
+    <center>
+
+        <h2 class="titulo">Trabaje para Nosotros</h2>
+        <p class="texto"> SI quiere ser parte del equipo DIPO complete este formulario y con gusto
+            sera tomado en cuenta para proximas vacantes
+        </p>
+        <form>
+            
+            <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required><br>
+            <br>
+            <label for="email"></label>
+            <input type="email" id="email" name="email" placeholder="Escribe tu correo" required><br>
+            <br>
+            <label for="apellidos"></label>
+            <input type="text" id="apellidos" name="apellidos" placeholder="Escribe tus apellidos" required><br>
+            <br>
+            <label for="telefono"></label>
+            <input type="text" id="telefono" name="telefono" placeholder="Digite su telefono" required><br>
+            <br>
+            <label for="puesto"></label>
+            <select >
+                <option value="valor1">Elija un area de Interes</option>
+                <option value="valor1">opcion2</option>
+                <option value="valor1">opcion3</option>
+                <option value="valor1">opcion4</option>
+            </select><br>
+            <br>
+            <label for="CV"></label>
+            <input type="file" id="CV" name="CV" aria-placeholder="Subir hoja de Vida" required><br>
+            <br>
+
+            <input class="button" type="submit" value="Enviar">
+        </form>
+    </center>
+    </div>
+    <php>
+    
+    </php>
+</body>
+</html>
