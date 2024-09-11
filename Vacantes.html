@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Coarza</title>
+    <title>Coarsa</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
@@ -11,36 +11,66 @@
         /* Estilo general del cuerpo */
         body {
             font-family: Arial, sans-serif;
-            background-color:white;
+            background-color: rgb(255, 255, 255);
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
         }
 
+        /* Encabezado */
+        .header {
+            background-color: #ffffff;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgb(0, 0, 0);
+            position: fixed; /* Fija el header en la parte superior */
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000; /* Hace que el header esté por encima de otros elementos */
+        }
+
+        .header h1 {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .nav-buttons {
+            padding-right: 20px;
+        }
+
+        .nav-buttons a {
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            background-color: #ffffff;
+            padding: 10px 20px;
+            margin-left: 10px;
+            border-radius: 5px;
+            font-size: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-buttons a:hover {
+            background-color: #0060A9;
+        }
 
         /* Contenedor principal */
         .contenedor {
-            background-color: #FFCE00;
-            position:flex;
-            padding: 10px;
+            background-color: #ffd900;
+            padding: 20px;
             border-radius: 5px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             max-width: 600px;
             width: 100%;
-            margin-top: 60px;
-            margin-left: 50px;
+            margin: 100px auto 20px; /* Alinea el contenedor en el centro con márgenes superiores e inferiores */
         }
 
-
-         .titulo {
+        .titulo {
             text-align: center;
             color: #000000;
             margin-bottom: 20px;
         }
-
 
         .texto {
             color: #666;
@@ -48,7 +78,6 @@
             line-height: 1.6;
         }
 
-    
         .button {
             display: block;
             width: 100%;
@@ -66,55 +95,10 @@
             background-color: #004c8c;
         }
     </style>
-    <style>
-            body {
-              font-family: "Lato", sans-serif;
-            }
-            body {
-                margin: 0;
-                font-family: Arial, sans-serif;
-            }
-            .header {
-                background-color: #FFCE00;
-                padding: 20px 0;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-block-end: 600px;
-                color: white;
-                 
-            }
-            .header h1 {
-                margin: 0;
-                padding-left: 20px;
-            }
-            .nav-buttons {
-                padding-right: 20px;
-            }
-            .nav-buttons a {
-                text-decoration: none;
-                color: white;
-                background-color: #FFCE00;
-                
-                padding: 20px 20px;
-                margin-left: 10px;
-                border-radius: 5px;
-                font-size: 20px;
-                transition: background-color 0.3s;
-            }
-    
-            .nav-buttons a:hover {
-                background-color: #0060A9;
-            }
-            @media screen and (max-height: 450px) {
-              .sidenav {padding-top: 15px;}
-              .sidenav a {font-size: 18px;}
-            }
-          </style>
 </head>
 <body>
 
-  <div class="header">
+<div class="header">
     <h1>Coarsa</h1>
     <div class="nav-buttons">
         <a href="Quienes Somos.html">Quiénes Somos</a>
@@ -124,44 +108,27 @@
 </div>
 
 <div class="contenedor">
-
     <center>
-
         <h2 class="titulo">Trabaje para Nosotros</h2>
-        <p class="texto"> SI quiere ser parte del equipo DIPO complete este formulario y con gusto
-            sera tomado en cuenta para proximas vacantes
+        <p class="texto">SI desea formar parte de Coarsa complete este formulario y con gusto
+            será tomado en cuenta para próximas vacantes.
         </p>
         <form>
-            
-            <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required><br>
-            <br>
-            <label for="email"></label>
-            <input type="email" id="email" name="email" placeholder="Escribe tu correo" required><br>
-            <br>
-            <label for="apellidos"></label>
-            <input type="text" id="apellidos" name="apellidos" placeholder="Escribe tus apellidos" required><br>
-            <br>
-            <label for="telefono"></label>
-            <input type="text" id="telefono" name="telefono" placeholder="Digite su telefono" required><br>
-            <br>
-            <label for="puesto"></label>
-            <select >
-                <option value="valor1">Elija un area de Interes</option>
-                <option value="valor1">opcion2</option>
-                <option value="valor1">opcion3</option>
-                <option value="valor1">opcion4</option>
-            </select><br>
-            <br>
-            <label for="CV"></label>
-            <input type="file" id="CV" name="CV" aria-placeholder="Subir hoja de Vida" required><br>
-            <br>
-
+            <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required><br><br>
+            <input type="email" id="email" name="email" placeholder="Escribe tu correo" required><br><br>
+            <input type="text" id="apellidos" name="apellidos" placeholder="Escribe tus apellidos" required><br><br>
+            <input type="text" id="telefono" name="telefono" placeholder="Digite su telefono" required><br><br>
+            <select>
+                <option value="valor1">Elija un área de interés</option>
+                <option value="valor2">Opción 2</option>
+                <option value="valor3">Opción 3</option>
+                <option value="valor4">Opción 4</option>
+            </select><br><br>
+            <input type="file" id="CV" name="CV" aria-placeholder="Subir hoja de Vida" required><br><br>
             <input class="button" type="submit" value="Enviar">
         </form>
     </center>
-    </div>
-    <php>
-    
-    </php>
+</div>
+
 </body>
 </html>
