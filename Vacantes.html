@@ -24,11 +24,14 @@
         /* Contenedor principal */
         .contenedor {
             background-color: #FFCE00;
-            padding: 40px;
-            border-radius: 10px;
+            position:flex;
+            padding: 10px;
+            border-radius: 5px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             max-width: 600px;
             width: 100%;
+            margin-top: 60px;
+            margin-left: 50px;
         }
 
 
@@ -64,73 +67,60 @@
         }
     </style>
     <style>
-        body {
-          font-family: "Lato", sans-serif;
-        }
-        .open-menu{
-            position: absolute;
-            top: 20px;
-            left: 30px;
-            font-size: 30px;
-            cursor:pointer;
-        }
-        .sidenav {
-          height: 100%;
-          width: 0;
-          position: fixed;
-          z-index: 1;
-          top: 0;
-          left: 0;
-          background-color: #0060A9;
-          overflow-x: hidden;
-          transition: 0.5s;
-          padding-top: 60px;
-        }
-        
-        .sidenav a {
-          padding: 8px 8px 8px 32px;
-          text-decoration: none;
-          font-size: 30px;
-          color: #000000;
-          display: block;
-          transition: 0.3s;
-        }
-        
-        .sidenav a:hover {
-          color: #ffffff;
-        }
-        
-        .sidenav .closebtn {
-          position: absolute;
-          top: 0;
-          right: 25px;
-          font-size: 36px;
-          margin-left: 50px;
-        }
-        @media screen and (max-height: 450px) {
-          .sidenav {padding-top: 15px;}
-          .sidenav a {font-size: 18px;}
-        }
-        
-
-</style>  
+            body {
+              font-family: "Lato", sans-serif;
+            }
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+            }
+            .header {
+                background-color: #FFCE00;
+                padding: 20px 0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-block-end: 600px;
+                color: white;
+                 
+            }
+            .header h1 {
+                margin: 0;
+                padding-left: 20px;
+            }
+            .nav-buttons {
+                padding-right: 20px;
+            }
+            .nav-buttons a {
+                text-decoration: none;
+                color: white;
+                background-color: #FFCE00;
+                
+                padding: 20px 20px;
+                margin-left: 10px;
+                border-radius: 5px;
+                font-size: 20px;
+                transition: background-color 0.3s;
+            }
+    
+            .nav-buttons a:hover {
+                background-color: #0060A9;
+            }
+            @media screen and (max-height: 450px) {
+              .sidenav {padding-top: 15px;}
+              .sidenav a {font-size: 18px;}
+            }
+          </style>
 </head>
 <body>
-    <span class="open-menu" onclick="openNav()">&#9776; Sobre Nosotros</span> 
-    <script>
-        function openNav() {
-          document.getElementById("mySidenav").style.width = "260px";
-        }
-        
-        function closeNav() {
-          document.getElementById("mySidenav").style.width = "0";
-        }
-        </script>
-<div id="mySidenav" class="sidenav">
-<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">Atras</a>
-<a href="Mision y Vision.html">Valores</a>
-<a href="Vacantes.html">Vacantes</a>
-<a href="Log In.html">Log In</a>
+
+  <div class="header">
+    <h1>Coarsa</h1>
+    <div class="nav-buttons">
+        <a href="Quienes Somos.html">Quiénes Somos</a>
+        <a href="Vacantes.html">Trabaje con Nosotros</a>
+        <a href="Log In.html">Ingresar</a>
+    </div>
 </div>
 
 <div class="contenedor">
