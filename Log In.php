@@ -57,7 +57,7 @@
 
         /* Contenedor principal */
         .contenedor {
-            background-color: #ffd900;
+            background-color:transparent;
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -94,6 +94,24 @@
         .contenedor button:hover {
             background-color: #004c8c;
         }
+        input[type=text], input[type=password] {
+            width: 30%;
+            padding: 12px 10px;
+            margin: 8px 0;
+            box-sizing: line;
+        }
+        .button {
+            display: block;
+            width: 20%;
+            padding: 10px;
+            background-color: #0060A9;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -108,27 +126,44 @@
 </div>
 
 <div class="contenedor">
-    <center>
-        <h2 class="titulo">Trabaje para Nosotros</h2>
-        <p class="texto">SI desea formar parte de Coarsa complete este formulario y con gusto
-            será tomado en cuenta para próximas vacantes.
-        </p>
-        <form>
-            <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required><br><br>
-            <input type="email" id="email" name="email" placeholder="Escribe tu correo" required><br><br>
-            <input type="text" id="apellidos" name="apellidos" placeholder="Escribe tus apellidos" required><br><br>
-            <input type="text" id="telefono" name="telefono" placeholder="Digite su telefono" required><br><br>
-            <select>
-                <option value="valor1">Elija un área de interés</option>
-                <option value="valor2">Opción 2</option>
-                <option value="valor3">Opción 3</option>
-                <option value="valor4">Opción 4</option>
-            </select><br><br>
-            <input type="file" id="CV" name="CV" aria-placeholder="Subir hoja de Vida" required><br><br>
-            <input class="button" type="submit" value="Enviar">
-        </form>
-    </center>
-</div>
+    
+  <center>
+      <img src="usuario.png"style="width:75px;height:75px;">
+      <form>
+          <label for="correo"></label>
+          <input type="text" id="correo" name="correo" placeholder="Digite su Correo" required><br>
+          <label for="Clave"></label>
+          <input type="password" id="Clave" name="Clave" placeholder="Digite su Clave" required><br>
+          <input class="button" type="submit" value="Ingresar">
+      </form>
+
+  </center>
+  <script>
+      async function hashPassword(event) {
+          event.preventDefault(); 
+      
+     t
+          const passwordField = document.getElementById('Clave');
+          const password = passwordField.value;
+      
+       
+          const hashedPassword = await sha256(password);
+      
+ 
+          passwordField.value = hashedPassword;
+      
+          document.getElementById('myForm').submit();
+      }
+      
+      async function sha256(message) {
+          const msgBuffer = new TextEncoder().encode(message);
+          const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+          const hashArray = Array.from(new Uint8Array(hashBuffer));
+          const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+          return hashHex;
+      }
+      </script>
+
 
 </body>
 </html>

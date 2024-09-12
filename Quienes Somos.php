@@ -8,45 +8,51 @@
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
     <style>
-        body {
-          font-family: "Lato", sans-serif;
-        }
-        body {
-            margin: 0;
+              /* Estilo general del cuerpo */
+              body {
             font-family: Arial, sans-serif;
+            background-color: rgb(255, 255, 255);
+            margin: 0;
+            padding: 0;
         }
+
+        /* Encabezado */
         .header {
-            background-color: #FFCE00;
+            background-color: #ffffff;
             padding: 20px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: white;
-             
+            color: rgb(0, 0, 0);
+            position: fixed; /* Fija el header en la parte superior */
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000; /* Hace que el header esté por encima de otros elementos */
         }
+
         .header h1 {
             margin: 0;
             padding-left: 20px;
         }
+
         .nav-buttons {
             padding-right: 20px;
         }
+
         .nav-buttons a {
             text-decoration: none;
-            color: white;
-            background-color: #FFCE00;
+            color: rgb(0, 0, 0);
+            background-color: #ffffff;
             padding: 10px 20px;
             margin-left: 10px;
             border-radius: 5px;
             font-size: 20px;
             transition: background-color 0.3s;
         }
+
         .nav-buttons a:hover {
             background-color: #0060A9;
-        }      
-        @media screen and (max-height: 450px) {
-          .sidenav {padding-top: 15px;}
-          .sidenav a {font-size: 18px;}
         }
 </style>    
 </head>
@@ -54,14 +60,20 @@
   <div class="header">
     <h1>Coarsa</h1>
     <div class="nav-buttons">
-        <a href="Quienes Somos.html">Quiénes Somos</a>
-        <a href="Vacantes.html">Trabaje con Nosotros</a>
-        <a href="Log In.html">Ingresar</a>
+        <a href="Quienes Somos.php">Quiénes Somos</a>
+        <a href="Vacantes.php">Trabaje con Nosotros</a>
+        <a href="Log In.php">Ingresar</a>
     </div>
 </div>
 
 <div class="informacion">
     <main>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
         <center>
             <h1> Mision</h1>
         </center>
@@ -78,8 +90,5 @@
 
 </div>
 
-
-<php>
-</php>
 </body>
 </html>
