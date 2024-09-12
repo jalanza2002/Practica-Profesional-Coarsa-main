@@ -119,9 +119,9 @@
 <div class="header">
     <h1>Coarsa</h1>
     <div class="nav-buttons">
-        <a href="Quienes Somos.html">Quiénes Somos</a>
-        <a href="Vacantes.html">Trabaje con Nosotros</a>
-        <a href="Log In.html">Ingresar</a>
+        <a href="Quienes Somos.php">Quiénes Somos</a>
+        <a href="Vacantes.php">Trabaje con Nosotros</a>
+        <a href="Log In.php">Ingresar</a>
     </div>
 </div>
 
@@ -163,7 +163,26 @@
           return hashHex;
       }
       </script>
-
+        <?php 
+        $serverName = "JSM\SQL2022DEV";  // Reemplaza con tu nombre de servidor y puerto
+        $connectionOptions = array(
+            "Database" => "DBCoarsa",
+            "Uid" => "sa",
+            "PWD" => "SmJ2002@",
+            "ConnectionPooling" => false
+        );
+        
+        try {
+            $conn = new PDO("sqlsrv:server=$serverName;Database=DBCoarsa;LoginTimeout=10", $connectionOptions['Uid'], $connectionOptions['PWD']);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            echo "Conexión exitosa";
+        } catch (PDOException $e) {
+            echo "Error de conexión: " . $e->getMessage();
+        }
+    
+    
+    
+    ?>
 
 </body>
 </html>
