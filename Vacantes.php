@@ -1,35 +1,33 @@
 <?php 
 // Configuración de la conexión a la base de datos
-$serverName = "JSM\SQL2022DEV";  // Reemplaza con tu nombre de servidor y puerto
-$connectionOptions = array(
-    "Database" => "DBCoarsa",
-    "Uid" => "sa",
-    "PWD" => "SmJ2002@",
-    "ConnectionPooling" => false
-);
+function getVacantesConnection() {
+    $servername = "localhost"; // Cambia esto según tu configuración
+    $username = "root";        // Cambia esto según tu configuración
+    $password = "JoSu2002@";   // Cambia esto según tu configuración
+    $dbname = "dbcoarsa"; // Cambia esto por el nombre de tu base de datos
 
-try {
-    // Conectar a la base de datos usando PDO
-    $conn = new PDO("sqlsrv:server=$serverName;Database=DBCoarsa", $connectionOptions['Uid'], $connectionOptions['PWD']);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    try {
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Consulta SQL para obtener los datos de la tabla Vacantes
-    $sqlvacante = "SELECT IdPuesto, NombrePuesto FROM Vacantes";
-    $stmt = $conn->query($sqlvacante);
+        $sqlvacante="Select IdPuesto, Puesto from vacantes";
+        $stmt=$conn->query($sqlvacante);
+        $vacantes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // Obtener los resultados en un array asociativo
-    $vacantes = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
-    // Verificar si se obtuvieron resultados
-    if (empty($vacantes)) {
-        echo "No se encontraron vacantes disponibles.";
-    } else {
-        echo "Vacantes cargadas correctamente.";
+        if(empty($vacantes)){
+            echo "No hay vacantes disponibles";
+        }else{
+            echo "Vacantes cargadas correctamente";
+        }
+        return $vacantes;
+
+    } catch (PDOException $e) {
+        echo "Error de conexión: " . $e->getMessage();
+        return[];
     }
-
-} catch (PDOException $e) {
-    echo "Error en la conexión o consulta: " . $e->getMessage();
 }
+
+$vacantes = getVacantesConnection();
 ?>
 
 <!DOCTYPE html>
@@ -39,8 +37,6 @@ try {
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Coarsa</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
     <style>
         /* Estilo general del cuerpo */
         body {
@@ -153,119 +149,179 @@ try {
         <p class="texto">SI desea formar parte de Coarsa complete este formulario y con gusto
             será tomado en cuenta para próximas vacantes.
         </p>
-        <form method="post" action="" enctype="multipart/form-data">
-        Nombre: <input type="text" name="nombre" required><br>
-        Email: <input type="email" name="email" required><br>
-        Apellidos: <input type="text" name="apellidos" required><br>
-        Teléfono: <input type="text" name="telefono" required><br>
-        Área de Interés: <input type="text" name="area_interes" required><br>
-        CV: <input type="file" name="CV" accept=".pdf, .doc, .docx" required><br>
-        <input type="submit" value="Enviar">
+        <center>
+        <form method="POST" action="" enctype="multipart/form-data">
+                <label for="Nombre">Nombre:</label>
+                <input type="text" id="Nombre" name="txtNombre" placeholder="Ingrese su nombre" required><br>
+
+                <label for="Apellidos">Apellidos:</label>
+                <input type="text" id="Apellidos" name="txtApellidos" placeholder="Ingrese sus apellidos" required><br>
+
+                <label for="Correo">Correo:</label>
+                <input type="email" id="Correo" name="txtCorreo" placeholder="Ingrese su correo" required><br><br>
+
+                <label for="Telefono">Teléfono:</label>
+                <input type="tel" id="Telefono" name="txtTelefono" placeholder="Ingrese su teléfono" required><br><br>
+
+                <label for="Puesto">Puesto:</label>
+                <select name="txtPuesto" id="Puesto" required placeholder="Ingrese el puesto que desea aplicar">
+                    <option>Ingrese el puesto que desea postularse</option>
+                    <?php 
+                        if (!empty($vacantes)) {
+                            foreach ($vacantes as $vacante) {
+                                echo "<option value=\"" . htmlspecialchars($vacante['IdPuesto']) . "\">" . htmlspecialchars($vacante['Puesto']) . "</option>";
+                            }
+                        } else {
+                            echo "<option value=''>No hay vacantes disponibles</option>";
+                        }
+                    ?>
+                </select><br><br>
+
+                <label for="CV">CV (PDF):</label>
+                <input type="file" id="CV" name="txtCV" accept="application/pdf" required><br><br>
+
+                <input type="submit" class="button" name="btnGuardar" value="Guardar"><br><br>
         </form>
     </center>
-</div>
+    <br>
+    <!-- Método POST para agregar el participante a la base de datos -->
+    <?php
+    // Función para establecer la conexión a la base de datos
+    function getDatabaseConnection() {
+        $servername = "localhost"; // Cambia esto según tu configuración
+        $username = "root";        // Cambia esto según tu configuración
+        $password = "JoSu2002@";   // Cambia esto según tu configuración
+        $dbname = "dbcoarsa"; // Cambia esto por el nombre de tu base de datos
 
-<!-- Código PHP para manejo de archivo y envío de correo -->
+        try {
+            $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $conn;
+        } catch (PDOException $e) {
+            echo "Error de conexión: " . $e->getMessage();
+            exit;
+        }
+    }
 
-<?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+    // Función para guardar los datos del participante
+    function guardar_datos() {
+        $conn = getDatabaseConnection();
 
-// Requiere los archivos de PHPMailer
-require 'PHPMailer-master/PHPMailer-master/src/PHPMailer.php';
-require 'PHPMailer-master/PHPMailer-master/src/SMTP.php';
-require 'PHPMailer-master/PHPMailer-master/src/Exception.php';
+        // Obtener datos del formulario
+        $nombre = $_POST['txtNombre'];
+        $apellidos = $_POST['txtApellidos'];
+        $correo = $_POST['txtCorreo'];
+        $telefono = $_POST['txtTelefono'];
+        $puesto = $_POST['txtPuesto'];
+        $cv_data = file_get_contents($_FILES['txtCV']['tmp_name']);
 
-$serverName = "JSM\SQL2022DEV";  // Reemplaza con tu nombre de servidor y puerto
-$connectionOptions = array(
-    "Database" => "DBCoarsa",
-    "Uid" => "sa",
-    "PWD" => "SmJ2002@",
-    "ConnectionPooling" => false
-);
+        // Preparar la consulta SQL
+        $sql = "INSERT INTO participantes (Nombre, Apellidos, Correo, Telefono,Puesto, CV) VALUES (:nombre, :apellidos, :correo, :telefono,:puesto, :cv_data)";
+        
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':nombre', $nombre);
+        $stmt->bindParam(':apellidos', $apellidos);
+        $stmt->bindParam(':correo', $correo);
+        $stmt->bindParam(':telefono', $telefono);
+        $stmt->bindParam(':puesto',$puesto);
+        $stmt->bindParam(':cv_data', $cv_data, PDO::PARAM_LOB);
 
-try {
-    // Conectar a la base de datos usando PDO
-    $conn = new PDO("sqlsrv:server=$serverName;Database=DBCoarsa", $connectionOptions['Uid'], $connectionOptions['PWD']);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $conn->setAttribute(PDO::SQLSRV_ATTR_ENCODING, PDO::SQLSRV_ENCODING_UTF8);
+        if ($stmt->execute()) {
+            echo "Sus datos se han guardado correctamente.";
+        } else {
+            echo "Error: No se pudieron guardar los datos.";
+        }
+    }
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $nombre = isset($_POST['nombre']) ? mb_convert_encoding($_POST['nombre'], 'UTF-8') : null;
-        $email = isset($_POST['email']) ? mb_convert_encoding($_POST['email'], 'UTF-8') : null;
-        $apellidos = isset($_POST['apellidos']) ? mb_convert_encoding($_POST['apellidos'], 'UTF-8') : null;
-        $telefono = isset($_POST['telefono']) ? mb_convert_encoding($_POST['telefono'], 'UTF-8') : null;
-        $area_interes = isset($_POST['area_interes']) ? mb_convert_encoding($_POST['area_interes'], 'UTF-8') : null;
+    if (isset($_POST['btnGuardar'])) {
+        // Validar el nombre
+        if (empty($_POST['txtNombre'])) {
+            echo "El campo Nombre es obligatorio.";
+        }
 
-        if (isset($_FILES['CV']) && $_FILES['CV']['error'] === UPLOAD_ERR_OK) {
-            $cv_data = file_get_contents($_FILES["CV"]["tmp_name"]);
+        // Validar los apellidos
+        else if (empty($_POST['txtApellidos'])) {
+            echo "El campo Apellidos es obligatorio.";
+        }
 
-            $sql = "INSERT INTO postulantes (Nombre, Apellidos, Correo, Telefono, CV, IdPuesto) VALUES 
-                    (:nombre, :apellidos, :email, :telefono, :cv_data, :area_interes)";
-            
-            $stmt = $conn->prepare($sql);
-            $stmt->bindParam(':nombre', $nombre);
-            $stmt->bindParam(':apellidos', $apellidos);
-            $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':telefono', $telefono);
-            $stmt->bindParam(':area_interes', $area_interes);
-            $stmt->bindParam(':cv_data', $cv_data, PDO::PARAM_LOB);
+        // Validar el correo
+        else if (!filter_var($_POST['txtCorreo'], FILTER_VALIDATE_EMAIL)) {
+            echo "El correo electrónico proporcionado no es válido.";
+        }
 
-            if ($stmt->execute()) {
-                echo "Sus datos se han guardado correctamente.";
+        // Validar el teléfono (opcionalmente, podrías usar expresiones regulares para validar formato)
+        else if (empty($_POST['txtTelefono'])) {
+            echo "El número de teléfono es valido.";
+        }
 
-                // Enviar correo electrónico
-                $mail = new PHPMailer(true);
+        else if(empty($_POST['txtPuesto'])){
+            echo "No ha selecionado ningun puesto";
+        }
 
-                try {
-                    $mail->isSMTP();                                       // Configuración del servidor SMTP
-                    $mail->Host       = 'smtp.gmail.com';  
-                    $mail->SMTPAuth   = true;                             
-                    $mail->Username   = 'josanzm2002@gmail.com';            
-                    $mail->Password   = 'ijvf vduh lbbt mqqy';  
-                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
-                    $mail->Port       = 587;                             
+        // Validar el archivo CV
+        else if (isset($_FILES['txtCV']) && $_FILES['txtCV']['error'] === UPLOAD_ERR_OK) {
+            $allowed_types = ['application/pdf'];
+            $file_type = mime_content_type($_FILES['txtCV']['tmp_name']);
+            $file_size = $_FILES['txtCV']['size'];
 
-                    // Remitente
-                    $mail->setFrom('josanzm2002@gmail.com', 'Nombre Remitente');
-
-                    // Destinatario
-                    $mail->addAddress('fersaint66@gmail.com', 'Recursos humanos');
-
-                    // Contenido del correo
-                    $mail->isHTML(true);
-                    $mail->Subject = "Nueva aplicación de trabajo";
-                    $mail->Body    = "Se ha recibido una nueva solicitud de trabajo<br>" .
-                                      "Nombre: $nombre<br>" .
-                                      "Apellidos: $apellidos<br>" .
-                                      "Correo: $email<br>" .
-                                      "Teléfono: $telefono<br>" .
-                                      "Puesto para el que aplica: $area_interes<br><br>" .
-                                      "Adjunto el CV de la persona que aplica.";
-
-                    // Adjuntar el archivo
-                    $mail->addStringAttachment($cv_data, $_FILES["CV"]["name"]); 
-
-                    // Enviar el correo
-                    $mail->send();
-                    echo "Correo enviado correctamente.";
-                } catch (Exception $e) {
-                    echo "Error al enviar el correo: {$mail->ErrorInfo}";
-                }
+            if (!in_array($file_type, $allowed_types)) {
+                echo "Error: Solo se permiten archivos PDF.";
+            } else if ($file_size > 5 * 1024 * 1024) { // 5MB máximo
+                echo "Error: El archivo es demasiado grande. El límite es de 5MB.";
             } else {
-                echo "Error: No se guardaron los datos correctamente.";
+                // Si todo está bien, llamar a la función para guardar los datos
+                guardar_datos();
             }
         } else {
             echo "Error: No se recibió el archivo CV o se produjo un error al subirlo.";
         }
     }
-} catch (PDOException $e) {
-    echo "Error en la conexión o consulta: " . $e->getMessage();
+    ?>
+
+<!-- Enviar un correo de que su solicitud se ha completado-->
+
+<?php 
+// Usar las clases de PHPMailer
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+if($_SERVER['REQUEST_METHOD']=='POST'){
+require 'C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/PHPMailer-master/PHPMailer-master/src/PHPMailer.php';
+require 'C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/PHPMailer-master/PHPMailer-master/src/SMTP.php';
+require 'C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/PHPMailer-master/PHPMailer-master/src/Exception.php';
+
+// Crear una nueva instancia de PHPMailer
+$mail = new PHPMailer(true);
+
+
+try {
+    // Configuración del servidor SMTP
+    $mail->isSMTP();
+    $mail->Host = 'smtp.gmail.com'; // Servidor SMTP de Gmail
+    $mail->SMTPAuth = true;
+    $mail->Username = 'josanzm2002@gmail.com'; // Tu correo de Gmail
+    $mail->Password = 'ijvf vduh lbbt mqqy'; // Contraseña de tu correo de Gmail o app password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Cifrado TLS
+    $mail->Port = 587; // Puerto SMTP de Gmail
+
+    // Configuración del remitente y destinatario
+    $mail->setFrom('josanzm2002@gmail.com', 'Tu nombre');
+    $mail->addAddress('fersaint66@gmail.com', 'Nombre del destinatario');
+
+    // Contenido del correo
+    $mail->isHTML(true); // Establecer el correo en formato HTML
+    $mail->Subject = 'Asunto del correo';
+    $mail->Body = '<h1>Hola</h1><p>Este es un correo de prueba enviado desde PHP.</p>';
+    $mail->AltBody = 'Esto es una prueba';
+
+    // Enviar el correo
+    $mail->send();
+    echo 'El correo ha sido enviado correctamente';
+} catch (Exception $e) {
+    echo "El correo no pudo ser enviado. Error: {$mail->ErrorInfo}";
 }
+}
+
 ?>
-
-
-
-
 </body>
 </html>
