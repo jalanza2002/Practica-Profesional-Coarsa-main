@@ -290,9 +290,20 @@ require 'C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/PHPMai
 require 'C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/PHPMailer-master/PHPMailer-master/src/SMTP.php';
 require 'C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/PHPMailer-master/PHPMailer-master/src/Exception.php';
 
+
+$nombre = $_POST['txtNombre'];
+$apellidos=$_POST['txtApellidos'];
+$correo=$_POST['txtCorreo'];
+$puesto=$_POST['txtPuesto'];
+$cv=$_POST['txtCV'];
+if (isset($_FILES['txtCV']) && $_FILES['txtCV']['error'] === UPLOAD_ERR_OK) {
+    $cv = $_FILES['txtCV'];
+} else {
+    echo "Error: No se ha subido el archivo o se ha producido un error.";
+    exit;
+}
 // Crear una nueva instancia de PHPMailer
 $mail = new PHPMailer(true);
-
 
 try {
     // Configuración del servidor SMTP
@@ -307,13 +318,17 @@ try {
     // Configuración del remitente y destinatario
     $mail->setFrom('josanzm2002@gmail.com', 'Tu nombre');
     $mail->addAddress('fersaint66@gmail.com', 'Nombre del destinatario');
-
     // Contenido del correo
     $mail->isHTML(true); // Establecer el correo en formato HTML
-    $mail->Subject = 'Asunto del correo';
-    $mail->Body = '<h1>Hola</h1><p>Este es un correo de prueba enviado desde PHP.</p>';
-    $mail->AltBody = 'Esto es una prueba';
-
+    $mail->Subject = 'Nueva solicitud de empleo';
+    $mail->Body = '<h1>Hola Recursos Humanos</h1><p>Una persona esta aplicando.</p>';
+    $mail->Body = "
+        <p> Puesto: {$puesto}</p>
+        <p> Nombre Completo: {$nombre}{$apellidos}</p>
+        <p> Correo: {$correo}</p>
+        <p>Para cualquier informacion se le adjunta el CV
+    ";
+    $mail->addAttachment($cv['tmp_name'],$cv['name']);
     // Enviar el correo
     $mail->send();
     echo 'El correo ha sido enviado correctamente';
