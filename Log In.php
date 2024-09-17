@@ -1,3 +1,56 @@
+<?php 
+    function getDatabaseConnection() {
+                $servername = "localhost"; // Cambia esto según tu configuración
+                $username = "root";        // Cambia esto según tu configuración
+                $password = "JoSu2002@";   // Cambia esto según tu configuración
+                $dbname = "dbcoarsa"; // Cambia esto por el nombre de tu base de datos
+            
+                    try {
+                        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+                        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                        return $conn;
+                    } catch (PDOException $e) {
+                        echo "Error de conexión: " . $e->getMessage();
+                        exit;
+                    }
+                }
+
+                if($_SERVER['REQUEST_METHOD']=='POST'){
+                    $username=trim($_POST['correo']);
+                    $password=trim($_POST['Clave']);
+
+                    if(empty($username)||empty($password)){
+                        echo "Por favor complete ambos campos";
+                        exit;
+                    }
+
+                    $con=getDatabaseConnection();
+                    $sql="SELECT * FROM usuarios WHERE Usuario = :username LIMIT 1";
+                    $stms=$con->prepare($sql);
+                    $stms->bindParam(':username',$username);
+                    $stms->execute();
+                    $user= $stms->fetch(PDO::FETCH_ASSOC);
+
+                    if($user){
+                        if($password===$user['Clave']){
+                            $_SESSION['username'] = $user['Usuario'];
+                            echo "Bienvenido".htmlspecialchars($user['Usuario']);
+                            header('Location:PaginaRH.php');
+                            exit();
+                            
+                            }
+                            else
+                            {
+                                echo"Contraseña incorrecta";
+                            }
+                        }
+                        else
+                        {
+                        echo "Usuario no existe";
+                        }
+                }
+    ?>
+    <!-- Aqui empeza el codigo html-->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -129,7 +182,7 @@
     
   <center>
       <img src="usuario.png"style="width:75px;height:75px;">
-      <form>
+      <form method="POST" >
           <label for="correo"></label>
           <input type="text" id="correo" name="correo" placeholder="Digite su Correo" required><br>
           <label for="Clave"></label>
@@ -162,27 +215,8 @@
           const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
           return hashHex;
       }
-      </script>
-        <?php 
-        $serverName = "JSM\SQL2022DEV";  // Reemplaza con tu nombre de servidor y puerto
-        $connectionOptions = array(
-            "Database" => "DBCoarsa",
-            "Uid" => "sa",
-            "PWD" => "SmJ2002@",
-            "ConnectionPooling" => false
-        );
-        
-        try {
-            $conn = new PDO("sqlsrv:server=$serverName;Database=DBCoarsa;LoginTimeout=10", $connectionOptions['Uid'], $connectionOptions['PWD']);
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Conexión exitosa";
-        } catch (PDOException $e) {
-            echo "Error de conexión: " . $e->getMessage();
-        }
-    
-    
-    
-    ?>
+    </script>
+   
 
 </body>
 </html>

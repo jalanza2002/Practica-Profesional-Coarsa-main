@@ -302,27 +302,26 @@ if (isset($_FILES['txtCV']) && $_FILES['txtCV']['error'] === UPLOAD_ERR_OK) {
     echo "Error: No se ha subido el archivo o se ha producido un error.";
     exit;
 }
-// Crear una nueva instancia de PHPMailer
-$mail = new PHPMailer(true);
 
+$mail = new PHPMailer(true);
+//ijvf vduh lbbt mqqy-mi contraseña de enviar correos
 try {
     // Configuración del servidor SMTP
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com'; // Servidor SMTP de Gmail
     $mail->SMTPAuth = true;
-    $mail->Username = 'josanzm2002@gmail.com'; // Tu correo de Gmail
-    $mail->Password = 'ijvf vduh lbbt mqqy'; // Contraseña de tu correo de Gmail o app password
+    $mail->Username = 'empleoscoarsacr@gmail.com'; // Tu correo de Gmail
+    $mail->Password = 'lbxo hfhk milf tafp'; // Contraseña de tu correo de Gmail o app password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Cifrado TLS
     $mail->Port = 587; // Puerto SMTP de Gmail
 
-    // Configuración del remitente y destinatario
-    $mail->setFrom('josanzm2002@gmail.com', 'Tu nombre');
-    $mail->addAddress('fersaint66@gmail.com', 'Nombre del destinatario');
+    $mail->setFrom('josanzm2002@gmail.com', 'Solicitud de empleo');
+    $mail->addAddress('empleoscoarsacr@gmail.com', 'Grupo Coarsa');
     // Contenido del correo
     $mail->isHTML(true); // Establecer el correo en formato HTML
     $mail->Subject = 'Nueva solicitud de empleo';
-    $mail->Body = '<h1>Hola Recursos Humanos</h1><p>Una persona esta aplicando.</p>';
     $mail->Body = "
+        <p>Hola Recursos Humanos un nuevo candidato esta aplicando.</p>
         <p> Puesto: {$puesto}</p>
         <p> Nombre Completo: {$nombre}{$apellidos}</p>
         <p> Correo: {$correo}</p>
