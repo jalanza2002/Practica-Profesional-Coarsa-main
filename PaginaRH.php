@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+// Deshabilitar el cacheo de la página
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['usuario'])) {
+    // Si no hay usuario en la sesión, redirigir a la página de inicio de sesión
+    header('Location: Log In.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,6 +83,21 @@
             width: 100%;
             margin: 100px auto 20px; /* Alinea el contenedor en el centro con márgenes superiores e inferiores */
         }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
 
     </style>
 </head>
@@ -77,28 +107,168 @@
     <div class="header">
     <h2>Coarsa Recursos Humanos</h2>
     <div class="nav-buttons">
-        <a href="Canditados.php">Candidatos</a>
+        <a href="Candidatos.php">Candidatos</a>
         <a href="Puestos.php">Puestos</a>
     </div>
     </div>
+    <div class="contenedor">
+        <center>
+            <h2>Agregue un puesto</h2><br>
+            <form method="post">
+                <label for="Puesto">Agregue un puesto </label>
+                <input type="text" id="Puestotxt" name="Puestotxt" required><br>
+                <input type="submit" id="btnenviar" name="btnenviar" value="Guardar Puesto"><br><br>
+            </form>
+        </center>
+    </div>
+        <br>
+        <center>
+            <form method="post">
+                <label for="Salir"></label>
+                <input type="submit" id="btnsalir" name="btnsalir" value="Salir"><btn>
+            </form>
+        </center>
 
-        <div class="contenedor">
-            <center>
-                <h2>Agregue un puesto</h2><br>
-                <form method="post">
-                    <label for="Puesto">Agregue un puesto </label>
-                    <input type="text" id="Puestotxt" name="Puestotxt" required><br>
+    <div>
+        <center>
+            <h2>Lista de Puestos</h2>
+            <table border="1">
+                <tr>
+                    <th>IdPuesto</th>
+                    <th>Puesto</th>
+                    <th>Acciones</th>
+                </tr>
 
-                    <input type="submit" id="enviar" name="enviar"><br><br>
-                </form>
+                <?php
+                // Función para obtener la conexión a la base de datos
+                function getDatabaseConnection() {
+                    $servername = "localhost"; 
+                    $username = "root";       
+                    $password = "JoSu2002@";  
+                    $dbname = "dbcoarsa"; 
 
-            </center>
-        </div>
+                    try {
+                        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+                        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                        return $conn;
+                    } catch (PDOException $e) {
+                        echo "Error de conexión: " . $e->getMessage();
+                        exit;
+                    }
+                }
 
+                // Función para guardar un puesto en la base de datos
+                function GuardarPuesto() {
+                    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['Puestotxt'])) {
+                        $conn = getDatabaseConnection();
+                        $puesto = $_POST['Puestotxt'];
 
+                        $sql = "INSERT INTO vacantes (Puesto) VALUES (:puesto)";
+                        $stmt = $conn->prepare($sql);
+                        $stmt->bindParam(':puesto', $puesto);
 
+                        if ($stmt->execute()) {
+                            echo "El puesto se ha guardado correctamente";
+                        } else {
+                            echo "Error: No se pudo guardar el Puesto";
+                        }
+                    }
+                }
 
+                // Función para eliminar un puesto de la base de datos
+                function EliminarPuesto($idPuesto) {
+                    $conn = getDatabaseConnection();
+                    $sql = "DELETE FROM vacantes WHERE IdPuesto = :idPuesto";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bindParam(':idPuesto', $idPuesto);
 
+                    if ($stmt->execute()) {
+                        echo "El puesto se ha eliminado correctamente";
+                    } else {
+                        echo "Error: No se pudo eliminar el Puesto";
+                    }
+                }
 
+                // Función para actualizar un puesto en la base de datos
+                function ActualizarPuesto($idPuesto, $nuevoPuesto) {
+                    $conn = getDatabaseConnection();
+                    $sql = "UPDATE vacantes SET Puesto = :nuevoPuesto WHERE IdPuesto = :idPuesto";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bindParam(':nuevoPuesto', $nuevoPuesto);
+                    $stmt->bindParam(':idPuesto', $idPuesto);
+
+                    if ($stmt->execute()) {
+                        echo "El puesto se ha actualizado correctamente";
+                    } else {
+                        echo "Error: No se pudo actualizar el Puesto";
+                    }
+                }
+
+                // Función para mostrar los datos de la tabla vacantes
+                function MostrarVacantes() {
+                    $conn = getDatabaseConnection();
+                    $sql = "SELECT IdPuesto, Puesto FROM vacantes";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute();
+                    $vacantes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                    foreach ($vacantes as $vacante) {
+                        echo '<tr>';
+                        echo '<td>' . htmlspecialchars($vacante['IdPuesto']) . '</td>';
+                        echo '<td>';
+                        echo '<form method="post" style="display:inline;">';
+                        echo '<input type="hidden" name="idPuesto" value="' . htmlspecialchars($vacante['IdPuesto']) . '">';
+                        echo '<input type="text" name="PuestoActualizado" value="' . htmlspecialchars($vacante['Puesto']) . '" required>';
+                        echo '<input type="submit" name="actualizar" value="Actualizar">';
+                        echo '</form>';
+                        echo '</td>';
+                        echo '<td>';
+                        echo '<form method="post" style="display:inline;">';
+                        echo '<input type="hidden" name="idPuesto" value="' . htmlspecialchars($vacante['IdPuesto']) . '">';
+                        echo '<input type="submit" name="eliminar" value="Eliminar">';
+                        echo '</form>';
+                        echo '</td>';
+                        echo '</tr>';
+                    }
+                }
+
+                // Guardar el puesto si se envía el formulario
+                GuardarPuesto();
+
+                // Eliminar un puesto si se envía el formulario de eliminación
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminar'])) {
+                    $idPuesto = $_POST['idPuesto'];
+                    EliminarPuesto($idPuesto);
+                }
+
+                // Actualizar un puesto si se envía el formulario de actualización
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
+                    $idPuesto = $_POST['idPuesto'];
+                    $nuevoPuesto = $_POST['PuestoActualizado'];
+                    ActualizarPuesto($idPuesto, $nuevoPuesto);
+                }
+
+                //Funcion para salir de la pagina de Recursos Humanos
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnsalir'])) {
+                    session_start(); // Asegúrate de iniciar la sesión para poder destruirla
+                    session_destroy(); // Destruir la sesión actual
+                    header('Location: Log In.php'); // Redirigir a la página de inicio de sesión
+                    exit(); // Asegurarse de que el script se detenga
+                }
+
+                // Mostrar los datos de la tabla vacantes
+                MostrarVacantes();
+                ?>
+            </table>
+        </center>
+    </div>
+    <script>
+    window.onpageshow = function(event) {
+        if (event.persisted) {
+            window.location.reload(); // Forzar recarga de la página
+        }
+    };
+</script>
+   
 </body>
 </html>

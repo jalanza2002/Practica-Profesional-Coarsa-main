@@ -216,7 +216,7 @@ $vacantes = getVacantesConnection();
         $cv_data = file_get_contents($_FILES['txtCV']['tmp_name']);
 
         // Preparar la consulta SQL
-        $sql = "INSERT INTO participantes (Nombre, Apellidos, Correo, Telefono,Puesto, CV) VALUES (:nombre, :apellidos, :correo, :telefono,:puesto, :cv_data)";
+        $sql = "INSERT INTO participantes (Nombre, Apellidos, Correo, Telefono,IdPuesto, CV) VALUES (:nombre, :apellidos, :correo, :telefono,:puesto, :cv_data)";
         
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':nombre', $nombre);
@@ -286,56 +286,85 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 if($_SERVER['REQUEST_METHOD']=='POST'){
-require 'C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/PHPMailer-master/PHPMailer-master/src/PHPMailer.php';
-require 'C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/PHPMailer-master/PHPMailer-master/src/SMTP.php';
-require 'C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/PHPMailer-master/PHPMailer-master/src/Exception.php';
+    require 'C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/PHPMailer-master/PHPMailer-master/src/PHPMailer.php';
+    require 'C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/PHPMailer-master/PHPMailer-master/src/SMTP.php';
+    require 'C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/PHPMailer-master/PHPMailer-master/src/Exception.php';
 
+    // Conexión a la base de datos
+    $servername = "localhost"; 
+    $username = "root";        
+    $password = "JoSu2002@"; 
+    $dbname = "dbcoarsa";
 
-$nombre = $_POST['txtNombre'];
-$apellidos=$_POST['txtApellidos'];
-$correo=$_POST['txtCorreo'];
-$puesto=$_POST['txtPuesto'];
-$cv=$_POST['txtCV'];
-if (isset($_FILES['txtCV']) && $_FILES['txtCV']['error'] === UPLOAD_ERR_OK) {
-    $cv = $_FILES['txtCV'];
-} else {
-    echo "Error: No se ha subido el archivo o se ha producido un error.";
-    exit;
+    $conexion = new mysqli($servername, $username, $password, $dbname);
+
+    if($conexion->connect_error){
+        die("Conexión Fallida: ".$conexion->connect_error);
+    }
+
+    $nombre = $_POST['txtNombre'];
+    $apellidos = $_POST['txtApellidos'];
+    $correo = $_POST['txtCorreo'];
+    $puesto = $_POST['txtPuesto'];
+
+    $sql = "SELECT Puesto FROM vacantes WHERE IdPuesto = ?";
+    $stmt = $conexion->prepare($sql);
+
+    // verficar si se conecta a la bse de datos
+    if ($stmt === false) {
+        die("Error en la consulta SQL: " . $conexion->error);
+    }
+
+    // Vincular el parametro que le estamos pasando, tiene que ser entero
+    $stmt->bind_param("i", $puesto); 
+    $stmt->execute();
+    $stmt->bind_result($nombre_puesto);
+    $stmt->fetch();
+    $stmt->close();
+
+    if (isset($_FILES['txtCV']) && $_FILES['txtCV']['error'] === UPLOAD_ERR_OK) {
+        $cv = $_FILES['txtCV'];
+    } else {
+        echo "Error: No se ha subido el archivo o se ha producido un error.";
+        exit;
+    }
+
+    $mail = new PHPMailer(true);
+    
+    try {
+        // Configuración del servidor SMTP
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com'; 
+        $mail->SMTPAuth = true;
+        $mail->Username = 'empleoscoarsacr@gmail.com'; 
+        $mail->Password = 'lbxo hfhk milf tafp'; 
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
+        $mail->Port = 587;
+
+        $mail->setFrom($correo, 'Solicitud de empleo');
+        $mail->addAddress('kimberly.montoya@coarsacr.com', 'Grupo Coarsa');
+        
+        // Contenido del correo
+        $mail->isHTML(true); 
+        $mail->Subject = 'Nueva solicitud de empleo';
+        $mail->Body = "
+            <p>Hola Recursos Humanos un nuevo candidato esta aplicando.</p>
+            <p> Puesto: {$nombre_puesto}</p>
+            <p> Nombre Completo: {$nombre} {$apellidos}</p>
+            <p> Correo: {$correo}</p>
+            <p>Para cualquier informacion se le adjunta el CV</p>
+        ";
+        $mail->addAttachment($cv['tmp_name'], $cv['name']);
+        $mail->send();
+        
+        echo 'El correo ha sido enviado correctamente';
+    } catch (Exception $e) {
+        echo "El correo no pudo ser enviado. Error: {$mail->ErrorInfo}";
+    }
+
+    $conexion->close();
 }
-
-$mail = new PHPMailer(true);
-//ijvf vduh lbbt mqqy-mi contraseña de enviar correos
-try {
-    // Configuración del servidor SMTP
-    $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com'; // Servidor SMTP de Gmail
-    $mail->SMTPAuth = true;
-    $mail->Username = 'empleoscoarsacr@gmail.com'; // Tu correo de Gmail
-    $mail->Password = 'lbxo hfhk milf tafp'; // Contraseña de tu correo de Gmail o app password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Cifrado TLS
-    $mail->Port = 587; // Puerto SMTP de Gmail
-
-    $mail->setFrom('josanzm2002@gmail.com', 'Solicitud de empleo');
-    $mail->addAddress('empleoscoarsacr@gmail.com', 'Grupo Coarsa');
-    // Contenido del correo
-    $mail->isHTML(true); // Establecer el correo en formato HTML
-    $mail->Subject = 'Nueva solicitud de empleo';
-    $mail->Body = "
-        <p>Hola Recursos Humanos un nuevo candidato esta aplicando.</p>
-        <p> Puesto: {$puesto}</p>
-        <p> Nombre Completo: {$nombre}{$apellidos}</p>
-        <p> Correo: {$correo}</p>
-        <p>Para cualquier informacion se le adjunta el CV
-    ";
-    $mail->addAttachment($cv['tmp_name'],$cv['name']);
-    // Enviar el correo
-    $mail->send();
-    echo 'El correo ha sido enviado correctamente';
-} catch (Exception $e) {
-    echo "El correo no pudo ser enviado. Error: {$mail->ErrorInfo}";
-}
-}
-
 ?>
+
 </body>
 </html>

@@ -1,56 +1,4 @@
-<?php 
-    function getDatabaseConnection() {
-                $servername = "localhost"; // Cambia esto según tu configuración
-                $username = "root";        // Cambia esto según tu configuración
-                $password = "JoSu2002@";   // Cambia esto según tu configuración
-                $dbname = "dbcoarsa"; // Cambia esto por el nombre de tu base de datos
-            
-                    try {
-                        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-                        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                        return $conn;
-                    } catch (PDOException $e) {
-                        echo "Error de conexión: " . $e->getMessage();
-                        exit;
-                    }
-                }
-
-                if($_SERVER['REQUEST_METHOD']=='POST'){
-                    $username=trim($_POST['correo']);
-                    $password=trim($_POST['Clave']);
-
-                    if(empty($username)||empty($password)){
-                        echo "Por favor complete ambos campos";
-                        exit;
-                    }
-
-                    $con=getDatabaseConnection();
-                    $sql="SELECT * FROM usuarios WHERE Usuario = :username LIMIT 1";
-                    $stms=$con->prepare($sql);
-                    $stms->bindParam(':username',$username);
-                    $stms->execute();
-                    $user= $stms->fetch(PDO::FETCH_ASSOC);
-
-                    if($user){
-                        if($password===$user['Clave']){
-                            $_SESSION['username'] = $user['Usuario'];
-                            echo "Bienvenido".htmlspecialchars($user['Usuario']);
-                            header('Location:PaginaRH.php');
-                            exit();
-                            
-                            }
-                            else
-                            {
-                                echo"Contraseña incorrecta";
-                            }
-                        }
-                        else
-                        {
-                        echo "Usuario no existe";
-                        }
-                }
-    ?>
-    <!-- Aqui empeza el codigo html-->
+<!-- Aquí comienza el código HTML -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -110,7 +58,7 @@
 
         /* Contenedor principal */
         .contenedor {
-            background-color:transparent;
+            background-color: transparent;
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -147,12 +95,14 @@
         .contenedor button:hover {
             background-color: #004c8c;
         }
+
         input[type=text], input[type=password] {
             width: 30%;
             padding: 12px 10px;
             margin: 8px 0;
-            box-sizing: line;
+            box-sizing: border-box;
         }
+
         .button {
             display: block;
             width: 20%;
@@ -179,44 +129,66 @@
 </div>
 
 <div class="contenedor">
-    
-  <center>
-      <img src="usuario.png"style="width:75px;height:75px;">
-      <form method="POST" >
-          <label for="correo"></label>
-          <input type="text" id="correo" name="correo" placeholder="Digite su Correo" required><br>
-          <label for="Clave"></label>
-          <input type="password" id="Clave" name="Clave" placeholder="Digite su Clave" required><br>
-          <input class="button" type="submit" value="Ingresar">
-      </form>
+    <center>
+        <img src="usuario.png" style="width:75px;height:75px;">
+        <form method="POST">
+            <label for="correo"></label>
+            <input type="text" id="correo" name="correo" placeholder="Digite su Correo" required><br>
+            <label for="Clave"></label>
+            <input type="password" id="Clave" name="Clave" placeholder="Digite su Clave" required><br>
+            <input class="button" type="submit" value="Ingresar">
+        </form>
+    </center>
+</div>
+<?php
+ob_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+session_start();
+function getDatabaseConnection() {
+    $servername = "localhost";
+    $username = "root";
+    $password = "JoSu2002@";
+    $dbname = "dbcoarsa";
+    try {
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        return $conn;
+    } catch (PDOException $e) {
+        echo "Error de conexión: " . $e->getMessage();
+        exit;}}
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = trim($_POST['correo']);
+    $password = trim($_POST['Clave']);
 
-  </center>
-  <script>
-      async function hashPassword(event) {
-          event.preventDefault(); 
-      
-     t
-          const passwordField = document.getElementById('Clave');
-          const password = passwordField.value;
-      
-       
-          const hashedPassword = await sha256(password);
-      
- 
-          passwordField.value = hashedPassword;
-      
-          document.getElementById('myForm').submit();
-      }
-      
-      async function sha256(message) {
-          const msgBuffer = new TextEncoder().encode(message);
-          const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-          const hashArray = Array.from(new Uint8Array(hashBuffer));
-          const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-          return hashHex;
-      }
-    </script>
-   
-
+    if (empty($username) || empty($password)) {
+        echo "Por favor complete ambos campos";
+        exit;}
+    $con = getDatabaseConnection();
+    $sql = "SELECT Clave FROM usuarios WHERE Usuario = :username";
+    $stms = $con->prepare($sql);
+    $stms->bindParam(':username', $username);
+    $stms->execute();
+    $user = $stms->fetch(PDO::FETCH_ASSOC);
+    if ($user) {
+        // Hashear la contraseña ingresada por el usuario
+        $hashedPassword = hash('sha256', $password);
+        // Imprimir los hashes para depuración
+        //echo "Hash ingresado: " . $hashedPassword . "<br>";
+        //echo "Hash en la base de datos: " . $user['Clave'] . "<br>";
+        if ($hashedPassword === $user['Clave']) {
+            // Iniciar sesión si el hash coincide
+            $_SESSION['username'] = $user['Usuario'];
+            ob_end_clean();
+            echo "Bienvenido:$username";
+            header('Location: PaginaRH.php');
+        } else {
+            echo "Contraseña incorrecta";}
+    } else {
+        echo "Usuario no existe";
+    }
+}
+ob_end_flush();
+?>
 </body>
 </html>
