@@ -1,18 +1,3 @@
-<?php
-session_start();
-
-// Deshabilitar el cacheo de la página
-header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-header("Cache-Control: post-check=0, pre-check=0", false);
-header("Pragma: no-cache");
-
-// Verificar si el usuario ha iniciado sesión
-if (!isset($_SESSION['usuario'])) {
-    // Si no hay usuario en la sesión, redirigir a la página de inicio de sesión
-    header('Location: Log In.php');
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -262,13 +247,5 @@ if (!isset($_SESSION['usuario'])) {
             </table>
         </center>
     </div>
-    <script>
-    window.onpageshow = function(event) {
-        if (event.persisted) {
-            window.location.reload(); // Forzar recarga de la página
-        }
-    };
-</script>
-   
 </body>
 </html>
