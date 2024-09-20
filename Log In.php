@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +7,7 @@
 </head>
 <body>
     
-    <form method="post">
+    <form method="post" action="ValidarUsuario.php">
         <div>
             <center>
                 <label for="Usuario"></label>
@@ -26,6 +25,3 @@
         </div>
 
     </form>
-
-</body>
-</html>

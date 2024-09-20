@@ -93,7 +93,7 @@
     <h2>Coarsa Recursos Humanos</h2>
     <div class="nav-buttons">
         <a href="Candidatos.php">Candidatos</a>
-        <a href="Puestos.php">Puestos</a>
+        <a href="Candidatos.php">Puestos</a>
     </div>
     </div>
     <div class="contenedor">
