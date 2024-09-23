@@ -6,6 +6,11 @@
     <title>Log In Coarsa</title>
 </head>
 <body>
+<div>
+    <a href="Quienes Somos.php">Quiénes Somos</a>
+    <a href="Vacantes.php">Trabaje con Nosotros</a>
+    <a href="Log In.php">Ingresar</a>
+</div>
     
     <form method="post" action="ValidarUsuario.php">
         <div>

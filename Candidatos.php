@@ -6,6 +6,11 @@
     <title>Tabla de Candidatos</title>
 </head>
 <body>
+<div>
+    <a href="Candidatos.php">Candidatos</a>
+    <a href="PaginaRH.php">Puestos</a>
+    <a href="CrearUsuario.php">Nuevos Usuarios</a>
+</div>
     <div>
     <center><h3>Tabla de Canditatos</h3></center>
     </div>
