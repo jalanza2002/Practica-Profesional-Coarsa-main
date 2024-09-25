@@ -6,6 +6,10 @@
     <title>Solicitudes</title>
 </head>
 <body>
-    <h1>Solicitudes que has hecho</h1>
+<div>
+    <a href="SolicitudesEmpleado.php">Ver Solicitudes</a>
+    <a href="PaginaEmpleado.php">Crear Solicitud</a>
+</div>
+    <center><h1>Solicitudes que has hecho</h1></center>
 </body>
 </html>
