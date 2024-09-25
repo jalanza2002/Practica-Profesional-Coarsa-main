@@ -63,7 +63,7 @@
                             echo '<td>' .$Vacante['Correo']. '</td>';
                             echo '<td>' .$Vacante['Puesto']. '</td>';
                             echo "<td>";
-                            echo '<a href="data:application/pdf;base64,' . base64_encode($Vacante["CV"]) . '">Download CV</a>';
+                            echo '<a href="DescargarCV.php?id=' . $Vacante["IdParticipante"] . '">Download CV</a>';
                             echo "</td>";
                             echo'</tr>';
                         }

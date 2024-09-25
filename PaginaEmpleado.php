@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina de Empleados</title>
 </head>
-<body>
-<div>
-    <a href="SolicitudesEmpleado.php">Ver Solicitudes</a>
-    <a href="PaginaEmpleado.php">Crear Solicitud</a>
-</div>
 
-    <form method="post" action=""></form>
+<body>
+    <div>
+        <a href="SolicitudesEmpleado.php">Ver Solicitudes</a>
+        <a href="PaginaEmpleado.php">Crear Solicitud</a>
+    </div>
+
+    <form method="post" action="Enviar Solicitud.php"></form>
     <div>
         <center>
             <h1>Solicitud de prestamos y vacaciones para los empleados de Coarsa</h1>
@@ -32,31 +34,69 @@
             <div id="fechaVacaciones" style="display:none;">
                 <label for="fechatxt">Seleccione la Fecha de Vacaciones:</label>
                 <input type="date" name="fechatxt" id="fechatxt"><br><br>
-                <label for="fechatxt">Seleccione la Fecha de entrada al trabajo:</label>
-                <input type="date" name="fechatxt" id="fechatxt"><br><br>
+                <label for="Entradatxt">Seleccione la Fecha de entrada al trabajo:</label>
+                <input type="date" name="Entradatxt" id="Entradatxt"><br><br>
             </div>
             <br>
             <label for="Descripcion"></label>
             <textarea id="Descripciontxt" name="Descripciontxt" rows="10" cols="50" placeholder="por favor descripa su solicitud"></textarea>
             <br>
             <br>
-            <input type="submit" name="Enviarbtn" id="Enviarbtn" value="Enviar Solicitud">
+            <input type="submit" name="Enviarbtn" id="Enviarbtn" value="Enviar Solicitud"><br>
+            <br>
         </center>
     </div>
+
+    <div>
+        <center>
+            <table border="2">
+                <tr>
+                    <th>Monto del Prestamo</th>
+                    <th>Monto mínimo a rebajar por quincena</th>
+                </tr>
+                <tr>
+                    <td>25.000</td>
+                    <td>5.000</td>
+                </tr>
+                <tr>
+                    <td>50.000</td>
+                    <td>10.000</td>
+                </tr>
+                <tr>
+                    <td>75.000</td>
+                    <td>10.000</td>
+                </tr>
+                <tr>
+                    <td>100.000</td>
+                    <td>10.000</td>
+                </tr>
+            </table><br>
+            <br>
+        </center>
+    </div>
+
     </form>
-        <!--Funcion para ocultar y mostrar el campo fecha-->
+    <form method="post" action="Enviar Solicitud.php">
+        <div>
+            <center>
+                <input type="submit" name="salirbtn" id="salirbtn" value="Salir de la Pagina">
+            </center>
+        </div>
+    </form>
+    <!--Funcion para ocultar y mostrar el campo fecha-->
     <script>
         function mostrarCampoFecha() {
-        var solicitud = document.getElementById("Solicitudtxt").value;
-        var fechaVacaciones = document.getElementById("fechaVacaciones");
+            var solicitud = document.getElementById("Solicitudtxt").value;
+            var fechaVacaciones = document.getElementById("fechaVacaciones");
 
-        if (solicitud === "Vacaciones") {
-        fechaVacaciones.style.display = "block";
-        } else {
-        fechaVacaciones.style.display = "none";
+            if (solicitud === "Vacaciones") {
+                fechaVacaciones.style.display = "block";
+            } else {
+                fechaVacaciones.style.display = "none";
+            }
         }
-    }
-</script>
+    </script>
 
 </body>
+
 </html>
