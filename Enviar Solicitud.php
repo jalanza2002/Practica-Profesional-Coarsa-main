@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
 <?php 
  function getDatabaseConnection() {
     $servername = "localhost"; // Cambia esto según tu configuración
@@ -29,7 +40,7 @@ function Enviar_Solicitud() {
     $Estado = 'Revision';
 
     // Preparar la consulta SQL
-    $sql = "INSERT INTO solicitudes (Nombre, Apellidos, Solicitud, EntradaVacaciones, EntradaTrabajo, Descripcion, Estado) 
+    $sql = "INSERT INTO solicitudes (Nombre, Apellidos, Solicitud, EntradaVacaciones, EntradaTrabajo, Descripción, Estado) 
     VALUES (:nombre, :apellidos, :solicitud, :EntradaVaca, :EntradaTra, :Descripcion, :Estado)";
     
     $stmt = $conn->prepare($sql);
@@ -42,20 +53,20 @@ function Enviar_Solicitud() {
     $stmt->bindParam(':Estado', $Estado);
 
     if ($stmt->execute()) {
-        echo "Su Solicitud se ha enviado correctamente.";
+        echo '<script language="javascript">alert("Su solicitud ha sido ennviada correctamente");</script>';
+        echo '<script language="javascript">location.href = "PaginaEmpleado.php";</script>';
     } else {
         echo "Error: No se pudo enviar la solicitud.";
         }
-    }else{
-        echo"Error: no se puede conectar con el servidor";
     }
 }
+Enviar_Solicitud();
 
 //Funcion para salir de la pagina de Recursos Humanos
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnsalir'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['salirbtn'])) {
     session_start(); // Asegúrate de iniciar la sesión para poder destruirla
     session_destroy(); // Destruir la sesión actual
-    header('Location: Log In.php'); // Redirigir a la página de inicio de sesión
+    echo '<script language="javascript">location.href = "Log In.php";</script>'; // Redirigir a la página de inicio de sesión
     exit(); // Asegurarse de que el script se detenga
         }
 

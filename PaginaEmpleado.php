@@ -13,7 +13,7 @@
         <a href="PaginaEmpleado.php">Crear Solicitud</a>
     </div>
 
-    <form method="post" action="Enviar Solicitud.php"></form>
+    <form method="post" action="Enviar Solicitud.php">
     <div>
         <center>
             <h1>Solicitud de prestamos y vacaciones para los empleados de Coarsa</h1>
@@ -46,6 +46,7 @@
             <br>
         </center>
     </div>
+    </form>
 
     <div>
         <center>
@@ -98,5 +99,4 @@
     </script>
 
 </body>
-
 </html>
