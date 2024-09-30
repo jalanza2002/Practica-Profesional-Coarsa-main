@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis solicitudes</title>
+</head>
+<body>
+    <div>
+     <a href="PaginaEmpleado.php">Volver</a>
+    </div>
+</body>
+</html>
 <?php
 // Configuración de la base de datos
 $servername = "localhost";
@@ -25,16 +38,36 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
-   
+    // Iniciar la tabla
+    echo "<table border='1' cellpadding='10'>";
+    echo "<tr>
+            <th>ID Solicitud</th>
+            <th>Nombre</th>
+            <th>Entrada a Vacaciones</th>
+            <th>Entrada al Trabajo</th>
+            <th>Descripción</th>
+            <th>Estado</th>
+          </tr>";
+
+    // Recorrer los resultados
     while($row = $result->fetch_assoc()) {
-        echo "ID Solicitud: " . $row["IdSolicitud"] . " - Nombre: " . $row["Nombre"] . " - Detalles: ".
-        " -Entrada a Vacaciones: ".$row["EntradaVacaciones"]." -Entrada al Trabajo: ".$row["EntradaTrabajo"] . $row["Descripcion"] . 
-        " -Estado: ".$row["Estado"]."<br>";
+        echo "<tr>
+                <td>" . $row["IdSolicitud"] . "</td>
+                <td>" . $row["Nombre"] . "</td>
+                <td>" . $row["EntradaVacaciones"] . "</td>
+                <td>" . $row["EntradaTrabajo"] . "</td>
+                <td>" . $row["Descripción"] . "</td>
+                <td>" . $row["Estado"] . "</td>
+              </tr>";
     }
+
+    // Cerrar la tabla
+    echo "</table>";
 } else {
     echo "No se encontraron solicitudes para el usuario " . $nombre_usuario;
 }
 
+// Cerrar la conexión
 $stmt->close();
 $conn->close();
 ?>
