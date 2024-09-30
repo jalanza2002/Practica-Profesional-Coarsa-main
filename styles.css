@@ -1,6 +1,6 @@
 /* Contenedor principal */
-.contenedor {
-    background-color: white;
+.contenedor1 {
+    background-color: gray;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -191,7 +191,7 @@ body {
     line-height: 1.6;
 }
 
-.button {
+.button{
     display: block;
     width: 100%;
     padding: 10px;

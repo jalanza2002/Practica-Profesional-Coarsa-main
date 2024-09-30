@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div>
+    <div class="header">
         <a href="SolicitudesEmpleado.php">Ver Solicitudes</a>
         <a href="PaginaEmpleado.php">Crear Solicitud</a>
     </div>

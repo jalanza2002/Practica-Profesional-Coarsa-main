@@ -13,7 +13,7 @@
     <form method="POST" action="">
         <label for="nombre_usuario">Nombre del usuario:</label>
         <input type="text" id="nombre_usuario" name="nombre_usuario" required>
-        <input type="submit" value="Consultar">
+        <input class="button" type="submit" value="Consultar">
     </form>
 
     <?php

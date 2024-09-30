@@ -7,7 +7,8 @@
     <title>Mis solicitudes</title>
 </head>
 <body>
-    <div>
+        
+    <div class="header">
      <a href="PaginaEmpleado.php">Volver</a>
     </div>
 </body>

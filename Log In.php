@@ -7,27 +7,27 @@
     <title>Log In Coarsa</title>
 </head>
 <body>
-<div>
+<div class="header">
+    <div class="nav-buttons">
     <a href="Quienes Somos.php">Quiénes Somos</a>
     <a href="Vacantes.php">Trabaje con Nosotros</a>
     <a href="Log In.php">Ingresar</a>
+    </div>
 </div>
-    
-    <form method="post" action="ValidarUsuario.php">
-        <div>
+    <div class="contenedor1">
+        <form method="post" action="ValidarUsuario.php">
             <center>
+                <img src="usuario.png" width="100" height="100"><br>
+                <br>
                 <label for="Usuario"></label>
-                <input type="text" id="Usuariotxt" name="Usuariotxt" placeholder="Igrese su Usuario" required>
-
+                <input type="text" id="Usuariotxt" name="Usuariotxt" placeholder="Igrese su Usuario" required><br>
+                <br>
                 <label for="Clave"></label>
-                <input type="text" id="Clavetxt" name="Clavetxt" placeholder="Ingrese su Clave" required>
-
+                <input type="text" id="Clavetxt" name="Clavetxt" placeholder="Ingrese su Clave" required><br>
+                <br>
                 <label for="Ingresar"></label>
-
-                <input type="submit" value="Ingresar" name="Ingresarbtn" id="Ingresarbtn">
-
+                <input class="button" type="submit" value="Ingresar" name="Ingresarbtn" id="Ingresarbtn">
             </center>
-
-        </div>
-
-    </form>
+        </form>
+    </div>
+        

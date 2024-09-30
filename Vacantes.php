@@ -87,7 +87,7 @@ $vacantes = getVacantesConnection();
                 <label for="CV">CV (PDF):</label>
                 <input type="file" id="CV" name="txtCV" accept="application/pdf" required><br><br>
 
-                <input type="submit" class="button" name="btnGuardar" value="Guardar"><br><br>
+                <input class="button" type="submit" class="button" name="btnGuardar" value="Guardar"><br><br>
         </form>
     </center>
     <br>

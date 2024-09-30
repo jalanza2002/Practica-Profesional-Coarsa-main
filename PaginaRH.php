@@ -7,7 +7,7 @@
     <title>Coarsa</title>
 </head>
 <body>
-    <h2>Coarsa Recursos Humanos</h2>
+    
 
     <div class="header">
     <h2>Coarsa Recursos Humanos</h2>
@@ -23,7 +23,7 @@
             <form method="post">
                 <label for="Puesto">Agregue un puesto </label>
                 <input type="text" id="Puestotxt" name="Puestotxt" required><br>
-                <input type="submit" id="btnenviar" name="btnenviar" value="Guardar Puesto"><br><br>
+                <input class="button" type="submit" id="btnenviar" name="btnenviar" value="Guardar Puesto"><br><br>
             </form>
         </center>
     </div>
@@ -31,7 +31,7 @@
         <center>
             <form method="post">
                 <label for="Salir"></label>
-                <input type="submit" id="btnsalir" name="btnsalir" value="Salir"><btn>
+                <input class="button" type="submit" id="btnsalir" name="btnsalir" value="Salir"><btn>
             </form>
         </center>
 
