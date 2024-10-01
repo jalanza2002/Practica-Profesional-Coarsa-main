@@ -27,15 +27,15 @@
       <br>
       <br>
         <center>
+            <h1>Historia</h1>
+        <br>
+        
+        <br>
+        <br>
             <h1> Mision</h1>
-        </center>
         <br>
         <br>
         <br>
-        <br>
-        <br>
-        <br>
-        <center>
             <h1>Vison</h1>
         </center>
     </main>
