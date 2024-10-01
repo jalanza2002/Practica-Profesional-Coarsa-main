@@ -158,16 +158,15 @@
                 </p>
         </div>
         <br>
-        <div class="contendor">
+        <div class="contenedor">
             <h1>Valores</h1>
-            <p class="texto">
-            -Amor.
-            -Trabajo en Equipo.
-            -Responsabilidad.
-            -Honradez.
-            -Lealtad y Respeto.
+            <p class="texto">-Amor.</p>
+            <p class="texto">-Trabajo en Equipo.</p>
+            <p class="texto">-Responsabilidad.</p>
+            <p class="texto">-Honradez.</p>
+            <p class="texto">-Lealtad y Respeto.</p>
 
-            </p>
+            
         </div>
         </center>
     </main>
