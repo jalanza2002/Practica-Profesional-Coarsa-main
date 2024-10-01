@@ -1,0 +1,80 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Contenedor de la línea de tiempo */
+.timeline-container {
+    color: #333;
+    width: 100%;
+    overflow-x: scroll; /* Hacer que la línea de tiempo sea horizontal y desplazable */
+    padding: 20px;
+    white-space: nowrap;
+}
+
+/* Línea de tiempo en sí */
+.timeline {
+    display: inline-flex; /* Permite que los eventos se alineen horizontalmente */
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Estilos de cada evento */
+.timeline-event {
+    display: inline-block; /* Permite que la caja se ajuste al contenido */
+    margin: 10px 20px;
+    padding: 15px; /* Espacio alrededor del contenido */
+    background-color: #FFCE00;
+    color: white;
+    border-radius: 8px;
+    position: relative;
+    text-align: center;
+    overflow-wrap: break-word; /* Ajusta palabras largas */
+    word-wrap: break-word; /* Divide palabras si son largas */
+}
+
+/* Estilos de los contenidos dentro del evento */
+.event-content h3 {
+    color: #333;
+    margin: 0;
+    padding: 10px 0;
+    font-size: 18px;
+}
+.event-content h4{
+    margin: 0;
+    padding: 10px 0;
+    font-size: 15px;
+}
+
+.event-content p {
+    font-size: 14px;
+    color: #000000;
+    line-height: 1.4; /* Espaciado entre líneas de texto */
+    margin: 0;
+    padding: 5px 0;
+    max-height: 100px; /* Limita la altura del párrafo */
+    overflow: hidden; /* Oculta el texto que exceda el límite */
+}
+
+
+/* Línea central en la que se apoyan los eventos */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #ddd;
+    z-index: -1; /* Coloca la línea detrás de los eventos */
+}
