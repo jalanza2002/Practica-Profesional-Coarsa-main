@@ -30,7 +30,7 @@
         <center>
             <h1>Historia de Coarsa</h1>
         <br>
-    <div class="timeline-container">
+    <div class="timeline-container"><!-- Contenedor donde va guardado todo el time line-->
         <div class="timeline">
             <!-- Evento 1 -->
             <div class="timeline-event">
@@ -146,7 +146,7 @@
         </div>
     </div>      
         <br>     
-        <div class="contenedor">
+        <div class="contenedor"><!-- Contenedor donde va la mision y vision-->
             <h1> Mision</h1>
                 <p class="texto">Satisfacer al cliente brindando productos de calidad a un buen precio competitivo
                     con el menor equipo humano a través de un trato personalizado con respeto y honradez.
@@ -156,6 +156,18 @@
                     Consolidarse como una empresa líder en calidad, distribución y cobertura de productos
                         de consumo masivo.
                 </p>
+        </div>
+        <br>
+        <div class="contendor">
+            <h1>Valores</h1>
+            <p class="texto">
+            -Amor.
+            -Trabajo en Equipo.
+            -Responsabilidad.
+            -Honradez.
+            -Lealtad y Respeto.
+
+            </p>
         </div>
         </center>
     </main>
