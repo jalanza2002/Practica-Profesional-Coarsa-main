@@ -22,7 +22,8 @@ if (isset($_POST['Ingresarbtn'])) {
     $Password = trim($_POST['Clavetxt']);
 
     // Preparar la consulta para evitar inyección SQL
-    $stmt = $conexion->prepare("SELECT Clave, Usuario, Rol FROM usuarios WHERE Usuario = ?");
+    $stmt = $conexion->prepare("SELECT Clave, Usuario, Rol, NombreEmpleado, ApellidosEmpleado,
+                                Puesto FROM usuarios WHERE Usuario = ?");
     $stmt->bind_param("s", $Correo);
     $stmt->execute();
     $resultado = $stmt->get_result();
@@ -36,6 +37,10 @@ if (isset($_POST['Ingresarbtn'])) {
             // Almacenar información en la sesión
             $_SESSION['usuario'] = $fila['Usuario'];
             $_SESSION['rol'] = $fila['Rol']; // Guardar el rol en la sesión
+            $_SESSION['Nombre']= $fila['NombreEmpleado'];
+            $_SESSION['Apellidos']= $fila['ApellidosEmpleado'];
+            $_SESSION['puesto']= $fila['Puesto'];
+
 
             // Redirigir según el rol del usuario
             if ($fila['Rol'] == 2) {

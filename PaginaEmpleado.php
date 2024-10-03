@@ -1,3 +1,18 @@
+<?php
+session_start(); // Iniciar la sesión
+
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['usuario'])) {
+    echo "Error: No hay una sesión activa.";
+    exit();
+}
+
+// Obtener los datos del usuario desde la sesión
+$nombreUsuario = isset($_SESSION['NombreEmpleado']) ? $_SESSION['NombreEmpleado'] : '';
+$apellidosUsuario = isset($_SESSION['ApellidosEmpleado']) ? $_SESSION['ApellidosEmpleado'] : '';
+$puestoUsuario = isset($_SESSION['Puesto']) ? $_SESSION['Puesto'] : '';
+var_dump($_SESSION);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,10 +35,13 @@
             <h1>Solicitud de prestamos y vacaciones para los empleados de Coarsa</h1>
             <br>
             <label for="Nombre"></label>
-            <input type="text" name="Nombretxt" id="Nombretxt" placeholder="Digite su Nombre"><br>
+            <input type="text" name="Nombretxt" id="Nombretxt" value="<?php echo $nombreUsuario; ?>"><br>
             <br>
             <label for="Apellidos"></label>
-            <input type="text" name="Apellidostxt" id="Apellidostxt" placeholder="Digite sus Apellidos"><br>
+            <input type="text" name="Apellidostxt" id="Apellidostxt" value="<?php echo $apellidosUsuario; ?>"><br>
+            <br>
+            <label for="Puesto"></label>
+            <input type="text" name="Puestotxt" id="Puestotxt" value="<?php echo $puestoUsuario; ?>"><br>
             <br>
             <label for="Solicitud"></label>
             <select name="Solicitudtxt" id="Solicitudtxt" onchange="mostrarCampoFecha()">
@@ -40,7 +58,7 @@
             </div>
             <br>
             <label for="Descripcion"></label>
-            <textarea id="Descripciontxt" name="Descripciontxt" rows="10" cols="50" placeholder="por favor descripa su solicitud"></textarea>
+            <textarea id="Descripciontxt" name="Descripciontxt" rows="10" cols="50" placeholder="por favor descria su solicitud"></textarea>
             <br>
             <br>
             <input type="submit" name="Enviarbtn" id="Enviarbtn" value="Enviar Solicitud"><br>

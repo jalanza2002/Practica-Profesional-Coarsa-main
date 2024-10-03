@@ -12,6 +12,7 @@
     <div class="nav-buttons">
         <a href="SolicitudesEmpleado.php">Crear una Solicitud</a>
         <a href="Consultar solicitudes.php">Consultar Solicitudes</a>
+        <a href="Datos Empleado.php">Mis Datos</a>
         <a href="Log In.php">Salir</a>
     </div>
 </div>
