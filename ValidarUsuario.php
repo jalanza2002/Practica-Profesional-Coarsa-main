@@ -40,10 +40,10 @@ if (isset($_POST['Ingresarbtn'])) {
             // Redirigir según el rol del usuario
             if ($fila['Rol'] == 2) {
                 // Redirigir a la página de Recursos Humanos
-                echo '<script language="javascript">location.href = "PaginaRH.php";</script>';
+                echo '<script language="javascript">location.href = "Menu RH.php";</script>';
             } elseif ($fila['Rol'] == 3) {
                 // Redirigir a la página de Empleado
-                echo '<script language="javascript">location.href = "PaginaEmpleado.php";</script>';
+                echo '<script language="javascript">location.href = "Menu Empleado.php";</script>';
             } else {
                 echo '<script language="javascript">alert("Rol no reconocido.");</script>';
                 echo '<script language="javascript">location.href = "Log In.php";</script>';
