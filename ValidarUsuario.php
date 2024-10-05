@@ -37,9 +37,9 @@ if (isset($_POST['Ingresarbtn'])) {
             // Almacenar información en la sesión
             $_SESSION['usuario'] = $fila['Usuario'];
             $_SESSION['rol'] = $fila['Rol']; // Guardar el rol en la sesión
-            $_SESSION['Nombre']= $fila['NombreEmpleado'];
-            $_SESSION['Apellidos']= $fila['ApellidosEmpleado'];
-            $_SESSION['puesto']= $fila['Puesto'];
+            $_SESSION['NombreEmpleado']= $fila['NombreEmpleado'];
+            $_SESSION['ApellidosEmpleado']= $fila['ApellidosEmpleado'];
+            $_SESSION['Puesto']= $fila['Puesto'];
 
 
             // Redirigir según el rol del usuario

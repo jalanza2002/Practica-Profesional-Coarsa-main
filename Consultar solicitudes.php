@@ -44,7 +44,12 @@ if ($result->num_rows > 0) {
     echo "<table border='1' cellpadding='10'>";
     echo "<tr>
             <th>ID Solicitud</th>
+            <th>CorreoEmpleado</th>
             <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Puesto</th>
+            <th>Solicitud</th>
+            <th>Monto</th>
             <th>Entrada a Vacaciones</th>
             <th>Entrada al Trabajo</th>
             <th>Descripción</th>
@@ -55,7 +60,12 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         echo "<tr>
                 <td>" . $row["IdSolicitud"] . "</td>
+                <td>" . $row["CorreoEmpleado"] . "</td>
                 <td>" . $row["Nombre"] . "</td>
+                <td>" . $row["Apellidos"] . "</td>
+                <td>" . $row["Puesto"] . "</td>
+                <td>" . $row["Solicitud"] . "</td>
+                <td>" . $row["Monto"] . "</td>
                 <td>" . $row["EntradaVacaciones"] . "</td>
                 <td>" . $row["EntradaTrabajo"] . "</td>
                 <td>" . $row["Descripción"] . "</td>

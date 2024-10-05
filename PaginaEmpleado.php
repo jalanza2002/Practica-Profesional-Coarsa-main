@@ -8,10 +8,11 @@ if (!isset($_SESSION['usuario'])) {
 }
 
 // Obtener los datos del usuario desde la sesión
+$correoUsuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : '';
 $nombreUsuario = isset($_SESSION['NombreEmpleado']) ? $_SESSION['NombreEmpleado'] : '';
 $apellidosUsuario = isset($_SESSION['ApellidosEmpleado']) ? $_SESSION['ApellidosEmpleado'] : '';
 $puestoUsuario = isset($_SESSION['Puesto']) ? $_SESSION['Puesto'] : '';
-var_dump($_SESSION);
+//var_dump($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,14 +35,17 @@ var_dump($_SESSION);
         <center>
             <h1>Solicitud de prestamos y vacaciones para los empleados de Coarsa</h1>
             <br>
+            <label for="Correo"></label>
+            <input type="text" name="Correotxt" id="Correotxt" value="<?php echo $correoUsuario?>" readonly><br>
+            <br>
             <label for="Nombre"></label>
-            <input type="text" name="Nombretxt" id="Nombretxt" value="<?php echo $nombreUsuario; ?>"><br>
+            <input type="text" name="Nombretxt" id="Nombretxt" value="<?php echo $nombreUsuario; ?>" readonly><br>
             <br>
             <label for="Apellidos"></label>
-            <input type="text" name="Apellidostxt" id="Apellidostxt" value="<?php echo $apellidosUsuario; ?>"><br>
+            <input type="text" name="Apellidostxt" id="Apellidostxt" value="<?php echo $apellidosUsuario; ?>" readonly><br>
             <br>
-            <label for="Puesto"></label>
-            <input type="text" name="Puestotxt" id="Puestotxt" value="<?php echo $puestoUsuario; ?>"><br>
+            <label for="Puestotxt"></label>
+            <input type="text" name="Puestotxt" id="Puestotxt" value="<?php echo $puestoUsuario; ?>" readonly><br>
             <br>
             <label for="Solicitud"></label>
             <select name="Solicitudtxt" id="Solicitudtxt" onchange="mostrarCampoFecha()">
@@ -57,11 +61,24 @@ var_dump($_SESSION);
                 <input type="date" name="Entradatxt" id="Entradatxt"><br><br>
             </div>
             <br>
+            <div id="Prestamos" style="display: none;">
+                <label for="Prestamotxt">Seleccione un prestamo:</label>
+                <select name="Prestamotxt" id="Prestamotxt">
+                    <option >Seleccione un Monto</option>
+                    <option >25.000</option>
+                    <option >50.000</option>
+                    <option >75.000</option>
+                    <option >100.000</option>
+                </select><br>
+                <br>
+            </div>
             <label for="Descripcion"></label>
             <textarea id="Descripciontxt" name="Descripciontxt" rows="10" cols="50" placeholder="por favor descria su solicitud"></textarea>
             <br>
             <br>
             <input type="submit" name="Enviarbtn" id="Enviarbtn" value="Enviar Solicitud"><br>
+            <br>
+            <input type="submit" name="salirbtn" id="salirbtn" value="Salir de la Pagina"><br>
             <br>
         </center>
     </div>
@@ -94,25 +111,24 @@ var_dump($_SESSION);
             <br>
         </center>
     </div>
-
-    </form>
-    <form method="post" action="Enviar Solicitud.php">
-        <div>
-            <center>
-                <input type="submit" name="salirbtn" id="salirbtn" value="Salir de la Pagina">
-            </center>
-        </div>
     </form>
     <!--Funcion para ocultar y mostrar el campo fecha-->
     <script>
         function mostrarCampoFecha() {
             var solicitud = document.getElementById("Solicitudtxt").value;
             var fechaVacaciones = document.getElementById("fechaVacaciones");
+            var Prestamos = document.getElementById("Prestamos")
 
             if (solicitud === "Vacaciones") {
                 fechaVacaciones.style.display = "block";
             } else {
                 fechaVacaciones.style.display = "none";
+            }
+            if(solicitud==="Prestamos"){
+                Prestamos.style.display = "block";
+            }
+            else{
+                Prestamos.style.display = "none";
             }
         }
     </script>
