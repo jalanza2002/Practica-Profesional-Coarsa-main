@@ -1,5 +1,14 @@
+<?php
+session_start(); // Iniciar la sesión
+
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['usuario'])) {
+    echo "Error: No hay una sesión activa.";
+    exit();
+}
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +16,13 @@
     <title>Mis solicitudes</title>
 </head>
 <body>
-        
     <div class="header">
-     <a href="PaginaEmpleado.php">Volver</a>
+    <div class="nav-buttons">
+     <a href="Menu Empleado.php">Volver</a>
     </div>
+    </div>
+    <br>
+    <br>
 </body>
 </html>
 <?php
@@ -27,13 +39,13 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
+// Obtener los datos del usuario desde la sesión
+$nombreUsuario = isset($_SESSION['NombreEmpleado']) ? $_SESSION['NombreEmpleado'] : '';
+$correoUsuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : '';
+//var_dump($_SESSION); //el var_dump es para saber si el programa esta trayendo los datos 
 
-
-$nombre_usuario = $_POST['nombre_usuario'];
-
-
-$stmt = $conn->prepare("SELECT * FROM solicitudes WHERE Nombre = ?");
-$stmt->bind_param("s", $nombre_usuario);
+$stmt = $conn->prepare("SELECT * FROM solicitudes WHERE CorreoEmpleado = ?");
+$stmt->bind_param("s", $correoUsuario);
 
 
 $stmt->execute();
@@ -76,7 +88,7 @@ if ($result->num_rows > 0) {
     // Cerrar la tabla
     echo "</table>";
 } else {
-    echo "No se encontraron solicitudes para el usuario " . $nombre_usuario;
+    echo "No se encontraron solicitudes para el usuario " . $nombreUsuario;
 }
 
 // Cerrar la conexión

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,9 +33,51 @@ require 'C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/PHPMai
         exit;
     }
 }
+function puedeEnviarSolicitud($correo) {
+    $conn = getDatabaseConnection();
+
+    // Consultar la última solicitud del usuario por correo
+    $sql = "SELECT Estado, FechaSolicitud FROM solicitudes WHERE CorreoEmpleado = :correo ORDER BY FechaSolicitud DESC LIMIT 1";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':correo', $correo);
+    $stmt->execute();
+    $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($resultado) {
+        $estado = $resultado['Estado'];
+        $fechaSolicitud = new DateTime($resultado['FechaSolicitud']);
+        $fechaActual = new DateTime();
+
+        if ($estado === 'Aprobado') {
+            // Verificar si han pasado 3 meses desde la fecha de aprobación
+            $diferenciaMeses = $fechaSolicitud->diff($fechaActual)->m + ($fechaSolicitud->diff($fechaActual)->y * 12);
+            if ($diferenciaMeses < 3) {
+                echo '<script language="javascript">alert("Debe esperar tres meses antes de enviar otra solicitud.");</script>';
+                echo '<script language="javascript">location.href = "PaginaEmpleado.php";</script>';
+                
+
+                return false;
+            }
+        } elseif ($estado === 'Revision') {
+            echo '<script language="javascript">alert("Tiene una solicitud pendiente. Debe esperar a que se revise.");</script>';
+            echo '<script language="javascript">location.href = "PaginaEmpleado.php";</script>';
+            return false;
+        }
+    }
+
+    return true; // Puede enviar una nueva solicitud si no tiene restricciones
+}
+
 
 function Enviar_Solicitud() {
+    
     if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['Enviarbtn'])){
+
+        if (!isset($_POST['acepta_terminos'])) {
+            echo '<script language="javascript">alert("Debe aceptar los Términos y Condiciones para continuar.");</script>';
+            echo '<script language="javascript">history.back();</script>'; // Regresar al formulario
+            exit();} // Detener el script
+
     $conn = getDatabaseConnection();
 
     // Obtener datos del formulario
@@ -50,6 +92,10 @@ function Enviar_Solicitud() {
     $Descripcion = $_POST['Descripciontxt'];
     $Estado = 'Revision';
 
+    if(!puedeEnviarSolicitud($Correo))
+    {
+        return;
+    }
     // Preparar la consulta SQL
     $sql = "INSERT INTO solicitudes (CorreoEmpleado, Nombre, Apellidos, Puesto, Solicitud, Monto, EntradaVacaciones, EntradaTrabajo, Descripción, Estado) 
             VALUES (:correo, :nombre, :apellidos, :puesto, :solicitud, :prestamo, :EntradaVaca, :EntradaTra, :Descripcion, :Estado)";
@@ -80,6 +126,7 @@ function Enviar_Solicitud() {
         $apellidos = $_POST['Apellidostxt'];
         $solicitud = $_POST['Solicitudtxt'];
         $prestamo = $_POST['Prestamotxt'];
+        $url="www.coarsa.com";
     
         // Crear una nueva instancia de PHPMailer
         $mail = new PHPMailer(true);
@@ -107,7 +154,6 @@ function Enviar_Solicitud() {
                 <p>Nombre Completo: {$nombre} {$apellidos}</p>
                 <p>Solicitud a revisar: {$solicitud}</p>
                 <p>Correo: {$correo}</p>
-                <p>Para cualquier información se le adjunta el CV</p>
             ";
             $mail->send();
     
@@ -118,7 +164,7 @@ function Enviar_Solicitud() {
             $mail->Body = "
                 <p>Estimado {$nombre},</p>
                 <p>Su solicitud de {$solicitud} ha sido recibida exitosamente. Nos pondremos en contacto con usted pronto.</p>
-                <p>Para cualquier otra informacion visitenos al</p>
+                <p>Para cualquier otra informacion visite la pagina {$url}</p>
             ";
             
             $mail->send();

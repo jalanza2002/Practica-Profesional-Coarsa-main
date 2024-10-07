@@ -10,7 +10,7 @@
 }
 
 /* Estilo a las cajas de de texto como lo son el text, email, telefono y file */
-input[type=text], input[type=email], input[type=tel], input[type=file] {
+input[type=text], input[type=email], input[type=tel], input[type=file], input[type=password] {
     width: 100%;
     padding: 12px 10px;
     margin: 8px 0;

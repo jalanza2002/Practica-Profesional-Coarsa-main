@@ -15,7 +15,7 @@ $puestoUsuario = isset($_SESSION['Puesto']) ? $_SESSION['Puesto'] : '';
 //var_dump($_SESSION);
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -26,9 +26,12 @@ $puestoUsuario = isset($_SESSION['Puesto']) ? $_SESSION['Puesto'] : '';
 
 <body>
     <div class="header">
+        <div class="nav-buttons">
         <a href="SolicitudesEmpleado.php">Ver Solicitudes</a>
-        <a href="PaginaEmpleado.php">Crear Solicitud</a>
+        <a href="Consultar solicitudes.php">Crear Solicitud</a>
+        </div>
     </div>
+    
 
     <form method="post" action="Enviar Solicitud.php">
     <div>
@@ -74,6 +77,12 @@ $puestoUsuario = isset($_SESSION['Puesto']) ? $_SESSION['Puesto'] : '';
             </div>
             <label for="Descripcion"></label>
             <textarea id="Descripciontxt" name="Descripciontxt" rows="10" cols="50" placeholder="por favor descria su solicitud"></textarea>
+            <br>
+            <br>
+            <label>
+                <input type="checkbox" name="acepta_terminos">
+                Acepto los <a href="Terminos y Condiciones.php" target="_blank">Términos y Condiciones</a>
+            </label>
             <br>
             <br>
             <input type="submit" name="Enviarbtn" id="Enviarbtn" value="Enviar Solicitud"><br>

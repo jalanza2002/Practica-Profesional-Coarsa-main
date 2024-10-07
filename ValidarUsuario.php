@@ -40,6 +40,7 @@ if (isset($_POST['Ingresarbtn'])) {
             $_SESSION['NombreEmpleado']= $fila['NombreEmpleado'];
             $_SESSION['ApellidosEmpleado']= $fila['ApellidosEmpleado'];
             $_SESSION['Puesto']= $fila['Puesto'];
+            $_SESSION['clave']= $fila['Clave'];
 
 
             // Redirigir según el rol del usuario

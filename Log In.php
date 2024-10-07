@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +23,7 @@
                 <input type="text" id="Usuariotxt" name="Usuariotxt" placeholder="Igrese su Usuario" required><br>
                 <br>
                 <label for="Clave"></label>
-                <input type="text" id="Clavetxt" name="Clavetxt" placeholder="Ingrese su Clave" required><br>
+                <input type="password" id="Clavetxt" name="Clavetxt" placeholder="Ingrese su Clave" required><br>
                 <br>
                 <label for="Ingresar"></label>
                 <input class="button" type="submit" value="Ingresar" name="Ingresarbtn" id="Ingresarbtn">
