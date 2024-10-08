@@ -13,8 +13,8 @@
     <h2>Coarsa Recursos Humanos</h2>
     <div class="nav-buttons">
         <a href="Candidatos.php">Candidatos</a>
-        <a href="PaginaRH.php">Puestos</a>
         <a href="CrearUsuario.php">Nuevos Usuarios</a>
+        <a href="Menu RH.php">Volver</a>
     </div>
     </div>
     <div class="contenedor">

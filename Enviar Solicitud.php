@@ -33,11 +33,12 @@ require 'C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/PHPMai
         exit;
     }
 }
+
 function puedeEnviarSolicitud($correo) {
     $conn = getDatabaseConnection();
 
     // Consultar la última solicitud del usuario por correo
-    $sql = "SELECT Estado, FechaSolicitud FROM solicitudes WHERE CorreoEmpleado = :correo ORDER BY FechaSolicitud DESC LIMIT 1";
+    $sql = "SELECT Solicitud, Estado, FechaSolicitud, Solicitud FROM solicitudes WHERE CorreoEmpleado = :correo ORDER BY FechaSolicitud DESC LIMIT 1";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':correo', $correo);
     $stmt->execute();
@@ -47,16 +48,22 @@ function puedeEnviarSolicitud($correo) {
         $estado = $resultado['Estado'];
         $fechaSolicitud = new DateTime($resultado['FechaSolicitud']);
         $fechaActual = new DateTime();
+        $tipoSolicitud = $resultado['Solicitud'];
 
         if ($estado === 'Aprobado') {
-            // Verificar si han pasado 3 meses desde la fecha de aprobación
-            $diferenciaMeses = $fechaSolicitud->diff($fechaActual)->m + ($fechaSolicitud->diff($fechaActual)->y * 12);
-            if ($diferenciaMeses < 3) {
-                echo '<script language="javascript">alert("Debe esperar tres meses antes de enviar otra solicitud.");</script>';
-                echo '<script language="javascript">location.href = "PaginaEmpleado.php";</script>';
-                
-
-                return false;
+            if ($tipoSolicitud === 'Prestamo') {
+                // Verificar si han pasado 3 meses desde la fecha de aprobación para préstamos
+                $diferenciaMeses = $fechaSolicitud->diff($fechaActual)->m + ($fechaSolicitud->diff($fechaActual)->y * 12);
+                if ($diferenciaMeses < 3) {
+                    echo '<script language="javascript">alert("Debe esperar tres meses para poder enviar otra solicitud de préstamo.");</script>';
+                    echo '<script language="javascript">location.href = "PaginaEmpleado.php";</script>';
+                    return false;
+                }
+            }
+            // Si es vacaciones, no aplica la restricción de los tres meses
+            else if ($tipoSolicitud === 'Vacaciones') {
+                // No hay restricción, puede enviar otra solicitud
+                return true;
             }
         } elseif ($estado === 'Revision') {
             echo '<script language="javascript">alert("Tiene una solicitud pendiente. Debe esperar a que se revise.");</script>';
@@ -65,8 +72,10 @@ function puedeEnviarSolicitud($correo) {
         }
     }
 
-    return true; // Puede enviar una nueva solicitud si no tiene restricciones
+    // Si no hay restricciones, puede enviar una nueva solicitud
+    return true;
 }
+
 
 
 function Enviar_Solicitud() {

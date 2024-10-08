@@ -8,6 +8,7 @@
 </head>
 <body>
 <div class="header">
+    <h1>Coarsa</h1>
     <div class="nav-buttons">
     <a href="Quienes Somos.php">Quiénes Somos</a>
     <a href="Vacantes.php">Trabaje con Nosotros</a>
