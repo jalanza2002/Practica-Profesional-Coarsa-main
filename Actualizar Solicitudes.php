@@ -67,13 +67,13 @@
             $mail->isSMTP();
             $mail->Host       = 'smtp.gmail.com'; // Configura el host del servidor SMTP
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'empleoscoarsacr@gmail.com'; // Cambia a tu correo
-            $mail->Password   = 'lbxo hfhk milf tafp';          // Cambia a tu contraseña
+            $mail->Username   = 'portalcoarsacr@gmail.com'; // Cambia a tu correo
+            $mail->Password   = 'ltdu hhhm jxwn ymst';          // Cambia a tu contraseña
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port       = 587; // Puerto TCP; usa 465 para SSL, o 587 para TLS
 
             // Configurar el remitente y el destinatario
-            $mail->setFrom('empleoscoarsacr@gmail.com', 'GrupoCoarsa'); // Cambia a tu correo y nombre
+            $mail->setFrom('portalcoarsacr@gmail.com', 'GrupoCoarsa'); // Cambia a tu correo y nombre
             $mail->addAddress($correo_empleado);  // Destinatario, el correo del empleado
 
             // Contenido del correo
@@ -81,11 +81,13 @@
             $mail->Subject = 'Actualización de estado de solicitud';
             $mail->Body    = "Estimado empleado(a),<br><br>Su solicitud con ID:$id_solicitud
                                 sido actualizada al estado: $nuevo_estado.
-                                Comentario: $nuevo_comentario Gracias.";
-            $mail->Body    = "Puede revisarlo en su panel de consultar solicitudes a travez de la pagina:$link";
+                                Comentario: $nuevo_comentario Gracias.
+                                Puede revisarlo en su panel de consultar solicitudes a travez de la pagina:$link";
+            
             // Enviar el correo
             $mail->send();
-            echo 'Correo de confirmación enviado exitosamente a ' . $correo_empleado;
+            echo '<script language="javascript">alert("Se ha actualizado la solicitud correctamente");</script>';
+            echo '<script language="javascript">location.href = "Actualizar Solicitudes.php";</script>';
         } catch (Exception $e) {
             echo "Error al enviar el correo: {$mail->ErrorInfo}";
         }

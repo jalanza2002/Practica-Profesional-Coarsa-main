@@ -145,14 +145,14 @@ function Enviar_Solicitud() {
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com'; 
             $mail->SMTPAuth = true;
-            $mail->Username = 'empleoscoarsacr@gmail.com'; 
-            $mail->Password = 'lbxo hfhk milf tafp'; 
+            $mail->Username   = 'portalcoarsacr@gmail.com'; // Cambia a tu correo
+            $mail->Password   = 'ltdu hhhm jxwn ymst';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
             $mail->Port = 587;
     
             // Correo a Recursos Humanos
-            $mail->setFrom('empleoscoarsacr@gmail.com', 'Nueva solicitud');
-            $mail->addAddress('kimberly.montoya@coarsacr.com', 'Grupo Coarsa');
+            $mail->setFrom('portalcoarsacr@gmail.com', 'Nueva solicitud');
+            $mail->addAddress('kimberly.montoya@coarsacr.com', 'Nueva solicitud');
             
             // Contenido del correo para RRHH
             $mail->isHTML(true); 
