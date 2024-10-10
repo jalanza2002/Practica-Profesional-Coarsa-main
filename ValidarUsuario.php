@@ -22,8 +22,8 @@ if (isset($_POST['Ingresarbtn'])) {
     $Password = trim($_POST['Clavetxt']);
 
     // Preparar la consulta para evitar inyección SQL
-    $stmt = $conexion->prepare("SELECT Clave, Usuario, Rol, NombreEmpleado, ApellidosEmpleado,
-                                Puesto FROM usuarios WHERE Usuario = ?");
+    $stmt = $conexion->prepare("SELECT Clave, Usuario, Rol, NombreEmpleado, ApellidosEmpleado, Puesto, Estado
+                                FROM usuarios WHERE Usuario = ?");
     $stmt->bind_param("s", $Correo);
     $stmt->execute();
     $resultado = $stmt->get_result();
@@ -32,29 +32,37 @@ if (isset($_POST['Ingresarbtn'])) {
     if ($resultado->num_rows > 0) {
         $fila = $resultado->fetch_assoc();
 
-        // Comparar la contraseña ingresada con la almacenada
-        if ($fila['Clave'] === $Password) {
-            // Almacenar información en la sesión
-            $_SESSION['usuario'] = $fila['Usuario'];
-            $_SESSION['rol'] = $fila['Rol']; // Guardar el rol en la sesión
-            $_SESSION['NombreEmpleado']= $fila['NombreEmpleado'];
-            $_SESSION['ApellidosEmpleado']= $fila['ApellidosEmpleado'];
-            $_SESSION['Puesto']= $fila['Puesto'];
+        // Verificar si el usuario está activo
+        if ($fila['Estado'] == 'Activo') {
+            // Comparar la contraseña ingresada con la almacenada
+            if ($fila['Clave'] === $Password) {
+                // Almacenar información en la sesión
+                $_SESSION['usuario'] = $fila['Usuario'];
+                $_SESSION['rol'] = $fila['Rol']; // Guardar el rol en la sesión
+                $_SESSION['NombreEmpleado'] = $fila['NombreEmpleado'];
+                $_SESSION['ApellidosEmpleado'] = $fila['ApellidosEmpleado'];
+                $_SESSION['Puesto'] = $fila['Puesto'];
 
-
-            // Redirigir según el rol del usuario
-            if ($fila['Rol'] == 2) {
-                // Redirigir a la página de Recursos Humanos
-                echo '<script language="javascript">location.href = "Menu RH.php";</script>';
-            } elseif ($fila['Rol'] == 3) {
-                // Redirigir a la página de Empleado
-                echo '<script language="javascript">location.href = "Menu Empleado.php";</script>';
+                // Redirigir según el rol del usuario
+                if ($fila['Rol'] == 1) {
+                    // Redirigir a la página del administrador
+                    echo '<script language="javascript">location.href = "Menu Admin.php";</script>';
+                } elseif ($fila['Rol'] == 2) {
+                    // Redirigir a la página de Recursos Humanos
+                    echo '<script language="javascript">location.href = "Menu RH.php";</script>';
+                } elseif ($fila['Rol'] == 3) {
+                    // Redirigir a la página de Empleado
+                    echo '<script language="javascript">location.href = "Menu Empleado.php";</script>';
+                } else {
+                    echo '<script language="javascript">alert("Rol no reconocido.");</script>';
+                    echo '<script language="javascript">location.href = "Log In.php";</script>';
+                }
             } else {
-                echo '<script language="javascript">alert("Rol no reconocido.");</script>';
+                echo '<script language="javascript">alert("Contraseña incorrecta.");</script>';
                 echo '<script language="javascript">location.href = "Log In.php";</script>';
             }
         } else {
-            echo '<script language="javascript">alert("Contraseña incorrecta.");</script>';
+            echo '<script language="javascript">alert("Usuario inactivo. Contacte al administrador.");</script>';
             echo '<script language="javascript">location.href = "Log In.php";</script>';
         }
     } else {

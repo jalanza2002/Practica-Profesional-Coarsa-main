@@ -37,7 +37,7 @@
             if(count($result)>0){
                 foreach($result as $row){
                     echo "Usuario ID: " . $row['IdUsuario'] . " - Nombre: " . $row['Nombre'] . "<br>";
-                    
+                        
                 }
 
 
