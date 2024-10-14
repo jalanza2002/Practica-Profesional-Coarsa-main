@@ -28,7 +28,9 @@
                 <br>
                 <label for="Ingresar"></label>
                 <input class="button" type="submit" value="Ingresar" name="Ingresarbtn" id="Ingresarbtn">
+                <br>
             </center>
+            <a href="PagRestaurarClave.php">Olvido su Contraseña</a>
         </form>
     </div>
         

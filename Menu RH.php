@@ -13,7 +13,7 @@
         <a href="PaginaRH.php">Crear Un Puesto</a>
         <a href="Actualizar Solicitudes.php">Revision de Solicitudes</a>
         <a href="CrearUsuario.php">Crear Usuario</a>
-        <a href="Log In.php">Salir</a> 
+        <a href="Log_out.php">Salir</a> 
     </div>
 </div>
 </body>

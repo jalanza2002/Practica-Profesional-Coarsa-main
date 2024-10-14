@@ -13,7 +13,7 @@
         <a href="PaginaEmpleado.php">Crear una Solicitud</a>
         <a href="Consultar solicitudes.php">Consultar Solicitudes</a>
         <a href="Datos Empleado.php">Mis Datos</a>
-        <a href="Log In.php">Salir</a>
+        <a href="Log_out.php">Salir</a>
     </div>
 </div>
 </body>

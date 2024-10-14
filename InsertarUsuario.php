@@ -30,6 +30,9 @@ function CrearUsuario(){
         $Rol= 3;
         $Estado='Activo';
 
+        //encriptacion del password 
+        $pass= password_hash($Clave, PASSWORD_DEFAULT);
+
         $sql="INSERT INTO usuarios (NombreEmpleado, ApellidosEmpleado, Puesto, Clave, Usuario, Rol, Estado) VALUES 
                                    (:nombre, :apellidos, :puesto, :clave, :usuario, :rol, estado)";
 
@@ -38,7 +41,7 @@ function CrearUsuario(){
         $stmt->bindParam(':nombre', $Nombre);
         $stmt->bindParam(':apellidos', $Apellidos);
         $stmt->bindParam(':puesto', $Puesto);
-        $stmt->bindParam(':clave', $Clave);
+        $stmt->bindParam(':clave', $pass);
         $stmt->bindParam(':usuario', $Usuario);
         $stmt->bindParam(':rol', $Rol);
         $stmt->bindParam(':estado', $Estado);
@@ -52,12 +55,4 @@ function CrearUsuario(){
         
     }
 }
-
-
-
-
-
-
-
-
 ?>

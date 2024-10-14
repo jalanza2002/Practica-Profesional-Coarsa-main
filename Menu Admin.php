@@ -11,6 +11,7 @@
         <h1>Coarsa Administracion</h1>
         <div class="nav-buttons">
             <a href="Consultar Usuarios.php">Mantenimiento Usuarios</a>
+            <a href="Log_out.php">Salir</a>
         </div>
     </div>
 

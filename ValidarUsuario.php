@@ -22,7 +22,7 @@ if (isset($_POST['Ingresarbtn'])) {
     $Password = trim($_POST['Clavetxt']);
 
     // Preparar la consulta para evitar inyección SQL
-    $stmt = $conexion->prepare("SELECT Clave, Usuario, Rol, NombreEmpleado, ApellidosEmpleado, Puesto, Estado
+    $stmt = $conexion->prepare("SELECT IdUsuario, Clave, Usuario, Rol, NombreEmpleado, ApellidosEmpleado, Puesto, Estado
                                 FROM usuarios WHERE Usuario = ?");
     $stmt->bind_param("s", $Correo);
     $stmt->execute();
@@ -35,23 +35,28 @@ if (isset($_POST['Ingresarbtn'])) {
         // Verificar si el usuario está activo
         if ($fila['Estado'] == 'Activo') {
             // Comparar la contraseña ingresada con la almacenada
-            if ($fila['Clave'] === $Password) {
+            if (password_verify($Password,$fila['Clave'])) {
                 // Almacenar información en la sesión
                 $_SESSION['usuario'] = $fila['Usuario'];
                 $_SESSION['rol'] = $fila['Rol']; // Guardar el rol en la sesión
                 $_SESSION['NombreEmpleado'] = $fila['NombreEmpleado'];
                 $_SESSION['ApellidosEmpleado'] = $fila['ApellidosEmpleado'];
                 $_SESSION['Puesto'] = $fila['Puesto'];
+                $_SESSION['IdUsuario'] = $fila['IdUsuario']; // Guardamos el IdUsuario en la sesión
+
+                // Insertar en la bitácora la entrada
+                $IdUsuario = $fila['IdUsuario'];
+                $stmt_bitacora = $conexion->prepare("INSERT INTO bitacora (IdUsuario, FechaEntrada) VALUES (?, NOW())");
+                $stmt_bitacora->bind_param("i", $IdUsuario);
+                $stmt_bitacora->execute();
+                $stmt_bitacora->close();
 
                 // Redirigir según el rol del usuario
                 if ($fila['Rol'] == 1) {
-                    // Redirigir a la página del administrador
                     echo '<script language="javascript">location.href = "Menu Admin.php";</script>';
                 } elseif ($fila['Rol'] == 2) {
-                    // Redirigir a la página de Recursos Humanos
                     echo '<script language="javascript">location.href = "Menu RH.php";</script>';
                 } elseif ($fila['Rol'] == 3) {
-                    // Redirigir a la página de Empleado
                     echo '<script language="javascript">location.href = "Menu Empleado.php";</script>';
                 } else {
                     echo '<script language="javascript">alert("Rol no reconocido.");</script>';
