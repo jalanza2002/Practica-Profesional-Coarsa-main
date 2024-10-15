@@ -23,7 +23,7 @@ function CrearUsuario(){
         $conn = getDatabaseConnection();
 
         $Nombre= $_POST['Nombretxt'];
-        $Apellidos= $_POST['Appellidos'];
+        $Apellidos= $_POST['Apellidostxt'];
         $Puesto= $_POST['Puestotxt'];
         $Usuario= $_POST['Usuariotxt'];
         $Clave= $_POST['Clavetxt'];
@@ -34,7 +34,7 @@ function CrearUsuario(){
         $pass= password_hash($Clave, PASSWORD_DEFAULT);
 
         $sql="INSERT INTO usuarios (NombreEmpleado, ApellidosEmpleado, Puesto, Clave, Usuario, Rol, Estado) VALUES 
-                                   (:nombre, :apellidos, :puesto, :clave, :usuario, :rol, estado)";
+                                   (:nombre, :apellidos, :puesto, :clave, :usuario, :rol, :estado)";
 
 
         $stmt = $conn->prepare($sql);

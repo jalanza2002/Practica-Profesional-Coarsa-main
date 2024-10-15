@@ -1,3 +1,8 @@
+<?php 
+    include 'C:\xampp\htdocs\practica coarsa\Practica-Profesional-Coarsa-main\Modules\InsertarUsuario.php';
+    CrearUsuario();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +26,7 @@
             y poder hacer sus solicitudes.
         </p>
     <center>
-    <form  method="post" action="">
+    <form  method="post" action="CrearUsuario.php">
         <center>
         <label for="Nombretxt">Nombre del Empleado: </label>
         <input type="text" name="Nombretxt" id="Nombretxt" placeholder="Ingrese el Nombre"><br>
