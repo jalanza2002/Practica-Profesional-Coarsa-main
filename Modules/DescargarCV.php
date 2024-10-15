@@ -1,6 +1,5 @@
 <?php
-if (isset($_GET['id'])) {
-    $id = intval($_GET['id']); 
+ 
     
     // Conexión a la base de datos
     function getDatabaseConnection() {
@@ -18,7 +17,10 @@ if (isset($_GET['id'])) {
             exit;
         }
     }
-
+    function ObtenerCV(){
+        
+if (isset($_GET['id'])) {
+    $id = intval($_GET['id']);
     // Conexión y consulta del CV desde la base de datos
     $conn = getDatabaseConnection();
     $stmt = $conn->prepare("CALL ObtenerCV(:p_Id)");
@@ -42,5 +44,6 @@ if (isset($_GET['id'])) {
     }
 } else {
     echo "ID no proporcionado.";
+}
 }
 ?>

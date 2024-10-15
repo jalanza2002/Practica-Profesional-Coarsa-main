@@ -34,7 +34,7 @@ $puestoUsuario = isset($_SESSION['Puesto']) ? $_SESSION['Puesto'] : '';
     </div>
     
 
-    <form method="post" action="Enviar Solicitud.php">
+    <form method="post" action="C:xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/Modules/Enviar Solicitud.php">
     <div>
         <center>
             <h1>Solicitud de prestamos y vacaciones para los empleados de Coarsa</h1>

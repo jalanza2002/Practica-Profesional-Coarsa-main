@@ -17,7 +17,7 @@
         </p>
         </center>
 
-        <form action="Enviar_Token.php" method="post">
+        <form action="C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/Modules/Enviar_Token.php" method="post">
             <label for="txtcorreo">Digite su Correo: </label>
             <input type="text" name="txtcorreo" id="txtcorreo">
             <br>

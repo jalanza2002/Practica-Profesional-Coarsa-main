@@ -67,7 +67,7 @@
                             echo '<td>' .$Vacante['Correo']. '</td>';
                             echo '<td>' .$Vacante['Puesto']. '</td>';
                             echo "<td>";
-                            echo '<a href="DescargarCV.php?id=' . $Vacante["IdParticipante"] . '">Download CV</a>';
+                            echo '<a href="C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/Modules/DescargarCV.php?id=' . $Vacante["IdParticipante"] . '">Download CV</a>';
                             echo "</td>";
                             echo'</tr>';
                         }
