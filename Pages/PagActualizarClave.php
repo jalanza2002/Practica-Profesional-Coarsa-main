@@ -71,7 +71,7 @@ $conexion->close();
 <html>
 <head>
     <title>Restablecer Contraseña</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="C:\xampp\htdocs\practica coarsa\Practica-Profesional-Coarsa-main\Estilos">
 </head>
 <body>
 <div class="contenedor">
