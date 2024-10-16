@@ -179,7 +179,7 @@ function Enviar_Solicitud() {
             $mail->send();
             
             echo '<script language="javascript">alert("Su solicitud ha sido enviada correctamente");</script>';
-            echo '<script language="javascript">location.href = "PaginaEmpleado.php";</script>';
+            echo '<script language="javascript">location.href = "/Pages/PaginaEmpleado.php";</script>';
         } catch (Exception $e) {
             echo "El correo no pudo ser enviado. Error: {$mail->ErrorInfo}";
         }
@@ -196,7 +196,7 @@ Enviar_Solicitud();
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['salirbtn'])) {
     session_start(); // Asegúrate de iniciar la sesión para poder destruirla
     session_destroy(); // Destruir la sesión actual
-    echo '<script language="javascript">location.href = "Log In.php";</script>'; // Redirigir a la página de inicio de sesión
+    echo '<script language="javascript">location.href = "/Pages/Log In.php";</script>'; // Redirigir a la página de inicio de sesión
     exit(); // Asegurarse de que el script se detenga
     }
 ?>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="C:\xampp\htdocs\practica coarsa\Practica-Profesional-Coarsa-main\Estilos">
+    <link rel="stylesheet" href="/Estilos/styles.css">
     <title>Restaurar Contraseña</title>
 </head>
 <body>
@@ -17,7 +17,7 @@
         </p>
         </center>
 
-        <form action="C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/Modules/Enviar_Token.php" method="post">
+        <form action="/Modules/Enviar_Token.php" method="post">
             <label for="txtcorreo">Digite su Correo: </label>
             <input type="text" name="txtcorreo" id="txtcorreo">
             <br>

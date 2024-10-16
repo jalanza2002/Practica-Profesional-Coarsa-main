@@ -5,7 +5,8 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Coarsa</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" href="C:\xampp\htdocs\practica coarsa\Practica-Profesional-Coarsa-main\Estilos">
+    <link rel="stylesheet" href="/Estilos/styles Time Line.css">
+    <link rel="stylesheet" href="/Estilos/styles.css">
     <script src='Mecanismo Time Line.js'></script>   
 </head>
 <body>

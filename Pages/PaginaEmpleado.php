@@ -20,7 +20,8 @@ $puestoUsuario = isset($_SESSION['Puesto']) ? $_SESSION['Puesto'] : '';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="C:\xampp\htdocs\practica coarsa\Practica-Profesional-Coarsa-main\Estilos">
+    <link rel="stylesheet" href="C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/Estilos/styles.css">
+    <link rel="stylesheet" href="C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/Estilos/style terminos y condiciones.css">
     <title>Pagina de Empleados</title>
 </head>
 
@@ -32,9 +33,9 @@ $puestoUsuario = isset($_SESSION['Puesto']) ? $_SESSION['Puesto'] : '';
         <a href="Menu Empleado.php">Volver</a>
         </div>
     </div>
-    
+    <script src="Estilos/mecanismo de ventana emergente.js"></script>
 
-    <form method="post" action="C:xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/Modules/Enviar Solicitud.php">
+    <form method="post" action="/Modules/Enviar Solicitud.php">
     <div>
         <center>
             <h1>Solicitud de prestamos y vacaciones para los empleados de Coarsa</h1>
@@ -81,8 +82,8 @@ $puestoUsuario = isset($_SESSION['Puesto']) ? $_SESSION['Puesto'] : '';
             <br>
             <br>
             <label>
-                <input type="checkbox" name="acepta_terminos">
-                Acepto los <a href="Terminos y Condiciones.php" target="_blank">Términos y Condiciones</a>
+                <input type="checkbox" name="acepta_terminos" id="acepta_terminos">
+                Acepto los <a href="javascript:void(0);" id="abrirModal" onclick="abrirPopUp()">Términos y Condiciones</a>
             </label>
             <br>
             <br>
@@ -93,8 +94,7 @@ $puestoUsuario = isset($_SESSION['Puesto']) ? $_SESSION['Puesto'] : '';
         </center>
     </div>
     </form>
-
-    <div>
+    
         <center>
             <table border="2">
                 <tr>

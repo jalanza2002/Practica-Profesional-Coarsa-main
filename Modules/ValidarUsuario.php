@@ -53,33 +53,33 @@ if (isset($_POST['Ingresarbtn'])) {
 
                 // Redirigir según el rol del usuario
                 if ($fila['Rol'] == 1) {
-                    echo '<script language="javascript">location.href = "Menu Admin.php";</script>';
+                    echo '<script language="javascript">location.href = "/Pages/Menu Admin.php";</script>';
                 } elseif ($fila['Rol'] == 2) {
-                    echo '<script language="javascript">location.href = "Menu RH.php";</script>';
+                    echo '<script language="javascript">location.href = "/Pages/Menu RH.php";</script>';
                 } elseif ($fila['Rol'] == 3) {
-                    echo '<script language="javascript">location.href = "Menu Empleado.php";</script>';
+                    echo '<script language="javascript">location.href = "/Pages/Menu Empleado.php";</script>';
                 } else {
                     echo '<script language="javascript">alert("Rol no reconocido.");</script>';
-                    echo '<script language="javascript">location.href = "Log In.php";</script>';
+                    echo '<script language="javascript">location.href = "/Pages/Log In.php";</script>';
                 }
             } else {
                 echo '<script language="javascript">alert("Contraseña incorrecta.");</script>';
-                echo '<script language="javascript">location.href = "Log In.php";</script>';
+                echo '<script language="javascript">location.href = "/Pages/Log In.php";</script>';
             }
         } else {
             echo '<script language="javascript">alert("Usuario inactivo. Contacte al administrador.");</script>';
-            echo '<script language="javascript">location.href = "Log In.php";</script>';
+            echo '<script language="javascript">location.href = "/Pages/Log In.php";</script>';
         }
     } else {
         echo '<script language="javascript">alert("El usuario no existe.");</script>';
-        echo '<script language="javascript">location.href = "Log In.php";</script>';
+        echo '<script language="javascript">location.href = "/Pages/Log In.php";</script>';
     }
 
     // Cerrar la consulta
     $stmt->close();
 } else {
     echo '<script language="javascript">alert("Error al procesar la solicitud.");</script>';
-    echo '<script language="javascript">location.href = "Log In.php";</script>';
+    echo '<script language="javascript">location.href = "/Pages/Log In.php";</script>';
 }
 
 // Cerrar la conexión a la base de datos
