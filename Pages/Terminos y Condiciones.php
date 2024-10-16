@@ -10,21 +10,15 @@
 <body>
 
 <!-- Modal -->
-<div id="termsModal" class="modal">
-    <div class="modal-content">
-        <span class="close" id="closeModal">&times;</span>
-        <h2>Términos y Condiciones</h2>
-        <p> 
-    <pre>
-        • Objetivo 
-
-            Establecer normas y procedimientos para dar apoyo al personal colaborador de Distribuidora 
-            COARSA, brindando la oportunidad de acceder a préstamos con 0% de intereses; la finalidad es 
-            mejorar su limitación con un trámite ágil y cuotas accesibles, proporcionando capital para utilizar en 
-            caso de situaciones consideradas como urgencia, es decir, recursos para que pueda resolver su 
-            necesidad. 
-    </pre>
-
+<div>
+• Objetivo 
+<pre>
+Establecer normas y procedimientos para dar apoyo al personal colaborador de Distribuidora 
+COARSA, brindando la oportunidad de acceder a préstamos con 0% de intereses; la finalidad es 
+mejorar su limitación con un trámite ágil y cuotas accesibles, proporcionando capital para utilizar en 
+caso de situaciones consideradas como urgencia, es decir, recursos para que pueda resolver su 
+necesidad.
+</pre> 
 <pre>
 • Alcance 
 
@@ -70,8 +64,7 @@
     como tampoco a expresar causa en el caso de negativa. 
 
     13- El monto máximo de préstamo será de ₡100.000 (cien mil colones)  
-</pre>
-<div>
+    </pre>
     <center>
         <table border="2">
             <tr>
@@ -102,21 +95,23 @@
 Realizado por: 
 Licda. Victoria Calderón Chaves 
 Recursos Humanos 
+</pre>
 
+<pre>
 Revisado por: 
 Licda. Melissa Villalobos Vásquez 
 Jefatura de Recursos Humanos 
+</pre>
 
+<pre>
 Aprobado por: 
 Licda. Kattya Alpizar Quesada 
 Directora Administrativa 
 </pre>
-        </p>
-        <button id="acceptTerms">Aceptar</button>
-    </div>
-</div>
 
-<script src="script.js"></script>
+</div>
+<br>
+
 
 </body>
 </html>
