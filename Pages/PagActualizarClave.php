@@ -15,52 +15,27 @@ if ($conexion->connect_error) {
     die("Conexión fallida: " . $conexion->connect_error);
 }
 
-// Verificar si se ha enviado un token
-if (isset($_GET['token'])) {
-    $token = $_GET['token'];
+// Verificar si se ha enviado el formulario de restablecimiento
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $correo = $_POST['txtcorreo']; // Aquí puedes verificar que el correo es el correcto
+    $nuevaContrasena = $_POST['nuevaContrasena'];
+    $confirmarContrasena = $_POST['confirmarContrasena'];
 
-    // Verificar el token en la base de datos
-    $stmt = $conexion->prepare("SELECT IdUsuario FROM restablecer_contrasena WHERE Token = ? AND FechaExpiracion > NOW()");
-    $stmt->bind_param("s", $token);
-    $stmt->execute();
-    $resultado = $stmt->get_result();
+    if ($nuevaContrasena === $confirmarContrasena) {
+        // Hashear la nueva contraseña
+        $hashContrasena = password_hash($nuevaContrasena, PASSWORD_BCRYPT);
 
-    if ($resultado->num_rows > 0) {
-        $fila = $resultado->fetch_assoc();
-        $idUsuario = $fila['IdUsuario'];
+        // Actualizar la contraseña en la tabla usuarios
+        $stmt_actualizar = $conexion->prepare("UPDATE usuarios SET Clave = ? WHERE Usuario = ?");
+        $stmt_actualizar->bind_param("ss", $hashContrasena, $correo);
+        $stmt_actualizar->execute();
+        $stmt_actualizar->close();
 
-        // Si el token es válido, mostrar formulario para restablecer la contraseña
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $nuevaContrasena = $_POST['nuevaContrasena'];
-            $confirmarContrasena = $_POST['confirmarContrasena'];
-
-            if ($nuevaContrasena === $confirmarContrasena) {
-                // Hashear la nueva contraseña
-                $hashContrasena = password_hash($nuevaContrasena, PASSWORD_BCRYPT);
-
-                // Actualizar la contraseña en la tabla usuarios
-                $stmt_actualizar = $conexion->prepare("UPDATE usuarios SET Clave = ? WHERE IdUsuario = ?");
-                $stmt_actualizar->bind_param("si", $hashContrasena, $idUsuario);
-                $stmt_actualizar->execute();
-                $stmt_actualizar->close();
-
-                // Eliminar el token de la base de datos
-                $stmt_eliminar = $conexion->prepare("DELETE FROM restablecer_contrasena WHERE Token = ?");
-                $stmt_eliminar->bind_param("s", $token);
-                $stmt_eliminar->execute();
-                $stmt_eliminar->close();
-
-                echo "Contraseña restablecida con éxito.";
-            } else {
-                echo "Las contraseñas no coinciden.";
-            }
-        }
+        echo "Contraseña restablecida con éxito.";
+        echo '<script language="javascript">location.href = "/Pages/Log In.php";</script>';
     } else {
-        echo "El token no es válido o ha expirado.";
+        echo "Las contraseñas no coinciden.";
     }
-
-    // Cerrar la consulta
-    $stmt->close();
 }
 
 // Cerrar la conexión a la base de datos
@@ -76,6 +51,9 @@ $conexion->close();
 <body>
 <div class="contenedor">
     <form method="POST">
+        <label for="correo">Correo:</label>
+        <input type="email" name="correo" required>
+        <br>
         <label for="nuevaContrasena">Nueva Contraseña:</label>
         <input type="password" name="nuevaContrasena" required>
         <br>

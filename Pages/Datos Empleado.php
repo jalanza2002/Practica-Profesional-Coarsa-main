@@ -34,7 +34,7 @@ $claveUsuario = isset($_SESSION['Clave'])? $_SESSION['Clave']: '';
     <center>
         <h1>Mis Datos Personales</h1>
         <br>
-        <form action="ActualizarClave.php" method="post">
+        <form action="/Modules/ActualizarClave.php" method="post">
         <label for="Nombre"></label>
         <input type="text" name="Nombretxt" id="Nombretxt" value="<?php echo $nombreUsuario ?>" readonly><br>
         <br>

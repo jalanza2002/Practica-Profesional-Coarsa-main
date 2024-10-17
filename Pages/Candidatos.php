@@ -7,14 +7,10 @@
     <title>Tabla de Candidatos</title>
 </head>
 <body>
-<div class="header">
     <h2>Coarsa Recursos Humanos</h2>
     <div class="nav-buttons">
-        <a href="PaginaRH.php">Puestos</a>
-        <a href="CrearUsuario.php">Nuevos Usuarios</a>
         <a href="Menu RH.php">Volver</a>
     </div>
-</div>
     <div>
     <center><h3>Tabla de Canditatos</h3></center>
     </div>
@@ -66,9 +62,7 @@
                             echo '<td>' .$Vacante['telefono']. '</td>';
                             echo '<td>' .$Vacante['Correo']. '</td>';
                             echo '<td>' .$Vacante['Puesto']. '</td>';
-                            echo "<td>";
-                            echo '<a href="C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/Modules/DescargarCV.php?id=' . $Vacante["IdParticipante"] . '">Download CV</a>';
-                            echo "</td>";
+                            echo ' <td><a  href="/modules/descargarCV.php?id=' . $Vacante["IdParticipante"] . '">Descargar CV</a></td>';
                             echo'</tr>';
                         }
                     }

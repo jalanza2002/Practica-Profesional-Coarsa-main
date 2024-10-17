@@ -12,6 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Correotxt']) && isset(
     $correo = $_POST['Correotxt'];
     $nuevaClave = $_POST['Clavetxt'];
 
+    $pass= password_hash($nuevaClave, PASSWORD_DEFAULT);
     // Función para obtener la conexión a la base de datos
     function getDataBaseConnection(){
         $servername = "localhost"; 
@@ -30,27 +31,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Correotxt']) && isset(
     }
 
     // Función para actualizar la clave en la base de datos
-    function ActualizarClave($correo, $nuevaClave){
+    function ActualizarClave($correo, $pass){
         $conn = getDataBaseConnection();
         $sql = "UPDATE usuarios SET Clave = :nuevaclave WHERE Usuario = :correo";  // Correo se usa como identificador en este caso
         $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':nuevaclave', $nuevaClave);
+        $stmt->bindParam(':nuevaclave', $pass);
         $stmt->bindParam(':correo', $correo);
 
         if ($stmt->execute()) {
             echo '<script language="javascript">alert("La clave se actualizo correctamente.");</script>';
-            echo '<script language="javascript">location.href = "Datos Empleado.php";</script>';
+            echo '<script language="javascript">location.href = "/Pages/Datos Empleado.php";</script>';
         } else {
             echo '<script language="javascript">alert("La clave no actualizo correctamente.");</script>';
-            echo '<script language="javascript">location.href = "Datos Empleado.php";</script>';
+            echo '<script language="javascript">location.href = "/Pages/Datos Empleado.php";</script>';
         }
     }
 
     // Llamar a la función para actualizar la clave
-    ActualizarClave($correo, $nuevaClave);
+    ActualizarClave($correo, $pass);
 } else {
     echo '<script language="javascript">alert("Error no se recibio ningun dato.");</script>';
-    echo '<script language="javascript">location.href = "Datos Empleado.php";</script>';
+    echo '<script language="javascript">location.href = "/Pages/Datos Empleado.php";</script>';
 }
 
 ?>

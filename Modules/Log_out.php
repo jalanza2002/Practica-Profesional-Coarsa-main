@@ -31,7 +31,7 @@ session_unset();
 session_destroy();
 
 // Redirigir a la página de inicio de sesión
-echo '<script language="javascript">location.href = "Log In.php";</script>';
+echo '<script language="javascript">location.href = "/Pages/Log In.php";</script>';
 
 // Cerrar la conexión a la base de datos
 $conexion->close();

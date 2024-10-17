@@ -99,3 +99,7 @@ tr:nth-child(even) {
     padding-left: 20px;
 }
 
+/* puntero para mostrar su contraseña */
+.toggle-password {
+    cursor: pointer;
+}

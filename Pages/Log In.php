@@ -24,7 +24,8 @@
                 <input type="text" id="Usuariotxt" name="Usuariotxt" placeholder="Igrese su Usuario" required><br>
                 <br>
                 <label for="Clave"></label>
-                <input type="password" id="Clavetxt" name="Clavetxt" placeholder="Ingrese su Clave" required><br>
+                <input type="password" id="Clavetxt" name="Clavetxt" placeholder="Ingrese su Clave" required>
+                <img src="/Estilos/images/eye close.png" alt="Mostrar clave" class="toggle-password" id="togglePassword" width="25">
                 <br>
                 <label for="Ingresar"></label>
                 <input class="button" type="submit" value="Ingresar" name="Ingresarbtn" id="Ingresarbtn">
@@ -33,4 +34,19 @@
             <a href="PagRestaurarClave.php">Olvido su Contraseña</a>
         </form>
     </div>
+
+    <script>
+        // JavaScript para alternar visibilidad de la contraseña
+        const passwordInput = document.getElementById('Clavetxt');
+        const togglePassword = document.getElementById('togglePassword');
+
+        togglePassword.addEventListener('click', function() {
+            // Alternar el tipo de input entre 'password' y 'text'
+            const isPasswordVisible = passwordInput.type === 'text';
+            passwordInput.type = isPasswordVisible ? 'password' : 'text';
+
+            // Cambiar la imagen según la visibilidad de la contraseña
+            togglePassword.src = isPasswordVisible ? '/Estilos/images/eye close.png' : '/Estilos/images/eye open.png';
+        });
+    </script>
         
