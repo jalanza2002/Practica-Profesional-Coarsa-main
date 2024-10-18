@@ -8,13 +8,18 @@
 </head>
 <body>
 
-<div class="header">
+
     <h1>Coarsa Recursos Humanos</h1>
     <div class="nav-buttons">
     <a href="Menu RH.php">Volver</a>
     </div>
-</div>
-
+<br>
+<br>
+<form method="post">
+<input type="submit" value="Buscar" style="float: right;">
+<label for="Filtrotxt"></label>
+<input type="search" name="Filtrotxt" id="Filtrotxt" placeholder="Busqueda" style="float:right;">
+</form>
     <?php
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;    
@@ -49,6 +54,8 @@
     require 'C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/PHPMailer-master/PHPMailer-master/src/SMTP.php';
     require 'C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/PHPMailer-master/PHPMailer-master/src/Exception.php';
     
+
+
     // Obtener el correo del empleado para enviar la notificación
     $stmt_email = $conn->prepare("SELECT CorreoEmpleado FROM solicitudes WHERE IdSolicitud = ?");
     $stmt_email->bind_param("i", $id_solicitud);
@@ -105,6 +112,20 @@
    
         // Consulta para obtener todas las solicitudes y ordenarlas por estado
         $stmt = $conn->prepare("SELECT * FROM solicitudes ORDER BY FIELD(Estado, 'Pendiente', 'Aprobado', 'Rechazado')");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        // Consulta para obtener todas las solicitudes y ordenarlas por estado
+        $searchTerm = isset($_POST['Filtrotxt']) ? $_POST['Filtrotxt'] : '';
+        
+        if($searchTerm!=''){
+            $stmt = $conn->prepare("SELECT * FROM solicitudes WHERE Nombre LIKE ? OR Apellidos LIKE ? OR Estado LIKE ? ORDER BY FIELD(Estado, 'Pendiente', 'Aprobado', 'Rechazado')");
+            $likeTerm = "%" . $searchTerm . "%";
+            $stmt->bind_param("sss", $likeTerm, $likeTerm, $likeTerm);
+        }else{
+            $stmt = $conn->prepare("SELECT * FROM solicitudes ORDER BY FIELD(Estado, 'Pendiente', 'Aprobado', 'Rechazado')");
+        }
+       
         $stmt->execute();
         $result = $stmt->get_result();
 

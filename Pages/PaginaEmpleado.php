@@ -70,10 +70,10 @@ $puestoUsuario = isset($_SESSION['Puesto']) ? $_SESSION['Puesto'] : '';
                 <label for="Prestamotxt">Seleccione un prestamo:</label>
                 <select name="Prestamotxt" id="Prestamotxt">
                     <option >Seleccione un Monto</option>
-                    <option >25.000</option>
-                    <option >50.000</option>
-                    <option >75.000</option>
-                    <option >100.000</option>
+                    <option >25,000</option>
+                    <option >50,000</option>
+                    <option >75,000</option>
+                    <option >100,000</option>
                 </select><br>
                 <br>
             </div>

@@ -12,6 +12,12 @@
     <br>
     <br>
     <br>
+    <form method="post" action="">
+        <input type="submit" value="Buscar"  style="float: right;">
+        <input type="search" name="Filtrotxt" id="Filtrotxt" style="float: right;" placeholder="Buscar Usuario">
+        <br>
+        <br>
+    </form>
     
 </head>
 <body>
@@ -61,11 +67,34 @@ $stmt = $conn->prepare("SELECT IdUsuario, NombreEmpleado, ApellidosEmpleado, Pue
 $stmt->execute();
 $result = $stmt->get_result();
 
+//Busqueda por filtro
+$searchTerm = isset($_POST['Filtrotxt']) ? $_POST['Filtrotxt'] : '';
+        
+if($searchTerm!=''){
+    $stmt = $conn->prepare("
+    SELECT * 
+    FROM usuarios 
+    WHERE NombreEmpleado LIKE ? 
+    OR ApellidosEmpleado LIKE ? 
+    OR Estado LIKE ? 
+    OR Cedula LIKE ? 
+    OR Rol LIKE ? 
+    ORDER BY Estado ASC");
+    $likeTerm = "%" . $searchTerm . "%";
+    $stmt->bind_param("sssss", $likeTerm, $likeTerm, $likeTerm, $likeTerm, $likeTerm);
+}else{
+    $stmt = $conn->prepare("SELECT * FROM usuarios");
+}
+
+$stmt->execute();
+$result = $stmt->get_result();
+
 if ($result->num_rows > 0) {
     // Iniciar la tabla
     echo "<table border='1' cellpadding='10'>";
     echo "<tr>
             <th>Id Usuario</th>
+            <th>Cedula</th>
             <th>Nombre Empleado</th>
             <th>Apellidos Empleado</th>
             <th>Puesto</th>
@@ -79,6 +108,7 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         echo "<tr>
                 <td>" . $row["IdUsuario"] . "</td>
+                <td>" . $row["Cedula"] . "</td>
                 <td>" . $row["NombreEmpleado"] . "</td>
                 <td>" . $row["ApellidosEmpleado"] . "</td>
                 <td>" . $row["Puesto"] . "</td>

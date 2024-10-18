@@ -21,7 +21,7 @@ function CrearUsuario(){
     if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btncrear'])){
 
         $conn = getDatabaseConnection();
-
+        $Cedula = $_POST['Cedulatxt'];
         $Nombre = $_POST['Nombretxt'];
         $Apellidos = $_POST['Apellidostxt'];
         $Puesto = $_POST['Puestotxt'];
@@ -65,10 +65,11 @@ function CrearUsuario(){
                 echo '<script language="javascript">location.href = "/Pages/CrearUsuario.php";</script>';
             } else {
                 // Si la contraseña no existe, proceder con la inserción
-                $sql = "INSERT INTO usuarios (NombreEmpleado, ApellidosEmpleado, Puesto, Clave, Usuario, Rol, Estado) VALUES 
-                                           (:nombre, :apellidos, :puesto, :clave, :usuario, :rol, :estado)";
+                $sql = "INSERT INTO usuarios (Cedula,NombreEmpleado, ApellidosEmpleado, Puesto, Clave, Usuario, Rol, Estado) VALUES 
+                                           (:cedula,:nombre, :apellidos, :puesto, :clave, :usuario, :rol, :estado)";
 
                 $stmt = $conn->prepare($sql);
+                $stmt->bindParam(':cedula',$Cedula);
                 $stmt->bindParam(':nombre', $Nombre);
                 $stmt->bindParam(':apellidos', $Apellidos);
                 $stmt->bindParam(':puesto', $Puesto);

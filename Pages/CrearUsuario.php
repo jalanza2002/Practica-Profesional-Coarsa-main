@@ -28,20 +28,23 @@
     <center>
     <form  method="post" action="CrearUsuario.php">
         <center>
+        <label for="Cedulatxt">Digite la Cédula</label>
+        <input type="number" name="Cedulatxt" id="Cedulatxt" placeholder="Ingrese la Cédula" required><br>
+        <br>
         <label for="Nombretxt">Nombre del Empleado: </label>
-        <input type="text" name="Nombretxt" id="Nombretxt" placeholder="Ingrese el Nombre"><br>
+        <input type="text" name="Nombretxt" id="Nombretxt" placeholder="Ingrese el Nombre" required><br>
         <br>
         <label for="Apellidostxt">Apellidos del Empleado: </label>
-        <input type="text" name="Apellidostxt" id="Apellidostxt" placeholder="Ingrese los Apellidos"><br>
+        <input type="text" name="Apellidostxt" id="Apellidostxt" placeholder="Ingrese los Apellidos" required><br>
         <br>
         <label for="Puestotxt">Puesto en que trabaja: </label>
-        <input type="text" name="Puestotxt" id="Puestotxt" placeholder="Ingrese el Puesto"><br>
+        <input type="text" name="Puestotxt" id="Puestotxt" placeholder="Ingrese el Puesto" required><br>
         <br>
         <label for="Usuariotxt">Correo: </label>
-        <input type="text" name="Usuariotxt" id="Usuariotxt" placeholder="Ingrese la Correo"><br>
+        <input type="text" name="Usuariotxt" id="Usuariotxt" placeholder="Ingrese la Correo" required><br>
         <br>
         <label for="Clavetxt">Clave: </label>
-        <input type="text" name="Clavetxt" id="Clavetxt" placeholder="Ingrese la clave"><br>
+        <input type="password" name="Clavetxt" id="Clavetxt" placeholder="Ingrese la clave" required><br>
         <br>
         <input class="button"  type="Submit" name="btncrear" value="Crear Usuario Nuevo">
         </center>
