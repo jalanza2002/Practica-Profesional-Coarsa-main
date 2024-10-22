@@ -12,6 +12,7 @@ $correoUsuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : '';
 $nombreUsuario = isset($_SESSION['NombreEmpleado']) ? $_SESSION['NombreEmpleado'] : '';
 $apellidosUsuario = isset($_SESSION['ApellidosEmpleado']) ? $_SESSION['ApellidosEmpleado'] : '';
 $puestoUsuario = isset($_SESSION['Puesto']) ? $_SESSION['Puesto'] : '';
+$Cedula = isset($_SESSION['Cedula']) ? $_SESSION['Cedula']: '';
 //var_dump($_SESSION);
 ?>
 <!DOCTYPE html>
@@ -39,6 +40,9 @@ $puestoUsuario = isset($_SESSION['Puesto']) ? $_SESSION['Puesto'] : '';
     <div>
         <center>
             <h1>Solicitud de prestamos y vacaciones para los empleados de Coarsa</h1>
+            <br>
+            <label for="Cedula"></label>
+            <input type="int" name="Cedulatxt" id="Cedulatxt" value="<?php echo $Cedula ?> "readonly><br>
             <br>
             <label for="Correo"></label>
             <input type="text" name="Correotxt" id="Correotxt" value="<?php echo $correoUsuario?>" readonly><br>
@@ -88,8 +92,6 @@ $puestoUsuario = isset($_SESSION['Puesto']) ? $_SESSION['Puesto'] : '';
             <br>
             <br>
             <input type="submit" name="Enviarbtn" id="Enviarbtn" value="Enviar Solicitud"><br>
-            <br>
-            <input type="submit" name="salirbtn" id="salirbtn" value="Salir de la Pagina"><br>
             <br>
         </center>
     </div>

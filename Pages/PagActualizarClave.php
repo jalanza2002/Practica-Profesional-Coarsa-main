@@ -51,8 +51,8 @@ $conexion->close();
 <body>
 <div class="contenedor">
     <form method="POST">
-        <label for="correo">Correo:</label>
-        <input type="email" name="correo" required>
+        <label for="txtcorreo">Correo:</label>
+        <input type="email" name="txtcorreo" required>
         <br>
         <label for="nuevaContrasena">Nueva Contraseña:</label>
         <input type="password" name="nuevaContrasena" required>

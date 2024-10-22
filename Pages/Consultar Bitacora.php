@@ -15,6 +15,12 @@
     <center><h2>Tabla de Bitacoras</h2></center>
     <br>
 
+    <form method="post">
+    <input type="submit" value="Buscar" style="float: right;">
+    <label for="Filtrotxt"></label>
+    <input type="search" name="Filtrotxt" id="Filtrotxt" placeholder="Busqueda" style="float:right;">
+    </form>
+
     <div>
         <center>
             <table border="1">
@@ -65,6 +71,24 @@
                         }
                     }
                     Mostrarbitacora();
+
+                     function ConsultarBitacora()
+                    {
+                        $searchTerm = isset($_POST['Filtrotxt']) ? $_POST['Filtrotxt'] : '';
+                        $conn=getDataBaseConnection();
+                        if($searchTerm!=''){
+                            $stmt=$conn->prepare("SELECT * FROM bitacora WHERE Cedula Like ? OR NombreEMpleado Like ? OR
+                                                ApellidosEmpleado Like ? OR Puesto Like ? ORDER BY ASC");
+                            $likeTerm = "%". $searchTerm. "%";
+
+                            $stmt->bindValue(1, $likeTerm, PDO::PARAM_STR);
+                            $stmt->bindValue(2, $likeTerm, PDO::PARAM_STR);
+                            $stmt->bindValue(3, $likeTerm, PDO::PARAM_STR);
+                            $stmt->bindValue(4, $likeTerm, PDO::PARAM_STR);
+                        }else{
+                            $stmt = $conn->prepare("SELECT * FROM bitacora");
+                        }
+                    }
                 ?>
             </table>
         </center>

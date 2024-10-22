@@ -3,9 +3,9 @@ session_start();
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/PHPMailer-master/PHPMailer-master/src/PHPMailer.php';
-require 'C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/PHPMailer-master/PHPMailer-master/src/SMTP.php';
-require 'C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/PHPMailer-master/PHPMailer-master/src/Exception.php';
+require __DIR__ . '/../PHPMailer-master/PHPMailer-master/src/PHPMailer.php';
+require __DIR__ . '/../PHPMailer-master/PHPMailer-master/src/SMTP.php';
+require __DIR__ . '/../PHPMailer-master/PHPMailer-master/src/Exception.php';
 
 // Configuración de la base de datos
 $servidor = "localhost";

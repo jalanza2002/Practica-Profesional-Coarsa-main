@@ -49,6 +49,7 @@ $claveUsuario = isset($_SESSION['Clave'])? $_SESSION['Clave']: '';
         <br>
         <label for="Clavetxt"></label>
         <input type="text" name="Clavetxt" id="Clavetxt" value="<?php echo $claveUsuario ?>" required><br>
+        
         <br>
         <input type="submit" name="Actualizarbtn" id="Actualizarbtn" value="Actualizar contraseña">
         </form>

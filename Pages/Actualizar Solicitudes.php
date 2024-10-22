@@ -50,9 +50,9 @@
     $stmt_update->execute();
     $stmt_update->close();
 
-    require 'C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/PHPMailer-master/PHPMailer-master/src/PHPMailer.php';
-    require 'C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/PHPMailer-master/PHPMailer-master/src/SMTP.php';
-    require 'C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/PHPMailer-master/PHPMailer-master/src/Exception.php';
+    require __DIR__ . '/../PHPMailer-master/PHPMailer-master/src/PHPMailer.php';
+    require __DIR__ . '/../PHPMailer-master/PHPMailer-master/src/SMTP.php';
+    require __DIR__ . '/../PHPMailer-master/PHPMailer-master/src/Exception.php';
     
 
 
@@ -135,6 +135,7 @@
             echo "<table border='1' cellpadding='10'>";
             echo "<tr>
                     <th>ID Solicitud</th>
+                    <th>Cedula</th>
                     <th>Empleado</th>
                     <th>Apellidos</th>
                     <th>Correo</th>
@@ -154,6 +155,7 @@
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>
                         <td>" . $row["IdSolicitud"] . "</td>
+                        <td>" . $row["Cedula"] . "</td>
                         <td>" . $row["Nombre"] . "</td>
                         <td>" . $row["Apellidos"] . "</td>
                         <td>" . $row["CorreoEmpleado"] . "</td>

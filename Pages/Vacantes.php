@@ -193,9 +193,10 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 if($_SERVER['REQUEST_METHOD']=='POST'){
-    require 'C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/PHPMailer-master/PHPMailer-master/src/PHPMailer.php';
-    require 'C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/PHPMailer-master/PHPMailer-master/src/SMTP.php';
-    require 'C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/PHPMailer-master/PHPMailer-master/src/Exception.php';
+    require __DIR__ . '/../PHPMailer-master/PHPMailer-master/src/PHPMailer.php';
+    require __DIR__ . '/../PHPMailer-master/PHPMailer-master/src/SMTP.php';
+    require __DIR__ . '/../PHPMailer-master/PHPMailer-master/src/Exception.php';
+
 
     // Conexión a la base de datos
     $servername = "localhost"; 

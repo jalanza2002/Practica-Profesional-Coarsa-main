@@ -57,6 +57,7 @@ if ($result->num_rows > 0) {
     echo "<tr>
             <th>ID Solicitud</th>
             <th>CorreoEmpleado</th>
+            <th>Cedula</th>
             <th>Nombre</th>
             <th>Apellidos</th>
             <th>Puesto</th>
@@ -73,6 +74,7 @@ if ($result->num_rows > 0) {
         echo "<tr>
                 <td>" . $row["IdSolicitud"] . "</td>
                 <td>" . $row["CorreoEmpleado"] . "</td>
+                <td>" . $row["Cedula"] . "</td>
                 <td>" . $row["Nombre"] . "</td>
                 <td>" . $row["Apellidos"] . "</td>
                 <td>" . $row["Puesto"] . "</td>

@@ -14,9 +14,9 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/PHPMailer-master/PHPMailer-master/src/PHPMailer.php';
-require 'C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/PHPMailer-master/PHPMailer-master/src/SMTP.php';
-require 'C:/xampp/htdocs/practica coarsa/Practica-Profesional-Coarsa-main/PHPMailer-master/PHPMailer-master/src/Exception.php';
+require __DIR__ . '/../PHPMailer-master/PHPMailer-master/src/PHPMailer.php';
+require __DIR__ . '/../PHPMailer-master/PHPMailer-master/src/SMTP.php';
+require __DIR__ . '/../PHPMailer-master/PHPMailer-master/src/Exception.php';
 
  function getDatabaseConnection() {
     $servername = "localhost"; // Cambia esto según tu configuración
@@ -56,7 +56,7 @@ function puedeEnviarSolicitud($correo) {
                 $diferenciaMeses = $fechaSolicitud->diff($fechaActual)->m + ($fechaSolicitud->diff($fechaActual)->y * 12);
                 if ($diferenciaMeses < 3) {
                     echo '<script language="javascript">alert("Debe esperar tres meses para poder enviar otra solicitud de préstamo.");</script>';
-                    echo '<script language="javascript">location.href = "PaginaEmpleado.php";</script>';
+                    echo '<script language="javascript">location.href = "/Pages/PaginaEmpleado.php";</script>';
                     return false;
                 }
             }
@@ -67,7 +67,7 @@ function puedeEnviarSolicitud($correo) {
             }
         } elseif ($estado === 'Revision') {
             echo '<script language="javascript">alert("Tiene una solicitud pendiente. Debe esperar a que se revise.");</script>';
-            echo '<script language="javascript">location.href = "PaginaEmpleado.php";</script>';
+            echo '<script language="javascript">location.href = "/Pages/PaginaEmpleado.php";</script>';
             return false;
         }
     }
@@ -90,6 +90,7 @@ function Enviar_Solicitud() {
     $conn = getDatabaseConnection();
 
     // Obtener datos del formulario
+    $Cedula= $_POST['Cedulatxt'];
     $Correo = $_POST['Correotxt'];
     $Nombre = $_POST['Nombretxt'];
     $Apellidos = $_POST['Apellidostxt'];
@@ -106,10 +107,11 @@ function Enviar_Solicitud() {
         return;
     }
     // Preparar la consulta SQL
-    $sql = "INSERT INTO solicitudes (CorreoEmpleado, Nombre, Apellidos, Puesto, Solicitud, Monto, EntradaVacaciones, EntradaTrabajo, Descripción, Estado) 
-            VALUES (:correo, :nombre, :apellidos, :puesto, :solicitud, :prestamo, :EntradaVaca, :EntradaTra, :Descripcion, :Estado)";
+    $sql = "INSERT INTO solicitudes (CorreoEmpleado, Cedula, Nombre, Apellidos, Puesto, Solicitud, Monto, EntradaVacaciones, EntradaTrabajo, Descripción, Estado) 
+            VALUES (:correo, :cedula, :nombre, :apellidos, :puesto, :solicitud, :prestamo, :EntradaVaca, :EntradaTra, :Descripcion, :Estado)";
     
     $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':cedula', $Cedula);
     $stmt->bindParam(':correo', $Correo);
     $stmt->bindParam(':nombre', $Nombre);
     $stmt->bindParam(':apellidos', $Apellidos);
@@ -123,7 +125,7 @@ function Enviar_Solicitud() {
 
     if ($stmt->execute()) {
         echo '<script language="javascript">alert("Su solicitud ha sido enviada correctamente");</script>';
-        echo '<script language="javascript">location.href = "PaginaEmpleado.php";</script>';
+        echo '<script language="javascript">location.href = "/Pages/PaginaEmpleado.php";</script>';
     } else {
         echo "Error: No se pudo enviar la solicitud.";
         }
@@ -161,6 +163,7 @@ function Enviar_Solicitud() {
                 <p>Hola Recursos Humanos,</p>
                 <p>Una nueva solicitud por parte del empleado:</p>
                 <p>Nombre Completo: {$nombre} {$apellidos}</p>
+                <p>Con la Cedula: {$Cedula}</p>
                 <p>Solicitud a revisar: {$solicitud}</p>
                 <p>Correo: {$correo}</p>
             ";
@@ -172,7 +175,8 @@ function Enviar_Solicitud() {
             $mail->Subject = 'Confirmación de su solicitud';
             $mail->Body = "
                 <p>Estimado {$nombre},</p>
-                <p>Su solicitud de {$solicitud} ha sido recibida exitosamente. Nos pondremos en contacto con usted pronto.</p>
+                <p>Su solicitud de {$solicitud}</p> 
+                <p>ha sido recibida exitosamente. Nos pondremos en contacto con usted pronto.</p>
                 <p>Para cualquier otra informacion visite la pagina {$url}</p>
             ";
             
@@ -185,7 +189,7 @@ function Enviar_Solicitud() {
         }
     } else {
         // Si no se envió el formulario, redirigir a la página del formulario
-        header('Location: Log In.php');
+        header('Location: /Pages/Log In.php');
         exit();
     }
 }
