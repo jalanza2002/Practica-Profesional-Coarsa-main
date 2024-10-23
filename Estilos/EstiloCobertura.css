@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #0072c6, #a0d8ef);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    text-align: center;
+}
+h1 {
+    color: #ffcc00;
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+.map {
+    position: relative;
+    display: inline-block;
+}
+.map img {
+    width: 100%;
+    max-width: 800px;
+}
+.marker {
+    position: absolute;
+    font-size: 24px;
+    color: black;
+}
+.marker:nth-child(2) { top: 30%; left: 20%; }
+.marker:nth-child(3) { top: 20%; left: 50%; }
+.marker:nth-child(4) { top: 50%; left: 60%; }
+.marker:nth-child(5) { top: 60%; left: 40%; }
+.marker:nth-child(6) { top: 70%; left: 70%; }

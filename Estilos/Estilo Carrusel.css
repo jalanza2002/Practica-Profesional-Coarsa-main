@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+.container {
+    text-align: center;
+    padding: 20px;
+}
+.title {
+    font-size: 36px;
+    color: #1a4e8a;
+    margin-bottom: 20px;
+}
+.timeline {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+.timeline-item {
+    width: 200px;
+    border: 2px solid #f0c000;
+    margin: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.timeline-item img {
+    width: 100%;
+    height: auto;
+}
+.year {
+    font-size: 24px;
+    color: #1a4e8a;
+    margin: 10px 0;
+}
+.description {
+    font-size: 16px;
+    color: #000;
+}

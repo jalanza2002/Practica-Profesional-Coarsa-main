@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #d0e4f7, #7fb3d5);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    color: #2c5c8a;
+    margin-top: 20px;
+}
+.brands-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+.brand {
+    background: white;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    width: 150px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.brand img {
+    max-width: 100%;
+    max-height: 100%;
+}
