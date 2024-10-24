@@ -24,7 +24,6 @@ body {
 }
 .container input[type="text"],
 .container input[type="email"],
-.container input[type="tel"],
 .container select {
     width: calc(100% - 20px);
     padding: 10px;

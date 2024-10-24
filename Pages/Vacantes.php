@@ -34,63 +34,59 @@ $vacantes = getVacantesConnection();
 <html lang="es">
 <head>
     <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Coarsa</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" href="/Estilos/styles.css">
+    <link rel="stylesheet" href="/Estilos/EstiloVacante.css">
 </head>
 <body>
-
 <div class="header">
-    <h1>Coarsa</h1>
-    <div class="nav-buttons">
-        <a href="Quienes Somos.php">Quiénes Somos</a>
-        <a href="Vacantes.php">Trabaje con Nosotros</a>
-        <a href="Log In.php">Ingresar</a>
+        <h1>Coarsa</h1>
+        <div class="nav-buttons">
+            <a href="Quienes Somos.php">Quiénes Somos</a>
+            <a href="Vacantes.php">Trabaje con Nosotros</a>
+            <a href="Log In.php">Ingresar</a>
+        </div>
     </div>
-</div>
-
-<div class="contenedor">
-    <center>
-        <h2 class="titulo">Trabaje para Nosotros</h2>
-        <p class="texto">SI desea formar parte de Coarsa complete este formulario y con gusto
+    <div class="back-arrow">
+        <i class="fas fa-arrow-left"></i>
+    </div>
+    <div class="container">
+        <h2>Trabaje para Nosotros</h2>
+        <p>SI desea formar parte de Coarsa complete este formulario y con gusto
             será tomado en cuenta para próximas vacantes.
         </p>
-        <center>
         <form method="POST" action="" enctype="multipart/form-data">
-                <label for="Nombre">Nombre:</label>
-                <input type="text" id="Nombre" name="txtNombre" placeholder="Ingrese su nombre" required><br>
+            <label for="Nombre">Nombre:</label>
+            <input type="text" id="Nombre" name="txtNombre" placeholder="Ingrese su nombre" required><br>
 
-                <label for="Apellidos">Apellidos:</label>
-                <input type="text" id="Apellidos" name="txtApellidos" placeholder="Ingrese sus apellidos" required><br>
+            <label for="Apellidos">Apellidos:</label>
+            <input type="text" id="Apellidos" name="txtApellidos" placeholder="Ingrese sus apellidos" required><br>
 
-                <label for="Correo">Correo:</label>
-                <input type="email" id="Correo" name="txtCorreo" placeholder="Ingrese su correo" required><br><br>
+            <label for="Correo">Correo:</label>
+            <input type="email" id="Correo" name="txtCorreo" placeholder="Ingrese su correo" required><br>
 
-                <label for="Telefono">Teléfono:</label>
-                <input type="tel" id="Telefono" name="txtTelefono" placeholder="Ingrese su teléfono" required><br><br>
+            <label for="Telefono">Teléfono:</label>
+            <input type="tel" id="Telefono" name="txtTelefono" placeholder="Ingrese su teléfono" required><br>
 
-                <label for="Puesto">Puesto:</label>
-                <select name="txtPuesto" id="Puesto" required placeholder="Ingrese el puesto que desea aplicar">
-                    <option>Ingrese el puesto que desea postularse</option>
-                    <?php 
-                        if (!empty($vacantes)) {
-                            foreach ($vacantes as $vacante) {
-                                echo "<option value=\"" . htmlspecialchars($vacante['IdPuesto']) . "\">" . htmlspecialchars($vacante['Puesto']) . "</option>";
-                            }
-                        } else {
-                            echo "<option value=''>No hay vacantes disponibles</option>";
+            <label for="Puesto">Puesto:</label>
+            <select name="txtPuesto" id="Puesto" required>
+                <option>Ingrese el puesto que desea postularse</option>
+                <!-- PHP code to dynamically generate options -->
+                <?php 
+                    if (!empty($vacantes)) {
+                        foreach ($vacantes as $vacante) {
+                            echo "<option value=\"" . htmlspecialchars($vacante['IdPuesto']) . "\">" . htmlspecialchars($vacante['Puesto']) . "</option>";
                         }
-                    ?>
-                </select><br><br>
+                    } else {
+                        echo "<option value=''>No hay vacantes disponibles</option>";
+                    }
+                ?>
+            </select><br>
 
-                <label for="CV">CV (PDF):</label>
-                <input type="file" id="CV" name="txtCV" accept="application/pdf" required><br><br>
+            <label for="CV">CV (PDF):</label>
+            <input type="file" id="CV" name="txtCV" accept="application/pdf" required><br>
 
-                <input class="button" type="submit" class="button" name="btnGuardar" value="Guardar"><br><br>
-        </form>
-    </center>
-    <br>
+            <input class="button" type="submit" name="btnGuardar" value="Guardar"><br>
     <!-- Método POST para agregar el participante a la base de datos -->
     <?php
     // Función para establecer la conexión a la base de datos

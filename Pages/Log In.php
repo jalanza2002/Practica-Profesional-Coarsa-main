@@ -3,38 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Estilos/styles.css">
+    <link rel="stylesheet" href="/Estilos/Estilo Log In.css">
     <title>Log In Coarsa</title>
 </head>
 <body>
 <div class="header">
-    <h1>Coarsa</h1>
-    <div class="nav-buttons">
-    <a href="Quienes Somos.php">Quiénes Somos</a>
-    <a href="Vacantes.php">Trabaje con Nosotros</a>
-    <a href="Log In.php">Ingresar</a>
-    </div>
-</div>
-    <div class="contenedor1">
-        <form method="post" action="/Modules/ValidarUsuario.php">
-            <center>
-                <img src="usuario.png" width="100" height="100"><br>
-                <br>
-                <label for="Usuario"></label>
-                <input type="text" id="Usuariotxt" name="Usuariotxt" placeholder="Igrese su Usuario" required><br>
-                <br>
-                <label for="Clave"></label>
-                <input type="password" id="Clavetxt" name="Clavetxt" placeholder="Ingrese su Clave" required>
-                <img src="/Estilos/images/eye close.png" alt="Mostrar clave" class="toggle-password" id="togglePassword" width="25">
-                <br>
-                <label for="Ingresar"></label>
-                <input class="button" type="submit" value="Ingresar" name="Ingresarbtn" id="Ingresarbtn">
-                <br>
-            </center>
-            <a href="PagRestaurarClave.php">Olvido su Contraseña</a>
-        </form>
-    </div>
-
+   <h1>
+    Coarsa
+   </h1>
+   <div class="nav-buttons">
+    <a href="Quienes Somos.php">
+     Quiénes Somos
+    </a>
+    <a href="Vacantes.php">
+     Trabaje con Nosotros
+    </a>
+    <a href="Log In.php">
+     Ingresar
+    </a>
+   </div>
+  </div>
+  <div class="con login-container">
+   <form action="/Modules/ValidarUsuario.php" method="post">
+    <center>
+     <img height="100" src="usuario.png" width="100"/>
+     <br/>
+     <br/>
+     <label for="Usuario">
+     </label>
+     <input id="Usuariotxt" name="Usuariotxt" placeholder="Ingrese su Usuario" required="" type="text"/>
+     <br/>
+     <br/>
+     <label for="Clave">
+     </label>
+     <input id="Clavetxt" name="Clavetxt" placeholder="Ingrese su Clave" required="" type="password"/>
+     <img alt="Mostrar clave" class="toggle-password" height="25" id="togglePassword" src="/Estilos/images/eye close.png" width="25"/>
+     <br/>
+     <br/>
+     <label for="Ingresar">
+     </label>
+     <input class="login-button" id="Ingresarbtn" name="Ingresarbtn" type="submit" value="Ingresar"/>
+     <br/>
+    </center>
+    <a class="forgot-password" href="PagRestaurarClave.php">
+     ¿Olvidó su Contraseña?
+    </a>
+   </form>
+  </div>
     <script>
         // JavaScript para alternar visibilidad de la contraseña
         const passwordInput = document.getElementById('Clavetxt');
@@ -49,4 +64,5 @@
             togglePassword.src = isPasswordVisible ? '/Estilos/images/eye close.png' : '/Estilos/images/eye open.png';
         });
     </script>
-        
+</body>
+</html>
