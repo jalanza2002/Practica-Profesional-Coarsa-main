@@ -14,26 +14,42 @@ body {
          padding: 40px;
          width: 300px;
          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-         text-align: center;
+         
      }
      .login-container img {
-         width: 200px;
+         width: auto;
          margin-bottom: 20px;
      }
+
+     .icon{
+        height: 16px;
+        display:flex;
+        width: 16px;
+        right: 100%;
+        top: 55%; 
+        cursor: pointer;
+    }
+     
      .login-container h1 {
          font-size: 24px;
          margin-bottom: 20px;
      }
      .input-group {
+        display: flex;
+        align-items: center;
+        width:auto;
+        max-width: 300px;
          margin-bottom: 20px;
          position: relative;
+         
      }
      .input-group input {
-         width: 100%;
+         width:auto;
          padding: 10px;
          padding-left: 40px;
          border: 1px solid #ccc;
          border-radius: 5px;
+         
      }
      .input-group i {
          position: absolute;
@@ -69,4 +85,5 @@ body {
          color: black;
          font-size: 24px;
          cursor: pointer;
+         margin-top: -3px;
      }

@@ -23,7 +23,7 @@ body {
 .header a {
     color: white;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px;
 }
 .header .back {
     font-size: 24px;
@@ -44,6 +44,7 @@ body {
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 0 10px;
+    cursor: pointer;
 }
 .module h2 {
     color: #0a3d62;
@@ -57,4 +58,9 @@ body {
 .module i {
     font-size: 50px;
     color: #333;
+}
+.module a {
+    text-decoration: none; 
+    color: inherit; 
+    display: block; 
 }

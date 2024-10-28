@@ -15,9 +15,10 @@ function getVacantesConnection() {
         $vacantes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         if(empty($vacantes)){
-            echo "No hay vacantes disponibles";
+            echo '<script language="javascript">alert("No hay puestos para participar.");</script>';
+            echo '<script language="javascript">location.href = "/Pages/Vacantes.php";</script>';
         }else{
-            echo "Vacantes cargadas correctamente";
+            echo '<script language="javascript">alert("Tenemos puestos en los que puede participar.");</script>';
         }
         return $vacantes;
 
@@ -39,14 +40,6 @@ $vacantes = getVacantesConnection();
     <link rel="stylesheet" href="/Estilos/EstiloVacante.css">
 </head>
 <body>
-<div class="header">
-        <h1>Coarsa</h1>
-        <div class="nav-buttons">
-            <a href="Quienes Somos.php">Quiénes Somos</a>
-            <a href="Vacantes.php">Trabaje con Nosotros</a>
-            <a href="Log In.php">Ingresar</a>
-        </div>
-    </div>
     <div class="back-arrow">
         <i class="fas fa-arrow-left"></i>
     </div>
@@ -65,10 +58,10 @@ $vacantes = getVacantesConnection();
             <label for="Correo">Correo:</label>
             <input type="email" id="Correo" name="txtCorreo" placeholder="Ingrese su correo" required><br>
 
-            <label for="Telefono">Teléfono:</label>
+            <label for="Telefono">Teléfono:</label><br>
             <input type="tel" id="Telefono" name="txtTelefono" placeholder="Ingrese su teléfono" required><br>
 
-            <label for="Puesto">Puesto:</label>
+
             <select name="txtPuesto" id="Puesto" required>
                 <option>Ingrese el puesto que desea postularse</option>
                 <!-- PHP code to dynamically generate options -->
