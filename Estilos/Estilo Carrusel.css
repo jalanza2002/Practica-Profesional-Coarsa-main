@@ -10,20 +10,21 @@ body {
 .timeline-container {
     width: 100%;
     padding: 20px;
-    background-color: #a1d1f2; 
+    background-color: white; 
     text-align: center;
     display: block; 
     clear: both; 
 }
 .title {
     font-size: 36px;
-    color: #1a4e8a;
+    color: #f0c000;
     margin-bottom: 20px;
 }
 .timeline {
     display: flex;
     justify-content: center;
     flex-wrap: nowrap;
+    background-color: white;
 }
 .timeline-item {
     width: 200px;
