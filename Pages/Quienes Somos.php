@@ -5,12 +5,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Coarsa</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" href="/Estilos/Estilo Quienes Somos.css">
-    <link rel="stylesheet" href="/Estilos/Estilo Carrusel.css">
     <link rel="stylesheet" href="/Estilos/EstiloPrincipal.css">
-    <link rel="stylesheet" href="/Estilos/EstiloCobertura.css">
-    <link rel="stylesheet" href="/Estilos/EstiloContacto.css">
-    <link rel="stylesheet" href="/Estilos/Estilo Marcas.css">
     <script src='Mecanismo Time Line.js'></script>   
 </head>
 <body class="body">
