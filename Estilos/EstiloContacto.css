@@ -11,16 +11,20 @@ body {
 .container {
     display: flex;
     align-items: center;
+    flex-direction: row;
     border: 1px solid #ddd;
     padding: 20px;
     border-radius: 8px;
+    background-color: white;
 }
-.logo {
-    margin-right: 20px;
+.divider {
+    border-left: 2px solid #1a73e8;
+    height: 150px; /* Ajusta la altura según sea necesario */
+    margin: 0 20px; /* Espacio entre el logo y el contenido */
 }
 .logo img {
     width: 100px;
-    height: auto;
+    height:100px ;
 }
 .divider {
     border-left: 2px solid #1a73e8;
@@ -51,13 +55,14 @@ body {
 .social-icons {
     margin-top: 20px;
 }
-.social-icons i {
-    font-size: 24px;
-    margin-right: 10px;
+.social-icons img {
+    width:50px ;
+    height:50px ;
     color: #000;
 }
 .social-icons i.whatsapp {
     color: #25D366;
+    
 }
 .social-icons i.linkedin {
     color: #0077B5;
