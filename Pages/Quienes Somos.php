@@ -371,7 +371,7 @@
 <!--Mapa de cobertura de la empresa-->
 <h1>
    Nuestra cobertura
-  </h1>
+   </h1>
   <div class="map-container">
    <img alt="Mapa de cobertura con marcadores de ubicación" height="400" 
    src="/Estilos/images/mapa.png" width="800"/>
