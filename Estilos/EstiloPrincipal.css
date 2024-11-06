@@ -167,6 +167,7 @@ p {
     padding: 20px;
     overflow: hidden; 
     margin-bottom: 40px;
+ 
 }
 .brand {
     background: transparent;
@@ -186,8 +187,10 @@ p {
 }
 
 /* Mapa */
-.container {
+.map-container {
     text-align: center;
+    background-color:#00AAFF;
+    background-size: cover;
 }
 h1 {
     color: #ffcc00;
@@ -221,21 +224,6 @@ h1 {
     width: 50px;
     height: 50px;
     color: #000;
-}
-.social-icons i.whatsapp {
-    color: #25D366;
-}
-.social-icons i.linkedin {
-    color: #0077B5;
-}
-.social-icons i.instagram {
-    color: #E4405F;
-}
-.social-icons i.facebook {
-    color: #3b5998;
-}
-.social-icons i.google-maps {
-    color: #4285F4;
 }
 
 /* Estilo de la sección de contacto con logo y detalles */

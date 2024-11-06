@@ -12,15 +12,15 @@
     <img src="/Estilos/images/fecha atras.png" alt="16px" class="back-arrow">
     </a>
 </div>
-  <div class="con login-container">
+  <div class="login-container">
    <form action="/Modules/ValidarUsuario.php" method="post">
     <center>
-     <img  src="/Estilos/images/usuario.png">
+     <img  src="/Estilos/images/Logo coarsa SOLIDO.jpg">
      <br/>
      <br/>
      <label for="Usuario">
      </label>
-     <input id="Usuariotxt" name="Usuariotxt" placeholder="Ingrese su Usuario" required="" type="text"/>
+     <input id="Usuariotxt" name="Usuariotxt" placeholder="Ingrese su Usuario" required type="text"/>
      <br/>
      <br/>
      <label for="Clave">

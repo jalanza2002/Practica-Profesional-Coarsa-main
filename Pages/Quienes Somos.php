@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/Estilos/EstiloPrincipal.css">
     <script src='Mecanismo Time Line.js'></script>   
 </head>
-<body class="body">
+<body>
   <!-- Contenedor principal con imagen de fondo y navegación -->
 
     <div class="main-container">
@@ -21,6 +21,7 @@
       <div class="arrow-left">←</div>
       <div class="arrow-right">→</div>
     </div>
+
   <!-- Contenedor de quienes somos que debería aparecer debajo del principal -->
   <div class="section">
    <h1>
@@ -367,6 +368,42 @@
     <img alt="Don logo" height="100" src="/Estilos/images/Zepol/Zepol.jpg" width="150"/>
    </div>
   </div>
+<!--Mapa de cobertura de la empresa-->
+<h1>
+   Nuestra cobertura
+  </h1>
+  <div class="map-container">
+   <img alt="Mapa de cobertura con marcadores de ubicación" height="400" 
+   src="/Estilos/images/mapa.png" width="800"/>
+   <div class="marker" style="top: 30%; left: 25%;">
+    <i class="fas fa-map-marker-alt">
+    </i>
+   </div>
+   <div class="marker" style="top: 20%; left: 50%;">
+    <i class="fas fa-map-marker-alt">
+    </i>
+   </div>
+   <div class="marker" style="top: 40%; left: 60%;">
+    <i class="fas fa-map-marker-alt">
+    </i>
+   </div>
+   <div class="marker" style="top: 50%; left: 40%;">
+    <i class="fas fa-map-marker-alt">
+    </i>
+   </div>
+   <div class="marker" style="top: 70%; left: 50%;">
+    <i class="fas fa-map-marker-alt">
+    </i>
+   </div>
+   <div class="marker" style="top: 80%; left: 60%;">
+    <i class="fas fa-map-marker-alt">
+    </i>
+   </div>
+  </div>
+
+
+
+
 
 <!--Contacto de la empresa-->
 <div class="container">
