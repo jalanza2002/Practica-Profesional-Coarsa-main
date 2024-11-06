@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Estilos/Estilo Log In.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <title>Log In Coarsa</title>
 </head>
 <body>
@@ -18,18 +20,20 @@
      <img  src="/Estilos/images/Logo coarsa SOLIDO.jpg">
      <br/>
      <br/>
-     <label for="Usuario">
-     </label>
-     <input id="Usuariotxt" name="Usuariotxt" placeholder="Ingrese su Usuario" required type="text"/>
+     <div class="form-floating mb-3">
+     <input id="Usuariotxt" class="form-control" name="Usuariotxt" required type="text"/>
+     <label for="floatingInput">Ingrese su Usuario</label>
+     </div>
      <br/>
-     <br/>
-     <label for="Clave">
-     </label>
-     <input id="Clavetxt" name="Clavetxt" placeholder="Ingrese su Clave" required type="password"/><br>
+     <div class="form-floating mb-3">
+     <input id="Clavetxt" class="form-control" name="Clavetxt" required type="password"/><br>
+     <label for="floatingInput">Ingrese su Clave</label>
+     </div>
+     </center>
      <input type="checkbox" id="showPassword"> 
      <label for="showPassword">Mostrar Contraseña</label>
      <br>
-     <br>
+     <center>
      <label for="Ingresar">
      </label>
      <input class="login-button" id="Ingresarbtn" name="Ingresarbtn" type="submit" value="Ingresar"/>
