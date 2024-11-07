@@ -335,22 +335,22 @@
           width="800"
         />
         <div class="marker" style="top: 30%; left: 25%">
-          <i class="fas fa-map-marker-alt"> </i>
+       
         </div>
         <div class="marker" style="top: 20%; left: 50%">
-          <i class="fas fa-map-marker-alt"> </i>
+          
         </div>
         <div class="marker" style="top: 40%; left: 60%">
-          <i class="fas fa-map-marker-alt"> </i>
+       
         </div>
         <div class="marker" style="top: 50%; left: 40%">
-          <i class="fas fa-map-marker-alt"> </i>
+          
         </div>
         <div class="marker" style="top: 70%; left: 50%">
-          <i class="fas fa-map-marker-alt"> </i>
+          
         </div>
         <div class="marker" style="top: 80%; left: 60%">
-          <i class="fas fa-map-marker-alt"> </i>
+          
         </div>
       </div>
 
