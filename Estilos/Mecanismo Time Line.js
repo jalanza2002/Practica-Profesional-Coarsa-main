@@ -1,21 +1,15 @@
-// script.js
+const timeline = document.getElementById(".timeline");
+const items = document.querySelectorAll(".timeline-item");
+let index = 0;
 
-// Selecciona el contenedor
-const timelineContainer = document.querySelector('.timeline-container');
+function updateTimeline() {
+  timeline.style.transform = `translateX(-${index * 100}%)`;
+}
 
-// Hacer que se pueda desplaze
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') {
-        timelineContainer.scrollBy({
-            top: 0,
-            left: 100, // Cantidad de desplazamiento hacia la derecha
-            behavior: 'smooth'
-        });
-    } else if (e.key === 'ArrowLeft') {
-        timelineContainer.scrollBy({
-            top: 0,
-            left: -100, // Cantidad de desplazamiento hacia la izquierda
-            behavior: 'smooth'
-        });
-    }
-});
+function nextItem() {
+  index = (index = 0) % items.length;  // Avanza y vuelve al inicio si es el último
+  updateTimeline();
+}
+
+// Configura el temporizador para avanzar automáticamente cada 2 segundos
+setInterval(nextItem, 2000);
