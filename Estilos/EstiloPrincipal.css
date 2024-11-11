@@ -141,8 +141,12 @@
     padding: 20px;
     background-color: white;
     text-align: center;
-    display: block;
+    display: flex;
     clear: both;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    flex-direction: column;
+    align-items: center;
   }
   .title {
     font-size: 36px;
@@ -151,16 +155,17 @@
   }
   .timeline {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     flex-wrap: nowrap;
     background-color: white;
+    position: relative;
   }
   .timeline-item {
     width: 200px;
     border: 2px solid #f0c000;
     margin: 10px;
     padding: 10px;
-    box-sizing: border-box;
+  
   }
   .timeline-item img {
     width: 100%;
@@ -175,8 +180,51 @@
     font-size: 16px;
     color: #000;
   }
+  .timeline-container::-webkit-scrollbar {
+    display: none;
+  }
+  .prev-btn,
+  .next-btn {
+    border: none;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%; 
+    transform: translateY(-50%); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 8; 
+    color: white;
+  }
   
-  /* Marcas */
+  .prev-btn {
+    left: 10px;
+    transform: rotate(180deg);
+  }
+  
+  .next-btn {
+    right: 10px;
+  }
+  
+  .prev-btn img,
+  .next-btn img {
+    opacity: 0.2;
+  }
+  
+  .prev-btn:hover img,
+  .next-btn:hover img {
+    opacity: 1;
+  }
+
+
+  /*-------------------------------------------------------------------------------------------
+  ------------------------------------------------- Marcas -------------------------------------
+  -----------------------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------------------------*/
   .brands-background {
     background: linear-gradient(to top, #87cbeb, #fff);
     width: 100vw;
@@ -231,7 +279,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #3583d6;
+    background-color: grey;
     border-radius: 50%;
     cursor: pointer;
     z-index: 8;
@@ -382,6 +430,7 @@
     width: 100vw;
     height: 100%;
     overflow: hidden;
+    position: relative;
   }
   h1 {
     color: #ffcc00;
@@ -397,24 +446,38 @@
     max-width: 800px;
   }
   .marker {
-    position: relative;
+    position:absolute;
     width: 32px;
     height: 32px;
-    top: -35%; 
-    left: 22%;
     background-image: url("/Estilos/images/localizador.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    transform: translate(-50%, -100%);
-    color: black;
+    transform: translate(-50%, -100%); /* Centra el marcador */
   }
-  .marker:nth-child(1) {top: 35%; left: 22%;}
-  .marker:nth-child(2) {top: 25%; left: 48%;}
-  .marker:nth-child(3) {top: 42%; left: 58%;}
-  .marker:nth-child(4) { top: 60%;left: 40%;}
-  .marker:nth-child(5) {top: 70%;left: 70%; }
-  .marker:nth-child(5) {top: 50%;left: 50%; }
+  .tooltip-text {
+    visibility: hidden;
+    width: 120px; /* Ajusta el ancho según tu necesidad */
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 100%; /* Posiciona el tooltip encima del marcador */
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 10px;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Mostrar el tooltip cuando se pasa el cursor sobre el marcador */
+.marker:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
   
   /* Estilo de la sección de contacto con logo y detalles */
   footer {

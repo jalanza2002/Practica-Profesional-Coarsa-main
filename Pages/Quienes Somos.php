@@ -12,7 +12,6 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/Estilos/EstiloPrincipal.css" />
-    <script src="Mecanismo Time Line.js"></script>
   </head>
   <body class="body">
     <!-- Contenedor principal con imagen de fondo y navegación -->
@@ -88,9 +87,15 @@
         </p>
       </div>
       <!-- esturctura de la historia COARSA-->
-      <div class="timeline-contain">
+      <div class="timeline-container">
         <div class="title">Nuestra historia</div>
         <div class="timeline">
+        <button class="prev-btn">
+            <img src="/Estilos/images/arrow.png" alt="">
+          </button>
+          <button class="next-btn">
+            <img src="/Estilos/images/arrow.png" alt="">
+          </button>
           <div class="timeline-item">
             <img
               alt="Handshake image"
@@ -100,7 +105,11 @@
             />
             <div class="year">1999</div>
             <div class="description">
-              Se obtuvo el ingreso de nuevos proveedores y cuentas especiales.
+              Leonardo Arguedas junto a su esposa Kattya Alpizar fundan Distribudora Coarsa, la
+              buena relación con sus socios comerciales impulsó el desarrollo de este proyecto
+              que busca brindar un servicio de distribución exclusiva más enfocado y eficiente,
+              acorde con las necesidades de las marcas.
+              Coarsa inicia operaciones en la zona de Occidente de Costa Rica.
             </div>
           </div>
           <div class="timeline-item">
@@ -112,7 +121,8 @@
             />
             <div class="year">2004</div>
             <div class="description">
-              Se obtuvo el ingreso de nuevos proveedores y cuentas especiales.
+              Ante el cumplimiento de los objetivos establecidos y su compromiso Coarsa
+              extiende sus operaciones al Pacífico Central.
             </div>
           </div>
           <div class="timeline-item">
@@ -124,7 +134,7 @@
             />
             <div class="year">2010</div>
             <div class="description">
-              Se obtuvo el ingreso de nuevos proveedores y cuentas especiales.
+              Se adquiere distribución en el área de Alajuela y Heredia.
             </div>
           </div>
           <div class="timeline-item">
@@ -184,7 +194,11 @@
             />
             <div class="year">2020</div>
             <div class="description">
-              Se obtuvo el ingreso de nuevos proveedores y cuentas especiales.
+              Eco-Proyectos
+              -Instalación de paneles solares
+              -Proceso de refinación de aceites para todos los camiones
+              -Programa de Reciclaje
+              -Instalación de orinales secos, sanitarios con aire, grifos reguladores
             </div>
           </div>
           <div class="timeline-item">
@@ -196,7 +210,8 @@
             />
             <div class="year">2021</div>
             <div class="description">
-              Se obtuvo el ingreso de nuevos proveedores y cuentas especiales.
+              Renovacion de flotilla vehicular.
+              Gestios de logística sistemaizada.
             </div>
           </div>
           <div class="timeline-item">
@@ -208,7 +223,7 @@
             />
             <div class="year">2022</div>
             <div class="description">
-              Se obtuvo el ingreso de nuevos proveedores y cuentas especiales.
+              Compra de Bodegas ubicadas en Escazú.
             </div>
           </div>
           <div class="timeline-item">
@@ -220,7 +235,8 @@
             />
             <div class="year">2023-2024</div>
             <div class="description">
-              Se obtuvo el ingreso de nuevos proveedores y cuentas especiales.
+              Ampliación de Bodega Central y reomodelación de oficianas centrales
+              Expansión de distribución a Cartago.
             </div>
           </div>
         </div>
@@ -334,23 +350,20 @@
           src="/Estilos/images/mapa.png"
           width="800"
         />
-        <div class="marker" style="top: 30%; left: 25%">
-       
+        <div class="marker" style="top:40%; left: 45%">
+          <div class="tooltip-text">Costa Rica, Alajuela</div>
         </div>
-        <div class="marker" style="top: 20%; left: 50%">
-          
+        <div class="marker" style="top:40%; left: 52%">
+        <div class="tooltip-text">Costa Rica, Heredia</div>
         </div>
-        <div class="marker" style="top: 40%; left: 60%">
-       
+        <div class="marker" style="top:48%; left: 59%">
+        <div class="tooltip-text">Costa Rica, Cartago</div>
         </div>
-        <div class="marker" style="top: 50%; left: 40%">
-          
+        <div class="marker" style="top:55%; left: 57%">
+        <div class="tooltip-text">Costa Rica, San José</div>
         </div>
-        <div class="marker" style="top: 70%; left: 50%">
-          
-        </div>
-        <div class="marker" style="top: 80%; left: 60%">
-          
+        <div class="marker" style="top:65%; left: 62%">
+        <div class="tooltip-text">Costa Rica, Puntarenas</div>
         </div>
       </div>
 

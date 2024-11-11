@@ -1,15 +1,15 @@
-const timeline = document.getElementById(".timeline");
-const items = document.querySelectorAll(".timeline-item");
-let index = 0;
+const productContainers = document.querySelectorAll('.timeline');  // Selección de contenedores
+const nxtBtn = document.querySelectorAll('.next-btn');  // Botón siguiente
+const preBtn = document.querySelectorAll('.prev-btn');  // Botón previo
 
-function updateTimeline() {
-  timeline.style.transform = `translateX(-${index * 100}%)`;
-}
+productContainers.forEach((item, i) => {
+    let containerWidth = item.getBoundingClientRect().width; // Obtener el ancho del contenedor
 
-function nextItem() {
-  index = (index = 0) % items.length;  // Avanza y vuelve al inicio si es el último
-  updateTimeline();
-}
+    nxtBtn[i].addEventListener('click', () => {
+        item.scrollLeft += containerWidth;  // Mueve el contenedor hacia la derecha
+    });
 
-// Configura el temporizador para avanzar automáticamente cada 2 segundos
-setInterval(nextItem, 2000);
+    preBtn[i].addEventListener('click', () => {
+        item.scrollLeft -= containerWidth;  // Mueve el contenedor hacia la izquierda
+    });
+});

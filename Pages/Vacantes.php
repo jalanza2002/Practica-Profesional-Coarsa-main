@@ -40,8 +40,10 @@ $vacantes = getVacantesConnection();
     <link rel="stylesheet" href="/Estilos/EstiloVacante.css">
 </head>
 <body>
-    <div class="back-arrow">
-        <i class="fas fa-arrow-left"></i>
+    <div >
+        <a href="/Pages/Quienes Somos.php">
+            <img src="/Estilos/images/fecha atras.png" alt="16px" class="back-arrow">
+        </a>
     </div>
     <div class="container">
         <h2>Trabaje para Nosotros</h2>
@@ -254,7 +256,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         $mail->addAttachment($cv['tmp_name'], $cv['name']);
         $mail->send();
         
-        echo 'El correo ha sido enviado correctamente';
+        echo '<script language="javascript">location.href = "/Pages/FinalizacionTarea.php";</scr>';
     } catch (Exception $e) {
         echo "El correo no pudo ser enviado. Error: {$mail->ErrorInfo}";
     }
