@@ -3,36 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Estilos/styles.css">
+    <link rel="stylesheet" href="/Estilos/EstiloMenuEmpleado.css">
     <title>Menu de Empleado</title>
 </head>
 <body>
 <div class="header">
-    <img src="/Estilos/images/Logo coarsa SOLIDO.jpg" alt="Distribuidora Coarsa Logo" width="200" height="60">
-    <a href="/Modules/Log_out.php">Cerrar sesión</a>
+    <img alt="Distribuidora Coarsa Logo" height="50" src="/Estilos/images/Logo Coarsa con slogan png.png" width="150"/>
+    <div class="logout">
+        <strong>
+            <a href="/Modules/Log_out.php">
+                <i>Cerrar sesión</i>
+            </a>
+        </strong>
+    </div>
 </div>
 <div class="container">
-    <div class="modules">
+    <div class="card">
+        <h3>Solicitudes</h3>
+        <strong>
+            Modulo para crear una solicitud
+        </strong>
         <a href="/Pages/PaginaEmpleado.php">
-        <div class="module">
-            <h2>Crear una solicitud</h2>
-            <p>Módulo para crear una solicitud sea de vacaciones o de prestamo</p>
-            <i class="fas fa-file-alt"></i>
-        </div>
+            <i>
+                <img src="/Estilos/images/lista.png" alt="">
+            </i>
         </a>
+    </div>
+    <div class="card">
+        <h3> Consultar Solicitudes</h3>
+        <strong>
+            Modulo para Consultar sus solicitudes
+        </strong>
         <a href="/Pages/Consultar solicitudes.php">
-        <div class="module">
-            <h2>Consultar Solicitudes</h2>
-            <p>Módulo para consultar sus solicitudes</p>
-            <i class="fas fa-briefcase"></i>
-        </div>
+            <i>
+                <img src="/Estilos/images/Consulta.png" alt="">
+            </i>
         </a>
+    </div>
+    <div class="card">
+        <h3>Datos Personales</h3>
+        <strong>
+            Modulo para Consultar sus Datos Personales
+        </strong>
         <a href="/Pages/Datos Empleado.php">
-        <div class="module">
-            <h2>Datos usuario</h2>
-            <p>Módulo para ver su informacion personal</p>
-            <i class="fas fa-user-plus"></i>
-        </div>
+            <i>
+                <img src="/Estilos/images/avatar.png">
+            </i>
         </a>
     </div>
 </div>

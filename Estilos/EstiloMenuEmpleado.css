@@ -18,16 +18,17 @@ body {
 .header .logout {
     font-size: 16px;
     color: black;
+    margin-left: auto;
 }
 .container {
     display: flex;
     justify-content: space-around;
     padding: 50px 0;
-    gap: 20px; /* Add gap between cards */
+    gap: 20px; 
 }
 .card {
     background-color: white;
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 20px;
     width: 200px;
     text-align: center;
@@ -45,7 +46,7 @@ body {
  
 }
 .card i {
-    font-size: 50px;
-    color: black;
-    align-items: center;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
 }

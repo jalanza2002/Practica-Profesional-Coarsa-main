@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt_actualizar->close();
 
         echo "Contraseña restablecida con éxito.";
-        echo '<script language="javascript">location.href = "/Pages/Log In.php";</script>';
+        echo '<script language="javascript">location.href = "/Pages/FinalizacionTarea_Clave";</script>';
     } else {
         echo "Las contraseñas no coinciden.";
     }
@@ -46,21 +46,24 @@ $conexion->close();
 <html>
 <head>
     <title>Restablecer Contraseña</title>
-    <link rel="stylesheet" href="/Estilos/styles.css">
+    <link rel="stylesheet" href="/Estilos/Estilo Log In.css">
 </head>
 <body>
-<div class="contenedor">
+<div class="login-container">
+    <center>
+    <img  src="/Estilos/images/Logo coarsa SOLIDO.jpg">
     <form method="POST">
-        <label for="txtcorreo">Correo:</label>
-        <input type="email" name="txtcorreo" required>
+        <input type="email" name="txtcorreo" required placeholder="Digite su Correo">
         <br>
-        <label for="nuevaContrasena">Nueva Contraseña:</label>
-        <input type="password" name="nuevaContrasena" required>
         <br>
-        <label for="confirmarContrasena">Confirmar Contraseña:</label>
-        <input type="password" name="confirmarContrasena" required>
+        <input type="password" name="nuevaContrasena" required placeholder="Digite la Nueva Clave">
+        <br>
+        <br>
+        <input type="password" name="confirmarContrasena" required placeholder="Confirme su nueva Clave">
+        <br>
         <br>
         <input class="button" type="submit" value="Restablecer Contraseña">
+        </center>
     </form>
 </div>
 </body>

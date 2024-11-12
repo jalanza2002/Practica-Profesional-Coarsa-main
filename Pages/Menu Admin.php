@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="header">
-   <img alt="Distribuidora Coarsa Logo" height="50" src="/Estilos/images/Logo coarsa SOLIDO.jpg" width="150"/>
+   <img alt="Distribuidora Coarsa Logo" height="50" src="/Estilos/images/Logo Coarsa con slogan png.png" width="150"/>
    <div class="logout">
     <strong>
    <a href="/Modules/Log_out.php">

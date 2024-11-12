@@ -8,31 +8,47 @@
 </head>
 <body>
 <div class="header">
-    <img src="/Estilos/images/Logo coarsa SOLIDO.jpg" alt="Distribuidora Coarsa Logo" width="200" height="60">
-    <a href="/Modules/Log_out.php">Cerrar sesión</a>
+    <img alt="Distribuidora Coarsa Logo" height="50" src="/Estilos/images/Logo Coarsa con slogan png.png" width="150"/>
+    <div class="logout">
+        <strong>
+            <a href="/Modules/Log_out.php">
+                <i>Cerrar sesión</i>
+            </a>
+        </strong>
+    </div>
 </div>
 <div class="container">
-    <div class="modules">
-        <a href="/Pages/Actualizar Solicitudes.php">
-        <div class="module">
-            <h2>Solicitudes</h2>
-            <p>Módulo para revisar las solicitudes nuevas de empleo</p>
-            <i class="fas fa-file-alt"></i>
-        </div>
-        </a>
-        <a href="/Pages/PaginaRH.php">
-        <div class="module">
-            <h2>Puestos</h2>
-            <p>Módulo para actualizar los puestos de trabajo</p>
-            <i class="fas fa-briefcase"></i>
-        </div>
-        </a>
+    <div class="card">
+        <h3>Crear Usuario</h3>
+        <strong>
+            Modulo para crear Usuarios
+        </strong>
         <a href="/Pages/CrearUsuario.php">
-        <div class="module">
-            <h2>Nuevos usuarios</h2>
-            <p>Módulo para agregar nuevos usuarios a la plataforma virtual</p>
-            <i class="fas fa-user-plus"></i>
-        </div>
+            <i>
+                <img src="/Estilos/images/usuarios.png" alt="">
+            </i>
+        </a>
+    </div>
+    <div class="card">
+        <h3>Consultar Solicitudes</h3>
+        <strong>
+            Modulo para consultar solicitudes y dar una respuesta
+        </strong>
+        <a href="/Pages/Actualizar Solicitudes.php">
+            <i>
+                <img src="/Estilos/images/lista.png" alt="">
+            </i>
+        </a>
+    </div>
+    <div class="card">
+        <h3>Crear Puesto</h3>
+        <strong>
+            Modulo para crear,Actualizar y Eliminar Puestos
+        </strong>
+        <a href="/Pages/PaginaRH.php">
+            <i>
+                <img src="/Estilos/images/trabajo.png" alt="">
+            </i>
         </a>
     </div>
 </div>
