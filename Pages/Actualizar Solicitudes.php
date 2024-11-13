@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Estilos/styles.css">
+    <link rel="stylesheet" href="/Estilos/Estilo Tabla.css">
     <title>Actualizar Solicitudes</title>
 </head>
 <body>
-
-
-    <h1>Coarsa Recursos Humanos</h1>
-    <div class="nav-buttons">
-    <a href="Menu RH.php">Volver</a>
-    </div>
-<br>
-<br>
+<header class="header">
+        <a href="Menu RH.php">
+            <img src="/Estilos/images/fecha atras.png" alt="12px" class="back-arrow">
+        </a>
+        <img src="/Estilos/images/Logo Coarsa con slogan png.png" alt="Logo de Coarsa"> <!-- Asegúrate de cambiar "logo.png" por la ruta correcta de tu logo -->
+        <a href="logout.php" class="logout">Cerrar sesión</a>
+    </header>
 <form method="post">
 <input type="submit" value="Buscar" style="float: right;">
 <label for="Filtrotxt"></label>

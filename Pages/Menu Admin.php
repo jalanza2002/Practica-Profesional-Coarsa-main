@@ -21,9 +21,9 @@
   </div>
 <div class="container">
     <div class="card">
-        <h3>Solicitudes</h3>
+        <h3>Usuarios</h3>
         <strong>
-        <p>Modulo para revisar las solicitudes</p>
+        <p>Modulo para Actulizar roles y Estados de los usuarios</p>
         </strong>
         <a href="/Pages/Consultar Usuarios.php">
         <i>

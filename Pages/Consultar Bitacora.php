@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Estilos/styles.css">
+    <link rel="stylesheet" href="/Estilos/Estilo Tabla.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Bitacora de ingresos a la pagina</h1>
-    <div class="nav-buttons">
-        <a href="Menu Admin.php">Volver</a>
-    </div>
-    <br>
-    <center><h2>Tabla de Bitacoras</h2></center>
-    <br>
+<header class="header">
+        <a href="/Pages/Menu Admin.php">
+            <img src="/Estilos/images/fecha atras.png" alt="12px" class="back-arrow">
+        </a>
+        <img src="/Estilos/images/Logo Coarsa con slogan png.png" alt="Logo de Coarsa">
+        <a href="logout.php" class="logout">Cerrar sesión</a>
+    </header>
 
     <form method="post">
     <input type="submit" value="Buscar" style="float: right;">

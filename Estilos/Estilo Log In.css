@@ -11,15 +11,25 @@ body {
      .login-container {
          background-color: white;
          border-radius: 20px;
-         padding: 40px;
+         padding: 70px;
          width: 300px;
          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);   
+     }
+     .login-container input[type="text"],
+     .login-container input[type="password"]
+     {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
      }
      button{
         background-color:#FCCD01;
      }
      .login-container img {
-         width: 200px !important;
+         width: 300px !important;
          margin-bottom: 20px;
      }
 
@@ -57,11 +67,6 @@ body {
          left: 10px;
          transform: translateY(-50%);
          color: #888;
-     }
-     .input-group .fa-eye {
-         right: 10px;
-         left: auto;
-         cursor: pointer;
      }
      .forgot-password {
          display: block;
