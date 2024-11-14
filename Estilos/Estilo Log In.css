@@ -1,7 +1,12 @@
-
+@font-face {
+    font-family: "Uni Sans Semibold"; /* Cambié el nombre de la fuente */
+    src: url("/Estilos/FontsFree-Net-uni-sans-semibold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
 body {
          margin: 0;
-         font-family: Arial, sans-serif;
+         font-family:"Uni Sans Semibold",Arial, sans-serif;
          background: linear-gradient(to bottom, #0a4d8a, #000);
          height: 100vh;
          display: flex;

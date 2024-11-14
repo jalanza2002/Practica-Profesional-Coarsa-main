@@ -266,15 +266,6 @@
             <div class="product-card">
               <div class="product-image">
                 <img
-                  src="/Estilos/images/brand1.png"
-                  class="product-thumb"
-                  alt=""
-                />
-              </div>
-            </div>
-            <div class="product-card">
-              <div class="product-image">
-                <img
                   src="/Estilos/images/brand2.png"
                   class="product-thumb"
                   alt=""

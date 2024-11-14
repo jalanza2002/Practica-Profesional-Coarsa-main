@@ -1,3 +1,10 @@
+@font-face {
+    font-family: Arial, sans-serif;
+    src: url(/Estilos/FontsFree-Net-uni-sans-semibold.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;

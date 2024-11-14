@@ -5,11 +5,18 @@
     box-sizing: border-box;
   }
   
+  @font-face {
+    font-family: "Uni sans semibold"; /* Cambié el nombre de la fuente */
+    src: url("/Estilos/FontsFree-Net-uni-sans-semibold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+  
   body,
   html {
     width: 100%;
     height: 100%;
-    font-family: Arial, sans-serif;
+    font-family: "Uni sans semibold",Arial, sans-serif;
     overflow-x: hidden; 
     overflow-y: auto; 
   }
@@ -422,6 +429,121 @@
       display: flex;
     }
   }
+  /* Estilos para pantallas grandes */
+@media (min-width: 1024px) {
+  /* Ajuste de contenedores */
+  .main-container {
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .main,
+  .footer {
+    padding: 40px;
+  }
+
+  /* Logo */
+  .logo {
+    width: 150px;
+  }
+
+  /* Flechas de navegación */
+  .arrow-left,
+  .arrow-right {
+    font-size: 28px;
+    width: 50px;
+    height: 50px;
+  }
+
+  /* Secciones de contenido */
+  .section {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  .values {
+    gap: 80px;
+  }
+
+  .values img {
+    width: 120px;
+    height: 120px;
+  }
+
+  /* Línea de tiempo */
+  .timeline-container {
+    width: 80%;
+  }
+
+  .timeline-item {
+    width: 300px;
+    padding: 20px;
+  }
+
+  .year {
+    font-size: 28px;
+  }
+
+  .description {
+    font-size: 18px;
+  }
+
+  /* Marcas */
+  .product-container {
+    padding: 0 10vw;
+    gap: 30px;
+  }
+
+  .product-card {
+    width: 500px;
+    height: 500px;
+  }
+
+  /* Navbar */
+  .navbar {
+    width: 70%;
+    padding: 50px 0;
+  }
+
+  .navbar ul li {
+    margin: 0 30px;
+  }
+
+  .navbar ul li a {
+    font-size: 18px;
+  }
+
+  /* Mapa */
+  .map-container {
+    padding: 50px;
+  }
+
+  .map img {
+    max-width: 1000px;
+  }
+
+  /* Footer */
+  footer {
+    padding: 60px 0;
+  }
+
+  footer .container {
+    padding: 40px;
+  }
+
+  footer .divider {
+    height: 300px;
+  }
+
+  footer .content h1 {
+    font-size: 36px;
+  }
+
+  footer .content p {
+    font-size: 20px;
+  }
+}
   
   /* Mapa */
   .map-container {

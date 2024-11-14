@@ -13,7 +13,12 @@
     overflow-y: auto;  /* Permitir scroll si el contenido es demasiado largo */
     box-sizing: border-box; /* Asegura que el padding se incluya en el tamaño total */
 }
-
+@font-face {
+    font-family: Arial, sans-serif;
+    src: url(/Estilos/FontsFree-Net-uni-sans-semibold.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
 #modal h2, #modal p {
     margin: 10px 0; /* Añadir márgenes al texto */
 }
