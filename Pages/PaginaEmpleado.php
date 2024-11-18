@@ -21,7 +21,7 @@ $Cedula = isset($_SESSION['Cedula']) ? $_SESSION['Cedula']: '';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Estilos/styles.css">
+    <link rel="stylesheet" href="/Estilos/EstiloVacante.css">
     <link rel="stylesheet" href="/Estilos/style terminos y condiciones.css">
     <title>Pagina de Empleados</title>
 </head>
@@ -32,7 +32,7 @@ $Cedula = isset($_SESSION['Cedula']) ? $_SESSION['Cedula']: '';
         <a href="Consultar Solicitudes.php">Ver Solicitudes</a>
         <a href="PaginaEmpleado.php">Crear Solicitud</a>
         <a href="Menu Empleado.php">Volver</a>
-        </div>
+        </div>  
     </div>
     <script src="/Estilos/mecanismo de ventana emergente.js"></script>
 

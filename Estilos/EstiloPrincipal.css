@@ -22,13 +22,6 @@
   }
   
   /* Estilo principal de la página */
-  .main-container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background: url("/Estilos/images/menu.jpg") no-repeat center center;
-    background-size: cover;
-  }
   
   .main,
   .footer {
@@ -37,9 +30,15 @@
   
   /* Logo */
   .logo {
-    width: 100px;
+    width: 200px;
     cursor: pointer;
     border-radius: 17%;
+    position: flex;
+    top: 0;
+    left: 0;
+    gap: 10px;
+    margin: 0px;
+    height: auto;
   }
   
   /* Flechas de navegación */
@@ -109,7 +108,7 @@
     text-align: justify;
   }
   
-  /* Valores (sección con íconos) */
+  /*----------------------- Valores (sección con íconos) -------------------------------------------*/
   .values {
     display: flex;
     justify-content: space-between;
@@ -334,13 +333,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: relative;
+    position: relative; 
   }
   
   .navbar ul {
     display: flex;
     margin: 0;
     padding: 0;
+    gap: 10px;
   }
   
   .navbar ul li {
@@ -353,6 +353,11 @@
     text-decoration: none;
     color: #fff;
     text-transform: uppercase;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+  }
+  .navbar ul li a:hover {
+    background-color: #002cf0; /* Fondo azul en hover */
+    color: #fff; /* El color del texto se mantiene blanco */
   }
   
   .navbar ul li::after {
@@ -432,11 +437,7 @@
   /* Estilos para pantallas grandes */
 @media (min-width: 1084px) {
   /* Ajuste de contenedores */
-  .main-container {
-    height: 100vh;
-    background-position: center;
-    background-size: cover;
-  }
+
 
   .main,
   .footer {
@@ -445,7 +446,7 @@
 
   /* Logo */
   .logo {
-    width: 150px;
+    width: 250px;
   }
 
   /* Flechas de navegación */
@@ -545,7 +546,7 @@
   }
 }
   
-  /* Mapa */
+  /*------------------------------ Mapa ---------------------------------------------------------*/
   .map-container {
     text-align: center;
     background: linear-gradient(to top, #fff, #87cbeb);

@@ -51,6 +51,17 @@
             </i>
         </a>
     </div>
+    <div class="card">
+        <h3>Candidatos</h3>
+        <strong>
+            Modulo descargar las hojas de vida
+        </strong>
+        <a href="/Pages/Candidatos.php">
+            <i>
+                <img src="/Estilos/images/trabajo.png" alt="">
+            </i>
+        </a>
+    </div>
 </div>
 </body>
 </html>

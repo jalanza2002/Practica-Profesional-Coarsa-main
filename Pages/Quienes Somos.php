@@ -11,7 +11,7 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/Estilos/EstiloPrincipal.css" />
+    <link rel="stylesheet" href="/Estilos/EstiloPrincipal.css"/>
   </head>
   <body class="body">
     <!-- Contenedor principal con imagen de fondo y navegación -->
@@ -21,6 +21,7 @@
           src="/Estilos/images/Logo coarsa SOLIDO.jpg"
           alt="Logo"
           class="logo"
+          
         />
 
         <!-- Botón de hamburguesa -->
