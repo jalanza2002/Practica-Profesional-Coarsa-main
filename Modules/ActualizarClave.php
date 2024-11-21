@@ -39,8 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Correotxt']) && isset(
         $stmt->bindParam(':correo', $correo);
 
         if ($stmt->execute()) {
-            echo '<script language="javascript">alert("La clave se actualizo correctamente.");</script>';
-            echo '<script language="javascript">location.href = "/Pages/Datos Empleado.php";</script>';
+            echo '<script language="javascript">location.href = "/Pages/FinalizacionTarea_Clave_Usuario";</script>';
         } else {
             echo '<script language="javascript">alert("La clave no actualizo correctamente.");</script>';
             echo '<script language="javascript">location.href = "/Pages/Datos Empleado.php";</script>';

@@ -124,8 +124,8 @@ function Enviar_Solicitud() {
     $stmt->bindParam(':Estado', $Estado);
 
     if ($stmt->execute()) {
-        echo '<script language="javascript">alert("Su solicitud ha sido enviada correctamente");</script>';
-        echo '<script language="javascript">location.href = "/Pages/PaginaEmpleado.php";</script>';
+        
+        echo '<script language="javascript">location.href = "/Pages/FinalizacionTarea_Solicitud.php";</script>';
     } else {
         echo "Error: No se pudo enviar la solicitud.";
         }
@@ -189,7 +189,7 @@ function Enviar_Solicitud() {
         }
     } else {
         // Si no se envió el formulario, redirigir a la página del formulario
-        header('Location: /Pages/Log In.php');
+        header('Location: /Pages/Menu Empleado.php');
         exit();
     }
 }

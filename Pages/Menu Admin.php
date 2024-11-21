@@ -42,6 +42,28 @@
         </i>
         </a>
     </div>
+    <div class="card">
+        <h3>Crear Usuario</h3>
+        <strong>
+        <p>Modulo para crear un usuario</p>
+        </strong>
+        <a href="/Pages/CrearUsuarioAdmin.php">
+        <i>
+            <img src="/Estilos/images/usuarios.png" alt="Consultar_Usuario">
+        </i>
+        </a>
+    </div>
+    <div class="card">
+        <h3>Crear Usuario</h3>
+        <strong>
+        <p>Modulo para dar una respuesta de solicitud</p>
+        </strong>
+        <a href="/Pages/Actualizar Solicitudes_Admin.php">
+        <i>
+            <img src="/Estilos/images/Consulta.png" alt="Consultar_Usuario">
+        </i>
+        </a>
+    </div>
 </div>
 </body>
 

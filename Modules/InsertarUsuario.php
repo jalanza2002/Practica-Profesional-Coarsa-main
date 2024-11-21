@@ -79,8 +79,8 @@ function CrearUsuario(){
                 $stmt->bindParam(':estado', $Estado);
 
                 if ($stmt->execute()) {
-                    echo '<script language="javascript">alert("El empleado se creó correctamente.");</script>';
-                    echo '<script language="javascript">location.href = "/Pages/CrearUsuario.php";</script>';
+                    
+                    echo '<script language="javascript">location.href = "Pages\FinalizacionTarea_Clave_Usuario.php";</script>';
                 } else {
                     echo "Error: No se pudo crear el usuario.";
                 }
