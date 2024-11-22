@@ -80,7 +80,7 @@ function CrearUsuario(){
 
                 if ($stmt->execute()) {
                     
-                    echo '<script language="javascript">location.href = "Pages\FinalizacionTarea_Clave_Usuario.php";</script>';
+                    echo '<script language="javascript">location.href = "/Pages/FinalizacionTarea_Usuario";</script>';
                 } else {
                     echo "Error: No se pudo crear el usuario.";
                 }

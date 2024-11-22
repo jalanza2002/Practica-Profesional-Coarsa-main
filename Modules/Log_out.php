@@ -20,7 +20,7 @@ if (isset($_SESSION['IdUsuario'])) {
     $IdUsuario = $_SESSION['IdUsuario'];
 
     // Actualizar la fecha de salida en la tabla bitacora
-    $stmt_bitacora = $conexion->prepare("UPDATE bitacora SET FechaSalida = NOW() WHERE IdUsuario = ? AND FechaSalida IS NULL ORDER BY FechaEntrada DESC LIMIT 1");
+    $stmt_bitacora = $conexion->prepare("UPDATE bitacora SET HOraSalida = NOW() WHERE IdUsuario = ? AND HoraSalida IS NULL ORDER BY HoraEntrada DESC LIMIT 1");
     $stmt_bitacora->bind_param("i", $IdUsuario);
     $stmt_bitacora->execute();
     $stmt_bitacora->close();

@@ -32,6 +32,9 @@
                     <th>Puesto</th>
                     <th>Ingreso</th>
                     <th>Salida</th>
+                    <th>Rol</th>
+                    <th>EstadoSolicitud</th>
+                    <th>GestionadoPor</th>
                 </tr>
 
                 <?php 
@@ -66,8 +69,12 @@
                             echo '<td>' .$b['NombreEmpleado']. '</td>';
                             echo '<td>' .$b['ApellidosEmpleado']. '</td>';
                             echo '<td>' .$b['Puesto']. '</td>';
-                            echo '<td>' .$b['FechaEntrada']. '</td>';
-                            echo '<td>' .$b['FechaSalida']. '</td>';
+                            echo '<td>' .$b['HoraEntrada']. '</td>';
+                            echo '<td>' .$b['HoraSalida']. '</td>';
+                            echo '<td>' .$b['Rol']. '</td>';
+                            echo '<td>' .$b['EstadoSolicitud']. '</td>';
+                            echo '<td>' .$b['GestionadoPor']. '</td>';
+                            echo '</tr>';                    
                         }
                     }
                     Mostrarbitacora();
