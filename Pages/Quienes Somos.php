@@ -86,16 +86,11 @@
           Honradez. <br />
           Lealtad y Respeto <br />
         </p>
+        <br><br>
       </div>
       <!-- esturctura de la historia COARSA-->
       <div class="title">Nuestra historia</div>
       <div class="timeline-container">
-        <button class="prev-btn">
-            <img src="/Estilos/images/arrow.png" alt="">
-          </button>
-          <button class="next-btn">
-            <img src="/Estilos/images/arrow.png" alt="">
-          </button>
         <div class="timeline">
           <div class="timeline-item">
             <img
@@ -241,6 +236,7 @@
             </div>
           </div>
         </div>
+        <br><br>
       </div>
 
       <!--Marcas que distribuye la Empresa -->
@@ -328,11 +324,10 @@
               </div>
             </div>
           </div>
+          <br><br>
         </section>
       </div>
-
       <!--Mapa de cobertura de la empresa-->
-
       <div class="map-container">
         <br />
         <h1>Nuestra cobertura</h1>
@@ -358,7 +353,7 @@
         <div class="tooltip-text">Costa Rica, Puntarenas</div>
         </div>
       </div>
-
+      <br><br><br><br>
       <!--Contacto de la empresa-->
       <footer class="footer">
         <div class="container">
