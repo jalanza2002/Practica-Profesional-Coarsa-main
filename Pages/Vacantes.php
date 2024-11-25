@@ -125,7 +125,7 @@ $vacantes = getVacantesConnection();
         $stmt->bindParam(':cv_data', $cv_data, PDO::PARAM_LOB);
 
         if ($stmt->execute()) {
-            echo "Sus datos se han guardado correctamente.";
+            echo '<script language="javascript">location.href = "/Pages/FinalizacionTarea.php";</scr>';
         } else {
             echo "Error: No se pudieron guardar los datos.";
         }

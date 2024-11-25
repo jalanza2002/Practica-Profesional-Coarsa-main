@@ -88,15 +88,15 @@
         </p>
       </div>
       <!-- esturctura de la historia COARSA-->
+      <div class="title">Nuestra historia</div>
       <div class="timeline-container">
-        <div class="title">Nuestra historia</div>
-        <div class="timeline">
         <button class="prev-btn">
             <img src="/Estilos/images/arrow.png" alt="">
           </button>
           <button class="next-btn">
             <img src="/Estilos/images/arrow.png" alt="">
           </button>
+        <div class="timeline">
           <div class="timeline-item">
             <img
               alt="Handshake image"

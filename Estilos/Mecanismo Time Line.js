@@ -1,15 +1,21 @@
-const productContainers = document.querySelectorAll('.timeline');  // Selección de contenedores
-const nxtBtn = document.querySelectorAll('.next-btn');  // Botón siguiente
-const preBtn = document.querySelectorAll('.prev-btn');  // Botón previo
+const carousel = document.querySelectorAll('.timeline'); 
+const nextBtn = document.querySelectorAll('.nxt-btn'); 
+const prevsBtn = document.querySelectorAll('.pre-btn'); 
 
-productContainers.forEach((item, i) => {
-    let containerWidth = item.getBoundingClientRect().width; // Obtener el ancho del contenedor
+carousel.forEach((item, i) => {
+    let containerWidth = item.getBoundingClientRect().width;
 
     nxtBtn[i].addEventListener('click', () => {
-        item.scrollLeft += containerWidth;  // Mueve el contenedor hacia la derecha
+        item.scrollLeft += containerWidth;
+        if (item.scrollLeft + containerWidth >= item.scrollWidth) {
+            item.scrollLeft = item.scrollWidth; // Ajusta al final exacto
+        }
     });
 
     preBtn[i].addEventListener('click', () => {
-        item.scrollLeft -= containerWidth;  // Mueve el contenedor hacia la izquierda
+        item.scrollLeft -= containerWidth;
+        if (item.scrollLeft - containerWidth <= 0) {
+            item.scrollLeft = 0; // Ajusta al inicio exacto
+        }
     });
 });
