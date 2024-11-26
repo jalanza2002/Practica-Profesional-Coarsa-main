@@ -11,15 +11,6 @@
     font-weight: normal;
     font-style: normal;
 }
-@media (min-width: 1920px) and (min-height: 1080px) {
-  /* Estilos específicos para pantallas 1920x1080 */
-  body {
-    font-size: 1000px; /* Ejemplo: aumentar el tamaño de fuente */
-  }
-  .container {
-    padding: 1000px; /* Ejemplo: aumentar el relleno */
-  }
-}
   body,
   html {
     width: 100%;
@@ -702,4 +693,135 @@
       gap: 20px;
     }
   }
+  /* Cambios responsivos */
+  @media (min-width: 1920px) and (min-height: 1080px) {
+    /* Contenedor principal */
+    .main,
+    .footer {
+      padding: 50px;
+    }
+  
+    /* Logo */
+    .logo {
+      width: 300px;
+      height: auto;
+      margin: 20px;
+      position: relative;
+    }
+  
+    /* Flechas de navegación */
+    .arrow-left,
+    .arrow-right {
+      font-size: 32px;
+      width: 60px;
+      height: 60px;
+    }
+  
+    /* Contenido general */
+    main {
+      padding: 40px;
+      font-size: 20px;
+    }
+  
+    h1 {
+      font-size: 42px;
+    }
+  
+    p {
+      font-size: 20px;
+    }
+  
+    .section {
+      width: 70%;
+      margin: 0 auto;
+    }
+  
+    /* Valores con íconos */
+    .values {
+      gap: 100px;
+    }
+  
+    .values img {
+      width: 150px;
+      height: 150px;
+    }
+  
+    /* Línea de tiempo */
+    .timeline-container {
+      width: 85%;
+      margin: auto;
+    }
+  
+    .timeline-item {
+      width: 400px;
+      padding: 30px;
+    }
+  
+    .year {
+      font-size: 30px;
+    }
+  
+    .description {
+      font-size: 20px;
+    }
+  
+    /* Productos */
+    .product-container {
+      gap: 40px;
+    }
+  
+    .product-card {
+      width: 600px;
+      height: 600px;
+    }
+  
+    .product-image {
+      height: 450px;
+    }
+  
+    /* Navbar */
+    .navbar {
+      width: 75%;
+      padding: 60px 0;
+    }
+  
+    .navbar ul li {
+      margin: 0 40px;
+    }
+  
+    .navbar ul li a {
+      font-size: 20px;
+    }
+  
+    /* Mapa */
+    .map-container {
+      padding: 60px;
+    }
+  
+    .map img {
+      max-width: 1200px;
+    }
+  
+    /* Footer */
+    footer {
+      padding: 80px 0;
+    }
+  
+    footer .container {
+      padding: 50px;
+    }
+  
+    footer .divider {
+      height: 350px;
+    }
+  
+    footer .content h1 {
+      font-size: 40px;
+    }
+  
+    footer .content p {
+      font-size: 22px;
+    }
+  }
+  
   
