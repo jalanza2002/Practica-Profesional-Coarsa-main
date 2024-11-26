@@ -244,12 +244,6 @@
       <div class="brands-background">
         <section class="product">
           <h2 class="product-category">Nuestras Marcas</h2>
-          <button class="pre-btn">
-            <img src="/Estilos/images/arrow.png" alt="" />
-          </button>
-          <button class="nxt-btn">
-            <img src="/Estilos/images/arrow.png" alt="" />
-          </button>
           <div class="product-container">
             <div class="product-card">
               <div class="product-image">
