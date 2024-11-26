@@ -1,15 +1,11 @@
-const productContainers = document.querySelectorAll('.product-container');  // Selección de contenedores
-const nxtBtn = document.querySelectorAll('.next-btn');  // Botón siguiente
-const preBtn = document.querySelectorAll('.prev-btn');  // Botón previo
+window.onload = function() {
+    const productContainer = document.querySelector('.product-container');
+    const items = productContainer.querySelectorAll('.product-card');
+    const totalItems = items.length;
 
-productContainers.forEach((item, i) => {
-    let containerWidth = item.getBoundingClientRect().width; // Obtener el ancho del contenedor
-
-    nxtBtn[i].addEventListener('click', () => {
-        item.scrollLeft += containerWidth;  // Mueve el contenedor hacia la derecha
-    });
-
-    preBtn[i].addEventListener('click', () => {
-        item.scrollLeft -= containerWidth;  // Mueve el contenedor hacia la izquierda
-    });
-});
+    // Clonamos los elementos para que haya suficientes para que el bucle sea continuo
+    for (let i = 0; i < totalItems; i++) {
+        const cloneItem = items[i].cloneNode(true);
+        productContainer.appendChild(cloneItem);
+    }
+};
