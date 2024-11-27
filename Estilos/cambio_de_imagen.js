@@ -22,4 +22,4 @@ function changeBackground() {
 }
 
 // Cambia de fondo cada 5 segundos con un desvanecimiento de 2 segundos
-setInterval(changeBackground, 5000);
+setInterval(changeBackground, 10000);
