@@ -281,7 +281,7 @@
     flex: 0 0 auto;
     width: 450px;
     height: 450px;
-    margin-right: 20px;
+    margin-right: 5px;
   }
   
   .product-image {
@@ -379,7 +379,6 @@
     transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
   }
   .navbar ul li a:hover {
-    background-color: #002cf0; /* Fondo azul en hover */
     color: #fff; /* El color del texto se mantiene blanco */
   }
   
@@ -460,8 +459,6 @@
   /* Estilos para pantallas grandes */
 @media (min-width: 1084px) {
   /* Ajuste de contenedores */
-
-
   .main,
   .footer {
     padding: 40px;
