@@ -96,34 +96,6 @@ $Cedula = isset($_SESSION['Cedula']) ? $_SESSION['Cedula']: '';
         </center>
     </div>
     </form>
-    
-        <center>
-            <table border="2">
-                <tr>
-                    <th>Monto del Prestamo</th>
-                    <th>Monto mínimo a rebajar por quincena</th>
-                </tr>
-                <tr>
-                    <td>25.000</td>
-                    <td>5.000</td>
-                </tr>
-                <tr>
-                    <td>50.000</td>
-                    <td>10.000</td>
-                </tr>
-                <tr>
-                    <td>75.000</td>
-                    <td>10.000</td>
-                </tr>
-                <tr>
-                    <td>100.000</td>
-                    <td>10.000</td>
-                </tr>
-            </table><br>
-            <br>
-        </center>
-    </div>
-    </form>
     <!--Funcion para ocultar y mostrar el campo fecha-->
     <script>
         function mostrarCampoFecha() {
