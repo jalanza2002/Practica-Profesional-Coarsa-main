@@ -74,10 +74,10 @@ $Cedula = isset($_SESSION['Cedula']) ? $_SESSION['Cedula']: '';
                 <label for="Prestamotxt">Seleccione un prestamo:</label>
                 <select name="Prestamotxt" id="Prestamotxt">
                     <option >Seleccione un Monto</option>
-                    <option >25,000</option>
-                    <option >50,000</option>
-                    <option >75,000</option>
-                    <option >100,000</option>
+                    <option >25000</option>
+                    <option >50000</option>
+                    <option >75000</option>
+                    <option >100000</option>
                 </select><br>
                 <br>
             </div>

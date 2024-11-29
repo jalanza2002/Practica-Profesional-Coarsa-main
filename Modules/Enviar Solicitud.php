@@ -106,6 +106,10 @@ function Enviar_Solicitud() {
     {
         return;
     }
+    echo "Fecha de EntradaVacaciones: " . var_export($Entrada_Vaca, true);
+    echo "Fecha de EntradaTrabajo: " . var_export($Entrada_Traba, true);
+
+    
     // Preparar la consulta SQL
     $sql = "INSERT INTO solicitudes (CorreoEmpleado, Cedula, Nombre, Apellidos, Puesto, Solicitud, Monto, EntradaVacaciones, EntradaTrabajo, Descripción, Estado) 
             VALUES (:correo, :cedula, :nombre, :apellidos, :puesto, :solicitud, :prestamo, :EntradaVaca, :EntradaTra, :Descripcion, :Estado)";
@@ -125,7 +129,7 @@ function Enviar_Solicitud() {
 
     if ($stmt->execute()) {
         
-        echo '<script language="javascript">location.href = "/Pages/FinalizacionTarea_Solicitud.php";</script>';
+    echo '<script language="javascript">location.href = "\Pages\FinalizacionTarea_Solicitud.php";</script>';
     } else {
         echo "Error: No se pudo enviar la solicitud.";
         }

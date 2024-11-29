@@ -50,7 +50,7 @@ if (isset($_POST['Ingresarbtn'])) {
                 $stmt_bitacora = $conexion->prepare("INSERT INTO bitacora
                 (IdUsuario, Cedula, NombreEmpleado, ApellidosEmpleado, Puesto, HoraEntrada, Rol, EstadoSolicitud)
                     VALUES (?, ?, ?, ?, ?, NOW(), ?, ?)");
-                $stmt_bitacora->bind_param("isssssss", $IdUsuario, $Cedula, $NombreEmpleado, $ApellidosEmpleado, $Puesto, $Rol, $EstadoSolicitud);
+                $stmt_bitacora->bind_param("issssss", $IdUsuario, $Cedula, $NombreEmpleado, $ApellidosEmpleado, $Puesto, $Rol, $EstadoSolicitud);
                 $stmt_bitacora->execute();
                 $stmt_bitacora->close();
 
