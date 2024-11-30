@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -106,9 +106,6 @@ function Enviar_Solicitud() {
     {
         return;
     }
-    echo "Fecha de EntradaVacaciones: " . var_export($Entrada_Vaca, true);
-    echo "Fecha de EntradaTrabajo: " . var_export($Entrada_Traba, true);
-
     
     // Preparar la consulta SQL
     $sql = "INSERT INTO solicitudes (CorreoEmpleado, Cedula, Nombre, Apellidos, Puesto, Solicitud, Monto, EntradaVacaciones, EntradaTrabajo, Descripción, Estado) 
@@ -126,7 +123,6 @@ function Enviar_Solicitud() {
     $stmt->bindParam(':EntradaTra',$Entrada_Traba);
     $stmt->bindParam(':Descripcion', $Descripcion);
     $stmt->bindParam(':Estado', $Estado);
-
     if ($stmt->execute()) {
         
     echo '<script language="javascript">location.href = "\Pages\FinalizacionTarea_Solicitud.php";</script>';
