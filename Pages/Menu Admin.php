@@ -54,9 +54,9 @@
         </a>
     </div>
     <div class="card">
-        <h3>Crear Usuario</h3>
+        <h3>Actualizar Solicitudes</h3>
         <strong>
-        <p>Modulo para dar una respuesta de solicitud</p>
+        <p>Modulo para dar una respuesta a las solicitud</p>
         </strong>
         <a href="/Pages/Actualizar Solicitudes_Admin.php">
         <i>

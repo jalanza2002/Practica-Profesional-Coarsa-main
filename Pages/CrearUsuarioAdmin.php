@@ -8,16 +8,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Estilos/styles.css">
+    <link rel="stylesheet" href="/Estilos/Estilo Tabla.css">
     <title>Crear Usuario de Empleado</title>
 </head>
 <body>
-<div class="header">
-<h2>Coarsa Recursos Humanos</h2>
-<div class="nav-buttons">
-    <a href="Menu RH.php">Volver</a>
-</div>
-</div>
+<header class="header">
+        <a href="Menu Admin.php">
+            <img src="/Estilos/images/fecha atras.png" alt="12px" class="back-arrow">
+        </a>
+        <img src="/Estilos/images/Logo Coarsa con slogan png.png" alt="Logo de Coarsa"> <!-- Asegúrate de cambiar "logo.png" por la ruta correcta de tu logo -->
+        <a href="logout.php" class="logout">Cerrar sesión</a>
+    </header>
 
 <div class="contenedor">
 <center>

@@ -21,19 +21,19 @@ $Cedula = isset($_SESSION['Cedula']) ? $_SESSION['Cedula']: '';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Estilos/EstiloVacante.css">
+    <link rel="stylesheet" href="/Estilos/Estilo Tabla.css">
     <link rel="stylesheet" href="/Estilos/style terminos y condiciones.css">
     <title>Pagina de Empleados</title>
 </head>
-
 <body>
-    <div class="header">
-        <div class="nav-buttons">
-        <a href="Consultar Solicitudes.php">Ver Solicitudes</a>
-        <a href="PaginaEmpleado.php">Crear Solicitud</a>
-        <a href="Menu Empleado.php">Volver</a>
-        </div>  
-    </div>
+<header class="header">
+        <a href="Menu Empleado.php">
+            <img src="/Estilos/images/fecha atras.png" alt="12px" class="back-arrow">
+        </a>
+        <img src="/Estilos/images/Logo Coarsa con slogan png.png" alt="Logo de Coarsa"> <!-- Asegúrate de cambiar "logo.png" por la ruta correcta de tu logo -->
+        <a href="logout.php" class="logout">Cerrar sesión</a>
+    </header>
+    
     <script src="/Estilos/mecanismo de ventana emergente.js"></script>
 
     <form method="post" action="/Modules/Enviar Solicitud.php">

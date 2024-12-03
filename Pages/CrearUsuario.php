@@ -13,7 +13,7 @@
 </head>
 <body>
 <div>
-    <a href="/Pages/Quienes Somos.php">
+    <a href="/Pages/Menu RH.php">
         <img src="/Estilos/images/fecha atras.png" alt="16px" class="back-arrow">
     </a>
 </div>

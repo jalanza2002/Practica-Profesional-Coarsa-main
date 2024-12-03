@@ -8,7 +8,7 @@
 </head>
 <body>
 <header class="header">
-        <a href="Menu RH.php">
+        <a href="Menu Admin.php">
             <img src="/Estilos/images/fecha atras.png" alt="12px" class="back-arrow">
         </a>
         <img src="/Estilos/images/Logo Coarsa con slogan png.png" alt="Logo de Coarsa"> <!-- Asegúrate de cambiar "logo.png" por la ruta correcta de tu logo -->

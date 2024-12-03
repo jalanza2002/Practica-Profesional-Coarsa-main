@@ -3,26 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Estilos/styles.css">
+    <link rel="stylesheet" href="/Estilos/Estilo Tabla.css">
     <title>Coarsa</title>
 </head>
 <body>
-    
-
-    <div class="header">
-    <h2>Coarsa Recursos Humanos</h2>
-    <div class="nav-buttons">
-        <a href="Candidatos.php">Candidatos</a>
-        <a href="CrearUsuario.php">Nuevos Usuarios</a>
-        <a href="Menu RH.php">Volver</a>
-    </div>
-    </div>
+<header class="header">
+        <a href="Menu RH.php">
+            <img src="/Estilos/images/fecha atras.png" alt="12px" class="back-arrow">
+        </a>
+        <img src="/Estilos/images/Logo Coarsa con slogan png.png" alt="Logo de Coarsa"> <!-- Asegúrate de cambiar "logo.png" por la ruta correcta de tu logo -->
+        <a href="logout.php" class="logout">Cerrar sesión</a>
+    </header>
     <div class="contenedor">
         <center>
             <h2>Agregue un puesto</h2><br>
             <form method="post">
                 <label for="Puesto">Agregue un puesto </label>
-                <input type="text" id="Puestotxt" name="Puestotxt" required><br>
+                <input type="text" id="Puestotxt" name="Puestotxt" required><br><br>
                 <input class="button" type="submit" id="btnenviar" name="btnenviar" value="Guardar Puesto"><br><br>
             </form>
         </center>
