@@ -91,6 +91,9 @@
       <!-- esturctura de la historia COARSA-->
       <div class="title">Nuestra historia</div>
       <div class="timeline-container">
+        <button class="prev-btn">
+            <img src="/Estilos/images/flecha adelante.png" alt="prev">
+        </button>
         <div class="timeline">
           <div class="timeline-item">
             <img
@@ -236,11 +239,15 @@
             </div>
           </div>
         </div>
-        <br><br>
+        <button class="next-btn">
+    <img src="/Estilos/images/flecha adelante.png" alt="next">
+  </button>
       </div>
-
+      </section>
+      <br><br>
       <!--Marcas que distribuye la Empresa -->
       <br />
+      <section>
       <div class="brands-background">
         <section class="product">
           <h2 class="product-category">Nuestras Marcas</h2>
@@ -321,6 +328,7 @@
           <br><br>
         </section>
       </div>
+      <section>
       <!--Mapa de cobertura de la empresa-->
       <div class="map-container">
         <br />
@@ -347,6 +355,7 @@
         <div class="tooltip-text">Costa Rica, Puntarenas</div>
         </div>
       </div>
+      </section>
       <br><br><br><br>
       <!--Contacto de la empresa-->
       <footer class="footer">
@@ -421,9 +430,37 @@
         </div>
       </footer>
     </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <script src="/Estilos/script.js"></script>
     <script src="/Estilos/hamburguer.js"></script>
-    <script src="/Estilos/Mecanismo Time Line.js"></script>
+    <script> 
+ document.querySelector('.prev-btn').addEventListener('click', function() {
+  const timeline = document.querySelector('.timeline');
+  timeline.scrollBy({ left: -300, behavior: 'smooth' }); // Mover hacia la izquierda
+});
+
+document.querySelector('.next-btn').addEventListener('click', function() {
+  const timeline = document.querySelector('.timeline');
+  timeline.scrollBy({ left: 300, behavior: 'smooth' }); // Mover hacia la derecha
+});
+
+    </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
