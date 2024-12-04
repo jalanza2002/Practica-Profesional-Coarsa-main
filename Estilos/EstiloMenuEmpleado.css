@@ -1,8 +1,21 @@
 @font-face {
-    font-family: Arial, sans-serif;
-    src: url(/Estilos/FontsFree-Net-uni-sans-semibold.ttf);
-    font-weight: normal;
-    font-style: normal;
+    font-family: 'UniSansSemibold';
+    src: url('Estilos/fonts/FontsFree-Net-uni-sans-semibold.ttf') format('truetype');
+}
+
+/* Aplica la fuente a todos los encabezados h1-h6 */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'UniSansSemibold', sans-serif;
+}
+
+/* Aplica la fuente a todos los párrafos p */
+p {
+    font-family: 'UniSansSemibold', sans-serif;
+}
+
+/* Aplica la fuente a todas las listas ul, ol y sus elementos li */
+ul, ol, li {
+    font-family: 'UniSansSemibold', sans-serif;
 }
 
 body {
