@@ -251,19 +251,25 @@
     background: linear-gradient(to top, #87cbeb, #fff);
     width: 100vw;
     height: 100%;
-  }
-  .container-product {
+}
+
+.container-product {
     display: flex;
     flex-direction: column; /* Organiza las filas una sobre otra */
     align-items: center; /* Centra el contenido horizontalmente */
     padding: 20px;
     overflow: hidden; /* Oculta el contenido que se desborda */
 }
+
 .row {
     display: flex;
     gap: 20px; /* Espaciado entre los círculos */
     animation: scrollImages 70s linear infinite; /* Desplazamiento continuo */
+    flex-wrap: nowrap; /* Evita que las imágenes se muevan a la siguiente fila */
+    justify-content: center; /* Centra las imágenes horizontalmente */
+    width: 100%;
 }
+
 .circle {
     width: 110px; /* Tamaño del círculo */
     height: 110px; /* Tamaño del círculo */
@@ -273,11 +279,13 @@
     justify-content: center;
     align-items: center;
 }
+
 .circle img {
     width: 100%; /* Ajusta el tamaño de la imagen */
     height: 100%;
     object-fit: contain;
 }
+
 @keyframes scrollImages {
     0% {
         transform: translateX(0);
@@ -286,6 +294,7 @@
         transform: translateX(-50%);
     }
 }
+
   /*Logo */
   .logo {
     width: 300px;
@@ -465,10 +474,6 @@
   }
 
   /* Marcas */
-  .product-container {
-    padding: 0 10vw;
-    gap: 30px;
-  }
 
   .product-card {
     width: 500px;
