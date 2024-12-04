@@ -260,8 +260,9 @@
     display: flex;
     flex-direction: column; /* Organiza las filas una sobre otra */
     align-items: center; /* Centra el contenido horizontalmente */
-    padding: 20px;
+    padding: 40px;
     overflow: hidden; /* Oculta el contenido que se desborda */
+    width:95vw ;
 }
 
 .row {
@@ -284,8 +285,8 @@
 }
 
 .circle img {
-    width: 100%; /* Ajusta el tamaño de la imagen */
-    height: 100%;
+    width: 110%; /* Ajusta el tamaño de la imagen */
+    height: 110%;
     object-fit: contain;
 }
 
