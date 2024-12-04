@@ -19,6 +19,9 @@
     overflow-x: hidden; 
     overflow-y: auto; 
   }
+  section{
+    overflow: auto;
+  }
   
   /* Estilo principal de la página */
   

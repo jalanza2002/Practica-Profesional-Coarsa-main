@@ -247,10 +247,10 @@
       <br><br>
       <!--Marcas que distribuye la Empresa -->
       <br />
-      <div class="brands-background">
-        <section class="product">
-          <h2 class="product-category">Nuestras Marcas</h2>
-          <div class="container-product">
+      <section class="product">
+        <div class="brands-background">
+            <h2 class="product-category">Nuestras Marcas</h2>
+            <div class="container-product">
                 <div class="row" id="imageRow">
                     <div class="circle">
                         <img src="/Estilos/Alimer/Logo Santa Cruz.png" alt=""></div>
@@ -430,8 +430,8 @@
                     </div>   
                 </div>    
             </div>
-        </section>
-      </div>
+        </div>
+      </section>
 
       
       <section>
