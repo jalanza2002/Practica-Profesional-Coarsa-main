@@ -460,6 +460,13 @@
         </div>
       </div>
       </section>
+
+      <article>
+      <div class="info-container">
+    <h1>Información</h1>
+    <p>Estamos ubicados en Alajuela, Heredia, Cartago, San Jose y Puntarenas.</p>
+    </div>
+      </article>
       <br><br><br><br>
       <!--Contacto de la empresa-->
       <footer class="footer">
