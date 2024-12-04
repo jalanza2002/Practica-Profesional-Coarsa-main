@@ -251,83 +251,190 @@
       <div class="brands-background">
         <section class="product">
           <h2 class="product-category">Nuestras Marcas</h2>
-          <div class="product-container">
-            <div class="product-card">
-              <div class="product-image">
-                <img
-                  src="/Estilos/images/brand1.png"
-                  class="product-thumb"
-                  alt=""
-                />
-              </div>
+          <div class="container-product">
+                <div class="row" id="imageRow">
+                    <div class="circle">
+                        <img src="/Alimer/Logo Santa Cruz.png" alt=""></div>
+                    <div class="circle">
+                        <img src="/Alimer/LogoToños.png" alt=""></div>
+                    <div class="circle">
+                        <img src="/Alimer/Merjal.png" alt=""></div>
+                    <div class="circle">
+                        <img src="/Britt/Britt.png" alt=""></div>
+                    <div class="circle">
+                        <img src="/Britt/Leyenda.jpg" alt=""></div>
+                    <div class="circle">
+                        <img src="/Essity/Flen.png" alt=""></div>
+                    <div class="circle">
+                        <img src="/Essity/Leukoplast.png" alt=""></div>
+                    <div class="circle">
+                        <img src="/Essity/Nevax.png" alt=""></div>
+                    <div class="circle">
+                        <img src="/Essity/Saba.png" alt=""></div>
+                    <div class="circle">
+                        <img src="/Essity/Tena.png" alt=""></div>
+                    <div class="circle">
+                        <img src="/Essity/Tork.png" alt=""></div>
+                    <div class="circle">
+                        <img src="/Heinz/Heinz.jpg" alt=""></div>
+                    <div class="circle">
+                        <img src="/Heinz/Banquete.png" alt=""></div>
+                    <div class="circle">
+                        <img src="/Heinz/Kraft.png" alt=""></div>
+                    <div class="circle">
+                        <img src="/Jota&Ce/Aleve.jpg" alt=""></div>
+                    <div class="circle">
+                        <img src="/Jota&Ce/AlkaSeltzer.png" alt=""></div>
+                    <div class="circle">
+                        <img src="/Jota&Ce/Aspirina.png" alt=""></div>
+                    <div class="circle">
+                        <img src="/Jota&Ce/Dorival.png" alt=""></div>
+                    <div class="circle">
+                        <img src="/Jota&Ce/Panadol.png" alt=""></div>
+                    <div class="circle">
+                        <img src="/Jota&Ce/Sal Andrews.png" alt=""></div>
+                    <div class="circle">
+                        <img src="/Laica/Natuvia.png" alt=""></div>
+                    <div class="circle">
+                        <img src="/Lucema/M&M's.png" alt=""></div>
+                    <div class="circle">
+                        <img src="/Lucema/Milky Way.jpg" alt=""></div>
+                    <div class="circle">
+                        <img src="/Lucema/Pedigree.jpg" alt=""></div>
+                    <div class="circle">
+                        <img src="/Lucema/Pro.png" alt=""></div>
+                    <div class="circle">
+                        <img src="/Lucema/Skittles-Logo.png" alt=""></div>
+                    <div class="circle">
+                        <img src="/Lucema/Snickers Logo 2.jpg" alt=""></div>
+                    <div class="circle">
+                        <img src="/Lucema/Twix.png" alt=""></div>
+                    <div class="circle">
+                        <img src="/Lucema/Whiskas.png" alt=""></div>
+                    <div class="circle">
+                        <img src="/Lucema/Wrigleys Extra.png" alt=""></div>
+                    <div class="circle">
+                        <img src="/Pepsico/Cheetos.png" alt=""></div>
+                    <div class="circle">
+                        <img src="/Pepsico/chokis.png" alt=""></div>
+                    <div class="circle">
+                        <img src="/Pepsico/crackets.png" alt=""></div>
+                    <div class="circle">
+                        <img src="/Pepsico/DeTodito.png" alt=""></div>
+                </div>
+
+                <div class="row" id="imageRow">
+                    <div class="circle">
+                        <img src="/Pepsico/Doritos.png" alt="">
+                    </div>
+                     <div class="circle">
+                        <img src="/Pepsico/Fritos.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Pepsico/Gamesa.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Pepsico/HoneyMonster.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Pepsico/Lays.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Pepsico/Munchies.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Pepsico/Pearl Milling.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Pepsico/PopCorners.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Pepsico/Quaker.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Pepsico/Ruffles.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Pepsico/Smartfood.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Pepsico/Tortrix.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Pepsico/Tostitos.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Pepsico/Twix.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Reckitt/Air Wick.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Reckitt/Brasso.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Reckitt/Durex.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Reckitt/Enfamil.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Reckitt/Finish.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Reckitt/Harpic.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Reckitt/Lysol.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Reckitt/Mortein.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Reckitt/Nugget.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Reckitt/Sustagen.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Reckitt/Vanish.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Reckitt/Veet.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Reckitt/Woolite.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Reya/Aluminé.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Reya/Bricapar.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Reya/Don Chef.PNG" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Reya/Empalux.png" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Reya/Green.jpg" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Reya/LOWELL.jpg" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Zepol/Manzatin.JPG" alt="">
+                    </div>
+                    <div class="circle">
+                        <img src="/Zepol/Zepol.jpg" alt="">
+                    </div>   
+                </div>    
             </div>
-            <div class="product-card">
-              <div class="product-image">
-                <img
-                  src="/Estilos/images/brand2.png"
-                  class="product-thumb"
-                  alt=""
-                />
-              </div>
-            </div>
-            <div class="product-card">
-              <div class="product-image">
-                <img
-                  src="/Estilos/images/brand3.png"
-                  class="product-thumb"
-                  alt=""
-                />
-              </div>
-            </div>
-            <div class="product-card">
-              <div class="product-image">
-                <img
-                  src="/Estilos/images/brand4.png"
-                  class="product-thumb"
-                  alt=""
-                />
-              </div>
-            </div>
-            <div class="product-card">
-              <div class="product-image">
-                <img
-                  src="/Estilos/images/brand5.png"
-                  class="product-thumb"
-                  alt=""
-                />
-              </div>
-            </div>
-            <div class="product-card">
-              <div class="product-image">
-                <img
-                  src="/Estilos/images/brand6.png"
-                  class="product-thumb"
-                  alt=""
-                />
-              </div>
-            </div>
-            <div class="product-card">
-              <div class="product-image">
-                <img
-                  src="/Estilos/images/brand7.png"
-                  class="product-thumb"
-                  alt=""
-                />
-              </div>
-            </div>
-            <div class="product-card">
-              <div class="product-image">
-                <img
-                  src="/Estilos/images/brand9.png"
-                  class="product-thumb"
-                  alt=""
-                />
-              </div>
-            </div>
-          </div>
-          <br><br>
         </section>
       </div>
+
+      
       <section>
       <!--Mapa de cobertura de la empresa-->
       <div class="map-container">
