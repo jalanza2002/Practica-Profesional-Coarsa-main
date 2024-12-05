@@ -5,30 +5,6 @@
     box-sizing: border-box;
   }
   
-  @font-face {
-    font-family: 'UniSansSemibold';
-    src: url('Estilos/fonts/FontsFree-Net-uni-sans-semibold.ttf') format('truetype');
-}
-
-/* Aplica la fuente a todos los encabezados h1-h6 */
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'UniSansSemibold', sans-serif;
-}
-
-/* Aplica la fuente a todos los párrafos p */
-p {
-    font-family: 'UniSansSemibold', sans-serif;
-}
-
-/* Aplica la fuente a todas las listas ul, ol y sus elementos li */
-ul, ol, li {
-    font-family: 'UniSansSemibold', sans-serif;
-}
-
-/* Aplica la fuente a otros elementos de texto si lo deseas */
-a, span, div, section, article {
-    font-family: 'UniSansSemibold', sans-serif;
-}
   body,
   html {
     width: 100%;
@@ -281,6 +257,8 @@ a, span, div, section, article {
     padding: 40px;
     overflow: hidden; /* Oculta el contenido que se desborda */
     width:95vw ;
+    flex-direction: row; /* Cambio a fila para poner los botones dentro */
+    position: relative; /* Asegura que los botones estén dentro del contenedor */
 }
 
 .row {
@@ -290,6 +268,15 @@ a, span, div, section, article {
     flex-wrap: nowrap; /* Evita que las imágenes se muevan a la siguiente fila */
     justify-content: center; /* Centra las imágenes horizontalmente */
     width: 100%;
+}
+.row-wrapper {
+  overflow-x:scroll;
+  width: 90%; /* Limita el ancho visible */
+  margin: 0 auto; /* Centra el contenido */
+  scroll-behavior: smooth;
+}
+.row-wrapper::-webkit-scrollbar {
+  display: none; /* Oculta la barra de desplazamiento en Chrome, Safari y Edge */
 }
 
 .circle {
@@ -316,6 +303,32 @@ a, span, div, section, article {
         transform: translateX(-50%);
     }
 }
+
+.nav-button {
+  border: none;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: grey;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  color: white;
+}
+
+#prevButton {
+  left: 20px; /* Posición izquierda */
+}
+
+#nextButton {
+  right: 20px; /* Posición derecha */
+}
+
 
   /*Logo */
   .logo {

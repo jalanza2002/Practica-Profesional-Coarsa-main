@@ -251,6 +251,8 @@
         <div class="brands-background">
             <h2 class="product-category">Nuestras Marcas</h2>
             <div class="container-product">
+              <button class="nav-button" id="prevButton">◀</button>
+              <div class="row-wrapper">
                 <div class="row" id="imageRow">
                     <div class="circle">
                         <img src="/Estilos/Alimer/Logo Santa Cruz.png" alt=""></div>
@@ -428,8 +430,10 @@
                     <div class="circle">
                         <img src="/Estilos/Zepol/Zepol.jpg" alt="">
                     </div>   
-                </div>    
+                </div>   
             </div>
+            <button class="nav-button" id="nextButton">▶</button>
+        </div>
         </div>
       </section>
       <section>
@@ -558,9 +562,9 @@
 
 
 
-    <script src="/Estilos/script.js"></script>
-    <script src="/Estilos/hamburguer.js"></script>
-    <script> 
+<script src="/Estilos/script.js"></script>
+<script src="/Estilos/hamburguer.js"></script>
+  <script> 
  document.querySelector('.prev-btn').addEventListener('click', function() {
   const timeline = document.querySelector('.timeline');
   timeline.scrollBy({ left: -300, behavior: 'smooth' }); // Mover hacia la izquierda
@@ -572,6 +576,7 @@ document.querySelector('.next-btn').addEventListener('click', function() {
 });
 
     </script>
+    
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
