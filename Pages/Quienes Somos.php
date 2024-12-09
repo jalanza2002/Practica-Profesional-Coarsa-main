@@ -579,41 +579,23 @@ document.querySelector('.next-btn').addEventListener('click', function() {
 <!--                                  Carousel de las marcas
  ******************************************************************************************-->
 <script>
-  // Seleccionar botones
-const prevButton = document.getElementById('prevButton');
-const nextButton = document.getElementById('nextButton');
+document.addEventListener("DOMContentLoaded", () => {
+    const prevButton = document.getElementById("prevButton");
+    const nextButton = document.getElementById("nextButton");
+    const imageRow = document.getElementById("imageRow");
 
-// Seleccionar el contenedor del carrusel
-const carouselContainer = document.querySelector('.row');
+    // Define la cantidad de desplazamiento
+    const scrollAmount = 200; // Cambia este valor según el tamaño de desplazamiento
 
-// Variable para rastrear la posición actual
-let currentIndex = 0;
+    // Evento para mover hacia la izquierda
+    prevButton.addEventListener("click", () => {
+        imageRow.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    });
 
-// Función para mostrar una imagen según el índice
-function showImage(index) {
-  const images = document.querySelectorAll('.row');
-  const totalImages = images.length;
-
-  // Asegurarse de que el índice esté en rango
-  if (index < 0) {
-    currentIndex = totalImages - 1; // Volver a la última imagen
-  } else if (index >= totalImages) {
-    currentIndex = 0; // Volver a la primera imagen
-  } else {
-    currentIndex = index;
-  }
-
-  // Mover el contenedor para mostrar la imagen correcta
-  carouselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
-}
-
-// Escuchar eventos de clic en los botones
-prevButton.addEventListener('click', () => {
-  showImage(currentIndex - 1); // Ir a la imagen anterior
-});
-
-nextButton.addEventListener('click', () => {
-  showImage(currentIndex + 1); // Ir a la siguiente imagen
+    // Evento para mover hacia la derecha
+    nextButton.addEventListener("click", () => {
+        imageRow.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    });
 });
 
 </script>
