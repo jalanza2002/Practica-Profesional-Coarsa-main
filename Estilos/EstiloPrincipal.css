@@ -280,13 +280,16 @@
 }
 
 .circle {
-    width: 110px; /* Tamaño del círculo */
+    width: 150px; /* Tamaño del círculo */
     height: 110px; /* Tamaño del círculo */
     border-radius: 50%;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: white; /* Fondo blanco para el óvalo */
+    border: 5px solid white; /* Borde blanco alrededor del óvalo */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para un efecto más suave */
 }
 
 .circle img {

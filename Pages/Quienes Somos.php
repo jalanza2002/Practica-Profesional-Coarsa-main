@@ -579,25 +579,27 @@ document.querySelector('.next-btn').addEventListener('click', function() {
 <!--                                  Carousel de las marcas
  ******************************************************************************************-->
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function() {
     const prevButton = document.getElementById("prevButton");
     const nextButton = document.getElementById("nextButton");
-    const imageRow = document.getElementById("imageRow");
+    const rowWrapper = document.querySelector(".row-wrapper");
 
-    // Define la cantidad de desplazamiento
-    const scrollAmount = 200; // Cambia este valor según el tamaño de desplazamiento
+    let scrollAmount = 0;
 
-    // Evento para mover hacia la izquierda
-    prevButton.addEventListener("click", () => {
-        imageRow.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    prevButton.addEventListener("click", function() {
+        rowWrapper.scrollBy({
+            left: -200,
+            behavior: "smooth"
+        });
     });
 
-    // Evento para mover hacia la derecha
-    nextButton.addEventListener("click", () => {
-        imageRow.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    nextButton.addEventListener("click", function() {
+        rowWrapper.scrollBy({
+            left: 200,
+            behavior: "smooth"
+        });
     });
 });
-
 </script>
     
     <script
