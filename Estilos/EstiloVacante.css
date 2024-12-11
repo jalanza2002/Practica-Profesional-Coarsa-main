@@ -41,8 +41,8 @@ ul, ol, li {
     font-size: 18px;
     margin: 20px 0;
 }
+.container input[type="int"],
 .container input[type="text"],
-.container input[type="email"],
 .container input[type="tel"],
 .container input[type="password"],
 .container select {
@@ -53,7 +53,7 @@ ul, ol, li {
     border-radius: 5px;
     font-size: 14px;
 }
-.container input[type="file"] {
+.container input[type=""] {
     margin: 10px 0;
 }
 .container button {

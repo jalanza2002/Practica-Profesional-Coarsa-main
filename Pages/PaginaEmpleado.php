@@ -37,8 +37,9 @@ $Cedula = isset($_SESSION['Cedula']) ? $_SESSION['Cedula']: '';
     <script src="/Estilos/mecanismo de ventana emergente.js"></script>
 
     <form method="post" action="/Modules/Enviar Solicitud.php">
-    <div>
-        <center>
+    <center>
+    <div class="container">
+        
             <h1>Solicitud de prestamos y vacaciones para los empleados de Coarsa</h1>
             <br>
             <label for="Cedula"></label>

@@ -18,7 +18,7 @@ $claveUsuario = isset($_SESSION['Clave'])? $_SESSION['Clave']: '';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Estilos/Estilo Tabla.css">
+    <link rel="stylesheet" href="/Estilos/Estilo General.css">
     <title>Informacion Personal</title>
 </head>
 <body>
@@ -30,6 +30,7 @@ $claveUsuario = isset($_SESSION['Clave'])? $_SESSION['Clave']: '';
         <a href="logout.php" class="logout">Cerrar sesión</a>
     </header>
     <center>
+        <div class="container">
         <h1>Mis Datos Personales</h1>
         <br>
         <form action="/Modules/ActualizarClave.php" method="post">
@@ -51,6 +52,7 @@ $claveUsuario = isset($_SESSION['Clave'])? $_SESSION['Clave']: '';
         <br>
         <input type="submit" name="Actualizarbtn" id="Actualizarbtn" value="Actualizar contraseña">
         </form>
+        </div>
     </center>
 </body>
 </html>
