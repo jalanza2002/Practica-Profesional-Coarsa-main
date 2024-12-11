@@ -21,7 +21,7 @@ $Cedula = isset($_SESSION['Cedula']) ? $_SESSION['Cedula']: '';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Estilos/Estilo Tabla.css">
+    <link rel="stylesheet" href="/Estilos/Estilo General.css">
     <link rel="stylesheet" href="/Estilos/style terminos y condiciones.css">
     <title>Pagina de Empleados</title>
 </head>
@@ -117,7 +117,7 @@ $Cedula = isset($_SESSION['Cedula']) ? $_SESSION['Cedula']: '';
         }
     </script>
 
-<div id="modal" style="display:none; position:fixed; left:50%; top:50%; transform:translate(-50%, -50%); background-color:white; padding:20px; border:1px solid #ccc; z-index:1000; width: 600px; height: 400px;">
+<div id="modal" class="modal" style="display:none; position:fixed; left:50%; top:50%; transform:translate(-50%, -50%); background-color:white; padding:20px; border:1px solid #ccc; z-index:1000; width: 600px; height: 400px;">
     <h2>Términos y Condiciones del préstamo</h2>
     <p> • Objetivo </p>
     <p>Establecer normas y procedimientos para dar apoyo al personal colaborador de Distribuidora </p>

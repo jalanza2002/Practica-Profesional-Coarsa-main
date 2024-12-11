@@ -12,7 +12,8 @@
     max-height: 400px; /* Limitar la altura */
     overflow-y: auto;  /* Permitir scroll si el contenido es demasiado largo */
     box-sizing: border-box; /* Asegura que el padding se incluya en el tamaño total */
-}  @font-face {
+} 
+ @font-face {
     font-family: 'UniSansSemibold';
     src: url('Estilos/fonts/FontsFree-Net-uni-sans-semibold.ttf') format('truetype');
 }
@@ -20,23 +21,27 @@
 /* Aplica la fuente a todos los encabezados h1-h6 */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'UniSansSemibold', sans-serif;
+    color: #000000; 
 }
 
 /* Aplica la fuente a todos los párrafos p */
 p {
     font-family: 'UniSansSemibold', sans-serif;
+    color: #000000; 
 }
 
 /* Aplica la fuente a todas las listas ul, ol y sus elementos li */
 ul, ol, li {
     font-family: 'UniSansSemibold', sans-serif;
+    color: #000000; 
 }
 #modal h2, #modal p {
     margin: 10px 0; /* Añadir márgenes al texto */
+    color: #000000; 
 }
 
 #modal button {
-    margin-top: 20px; /* Separar el botón del contenido */
+    margin-top: 20px;
 }
 
 #fondo {

@@ -1,0 +1,75 @@
+@font-face {
+    font-family: 'UniSansSemibold';
+    src: url('Estilos/fonts/FontsFree-Net-uni-sans-semibold.ttf') format('truetype');
+}
+
+/* Aplica la fuente a todos los encabezados h1-h6 */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'UniSansSemibold', sans-serif;
+}
+
+/* Aplica la fuente a todos los párrafos p */
+p {
+    font-family: 'UniSansSemibold', sans-serif;
+}
+
+/* Aplica la fuente a todas las listas ul, ol y sus elementos li */
+ul, ol, li {
+    font-family: 'UniSansSemibold', sans-serif;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #0a4d8a, #000);
+    height: 100vh;
+    color: #fff;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 20px;
+}
+.header img {
+    height: 50px;
+}
+.header .logout {
+    color: #000;
+    font-size: 18px;
+}
+.container {
+    padding: 20px;
+}
+.title {
+    font-size: 36px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #fff;
+}
+th {
+    background: transparent;
+}
+.actions {
+    display: flex;
+    align-items: center;
+}
+.actions button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    cursor: pointer;
+}
+.actions input[type="checkbox"] {
+    transform: scale(1.5);
+}
