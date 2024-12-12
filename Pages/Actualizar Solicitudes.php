@@ -131,6 +131,7 @@
         // Mostrar los resultados
         if ($result->num_rows > 0) {
             echo "<h2>Todas las Solicitudes de los Empleados</h2>";
+            echo "<div class='table-container'>";
             echo "<table border='1' cellpadding='10'>";
             echo "<tr>
                     <th>ID Solicitud</th>
@@ -149,7 +150,7 @@
                     <th>FechaSolicitud</th>
                     <th>Cambiar Estado</th>
                   </tr>";
-
+            echo"</div>";
             // Mostrar cada fila
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>

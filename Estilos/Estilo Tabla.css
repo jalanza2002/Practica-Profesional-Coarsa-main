@@ -1,27 +1,13 @@
 @font-face {
     font-family: 'UniSansSemibold';
-    src: url('Estilos/fonts/FontsFree-Net-uni-sans-semibold.ttf') format('truetype');
+    src: url('FontsFree-Net-uni-sans-semibold.ttf') format('truetype');
 }
 
-/* Aplica la fuente a todos los encabezados h1-h6 */
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'UniSansSemibold', sans-serif;
-}
-
-/* Aplica la fuente a todos los párrafos p */
-p {
-    font-family: 'UniSansSemibold', sans-serif;
-}
-
-/* Aplica la fuente a todas las listas ul, ol y sus elementos li */
-ul, ol, li {
-    font-family: 'UniSansSemibold', sans-serif;
-}
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'UniSansSemibold';
     background: linear-gradient(to bottom, #0a4d8a, #000);
-    height: 100vh;
+    min-height: 100vh;
     color: #fff;
 }
 .header {
@@ -30,6 +16,7 @@ body {
     align-items: center;
     background-color: #fff;
     padding: 10px 20px;
+    width: auto;
 }
 .header img {
     height: 50px;
@@ -46,10 +33,18 @@ body {
     color: #fff;
     margin-bottom: 20px;
 }
-table {
+.table-container {
+    width: 100%; /* Limita el ancho al 100% del contenedor padre */
+    overflow-x: auto; /* Activa el scroll horizontal si el contenido excede el ancho */
+    -webkit-overflow-scrolling: touch; /* Mejora el desplazamiento en dispositivos móviles */
+    border: 1px solid #ccc; /* Opcional: para visualizar el límite del contenedor */
+  }
+table{
     width: 100%;
     border-collapse: collapse;
+    overflow-x: auto;
 }
+
 th, td {
     padding: 10px;
     text-align: left;

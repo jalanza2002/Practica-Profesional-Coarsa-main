@@ -4,12 +4,16 @@
     padding: 0;
     box-sizing: border-box;
   }
+  @font-face {
+    font-family: 'UniSansSemibold';
+    src: url('FontsFree-Net-uni-sans-semibold.ttf') format('truetype');
+}
   
   body,
   html {
     width: 100%;
+    font-family:"UniSansSemibold";
     height: 100%;
-    font-family: "Uni sans semibold",Arial, sans-serif;
     overflow-x: hidden; 
     overflow-y: auto; 
   }
@@ -64,7 +68,6 @@
   
   /* Estilo general */
   main {
-    font-family: Arial, sans-serif;
     background-color: #f5f5f5;
     color: #1a4e8a;
     text-align: center;

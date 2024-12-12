@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Estilos/EstiloVacante.css">
+    <link rel="stylesheet" href="/Estilos/Estilo General2.css">
     <title>Crear Usuario de Empleado</title>
 </head>
 <body>
@@ -19,17 +19,18 @@
         <img src="/Estilos/images/Logo Coarsa con slogan png.png" alt="Logo de Coarsa"> <!-- Asegúrate de cambiar "logo.png" por la ruta correcta de tu logo -->
         <a href="logout.php" class="logout">Cerrar sesión</a>
     </header>
-
+    
+    <center>
     <div class="container">
-<center>
+
         <h2 class="titulo">Agregue un nuevo Usuario</h2>
         <p class="texto">Con este Usuario podra tener acceso a la pagina de empleados
             y poder hacer sus solicitudes.
         </p>
-    <center>
+
     <form  method="post" action="CrearUsuario.php">
-        <center>
-        <input type="text" name="Cedulatxt" id="Cedulatxt" placeholder="Ingrese la Cédula" required><br>
+    
+        <input type="int" name="Cedulatxt" id="Cedulatxt" placeholder="Ingrese la Cédula" required><br>
         <br>
         <input type="text" name="Nombretxt" id="Nombretxt" placeholder="Ingrese el Nombre" required><br>
         <br>
@@ -42,8 +43,9 @@
         <input type="password" name="Clavetxt" id="Clavetxt" placeholder="Ingrese la clave" required><br>
         <br>
         <input class="button"  type="Submit" name="btncrear" value="Crear Usuario Nuevo">
-        </center>
+      
     </div>
+    </center>
     </form>
 
 
