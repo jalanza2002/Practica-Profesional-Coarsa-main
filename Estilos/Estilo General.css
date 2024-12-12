@@ -47,7 +47,7 @@ body {
     max-width: 90%; /* Opcional: evita que sea demasiado grande en pantallas pequeñas */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    margin-top: 20px;
+    margin-top: 50px; /* Añade un espacio entre el header y el container */
 }
 .container input[type="text"],
 .container input[type="email"],

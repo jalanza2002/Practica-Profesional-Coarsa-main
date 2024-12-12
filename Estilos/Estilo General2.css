@@ -43,8 +43,8 @@ body {
     background: white;
     border-radius: 20px;
     padding: 20px;
-    width:min-content; /* Ajusta el ancho según el contenido */
-    max-width: 90%; /* Opcional: evita que sea demasiado grande en pantallas pequeñas */
+    width: 80%; /* Incrementa el ancho al 80% del contenedor padre */
+    max-width: 993px; /* Permite un tamaño máximo más grande */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     margin-top: 20px;
@@ -90,7 +90,4 @@ th {
     color: #000;
     border: none;
     cursor: pointer;
-}
-.actions input[type="checkbox"] {
-    transform: scale(1.5);
 }

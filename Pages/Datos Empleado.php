@@ -18,7 +18,7 @@ $claveUsuario = isset($_SESSION['Clave'])? $_SESSION['Clave']: '';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Estilos/Estilo General.css">
+    <link rel="stylesheet" href="/Estilos/Estilo General2.css">
     <title>Informacion Personal</title>
 </head>
 <body>
