@@ -12,7 +12,7 @@
             <img src="/Estilos/images/fecha atras.png" alt="12px" class="back-arrow">
         </a>
         <img src="/Estilos/images/Logo Coarsa con slogan png.png" alt="Logo de Coarsa">
-        <a href="logout.php" class="logout">Cerrar sesión</a>
+        <a href="/Modules/Log_out.php" class="logout">Cerrar sesión</a>
     </header>
 
     <form method="post">
@@ -57,7 +57,7 @@
                     
                     function Mostrarbitacora(){
                         $conn =getDatabaseConnection();
-                        $sql= "Call Consultar_bitacora";
+                        $sql= "Select * from bitacora";
                         $stmt= $conn->prepare($sql);
                         $stmt->execute();
                         $bitacotas = $stmt->fetchAll(PDO::FETCH_ASSOC);

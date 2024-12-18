@@ -42,12 +42,27 @@
             $nuevo_estado = $_POST['nuevo_estado'];
             $nuevo_comentario = $_POST['nuevo_comentario'];
             $link='www.Coarsa.com';
+            
+            //obtener la sesion del usuario que lo esta haciendo
+            $id_usuario = $_SESSION['id_usuario'];  // Suponiendo que el ID de usuario está guardado en la sesión
+            $nombre_empleado = $_SESSION['nombre_empleado'];  // Nombre del usuario que está actualizando
+            $apellido_empleado = $_SESSION['apellido_empleado'];  // Apellido del usuario que está actualizando
+            $puesto = $_SESSION['puesto'];  // Puesto del usuario que está actualizando
+            $rol = $_SESSION['rol'];  // Rol del usuario que está actualizando
 
-                // Actualizar el estado de la solicitud
-    $stmt_update = $conn->prepare("UPDATE solicitudes SET Estado = ?, Comentario = ? WHERE IdSolicitud = ?");
-    $stmt_update->bind_param("ssi", $nuevo_estado, $nuevo_comentario, $id_solicitud);
-    $stmt_update->execute();
-    $stmt_update->close();
+            // ctualizar el estado de la solicitud
+            $stmt_update = $conn->prepare("UPDATE solicitudes SET Estado = ?, Comentario = ? WHERE IdSolicitud = ?");
+            $stmt_update->bind_param("ssi", $nuevo_estado, $nuevo_comentario, $id_solicitud);
+            $stmt_update->execute();
+            $stmt_update->close();
+
+            // Registrar la actualización en la bitácora
+            $stmt_bitacora = $conn->prepare("INSERT INTO bitacora (IdUsuario, Cedula, NombreEmpleado, ApellidosEmpleado, Puesto, HoraEntrada, HoraSalida, Rol, EstadoSolicitud, GestionadoPor) VALUES (?, ?, ?, ?, ?, NOW(), NOW(), ?, ?, ?)");
+            $stmt_bitacora->bind_param("issssssi", $id_usuario, $id_solicitud, $nombre_empleado, $apellido_empleado, $puesto, $rol, $nuevo_estado, $id_usuario);  // `GestionadoPor` puede ser el mismo ID de usuario si es quien lo está gestionando.
+            $stmt_bitacora->execute();
+            $stmt_bitacora->close();
+
+    
 
     require __DIR__ . '/../PHPMailer-master/PHPMailer-master/src/PHPMailer.php';
     require __DIR__ . '/../PHPMailer-master/PHPMailer-master/src/SMTP.php';
@@ -124,7 +139,6 @@
         }else{
             $stmt = $conn->prepare("SELECT * FROM solicitudes ORDER BY FIELD(Estado, 'Pendiente', 'Aprobado', 'Rechazado')");
         }
-       
         $stmt->execute();
         $result = $stmt->get_result();
 

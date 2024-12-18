@@ -15,20 +15,31 @@ if ($conexion->connect_error) {
     die("Conexión fallida: " . $conexion->connect_error);
 }
 
-// Obtener el IdUsuario de la sesión
+// Validar si existe el IdUsuario en la sesión
 if (isset($_SESSION['IdUsuario'])) {
     $IdUsuario = $_SESSION['IdUsuario'];
 
-    // Actualizar la fecha de salida en la tabla bitacora
-    $stmt_bitacora = $conexion->prepare("UPDATE bitacora SET HOraSalida = NOW() WHERE IdUsuario = ? AND HoraSalida IS NULL ORDER BY HoraEntrada DESC LIMIT 1");
-    $stmt_bitacora->bind_param("i", $IdUsuario);
-    $stmt_bitacora->execute();
-    $stmt_bitacora->close();
+    // Actualizar la hora de salida en la tabla bitacora
+    $stmt_bitacora = $conexion->prepare("
+        UPDATE bitacora 
+        SET HoraSalida = NOW() 
+        WHERE IdUsuario = ? 
+        AND HoraSalida IS NULL 
+        ORDER BY HoraEntrada DESC 
+        LIMIT 1
+    ");
+    if ($stmt_bitacora) {
+        $stmt_bitacora->bind_param("i", $IdUsuario);
+        $stmt_bitacora->execute();
+        $stmt_bitacora->close();
+    } else {
+        die("Error al preparar la consulta: " . $conexion->error);
+    }
 }
 
 // Cerrar sesión
-session_unset();
-session_destroy();
+session_unset();  // Elimina todas las variables de sesión
+session_destroy(); // Destruye la sesión actual
 
 // Redirigir a la página de inicio de sesión
 echo '<script language="javascript">location.href = "/Pages/Log In.php";</script>';

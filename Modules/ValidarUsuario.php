@@ -7,6 +7,7 @@ $NombreUsuario = "root";
 $Clave = "JoSu2002@";
 $BD = "dbCoarsa";
 
+
 // Conexión a la base de datos
 $conexion = new mysqli($servidor, $NombreUsuario, $Clave, $BD);
 
@@ -46,14 +47,41 @@ if (isset($_POST['Ingresarbtn'])) {
                 $_SESSION['IdUsuario'] = $fila['IdUsuario']; // Guardamos el IdUsuario en la sesión
 
                 // Insertar en la bitácora la entrada
-                $IdUsuario = $fila['IdUsuario'];
-                $stmt_bitacora = $conexion->prepare("INSERT INTO bitacora
-                (IdUsuario, Cedula, NombreEmpleado, ApellidosEmpleado, Puesto, HoraEntrada, Rol, EstadoSolicitud)
-                    VALUES (?, ?, ?, ?, ?, NOW(), ?, ?)");
-                $stmt_bitacora->bind_param("issssss", $IdUsuario, $Cedula, $NombreEmpleado, $ApellidosEmpleado, $Puesto, $Rol, $EstadoSolicitud);
-                $stmt_bitacora->execute();
-                $stmt_bitacora->close();
-
+                $stmt_bitacora = $conexion->prepare("
+                INSERT INTO bitacora (IdUsuario, Cedula, NombreEmpleado, ApellidosEmpleado, Puesto, HoraEntrada, Rol)
+                VALUES (?, ?, ?, ?, ?, NOW(), ?)
+            ");
+            if ($stmt_bitacora === false) {
+                die("Error al preparar la consulta: " . $conexion->error);
+            }
+            
+            // Asegúrate de que las variables contienen valores antes de asignarlas.
+            $idUsuario = $fila['IdUsuario'];
+            $cedula = $fila['Cedula'];
+            $nombreEmpleado = $fila['NombreEmpleado'];
+            $apellidosEmpleado = $fila['ApellidosEmpleado'];
+            $puesto = $fila['Puesto'];
+            $rol = $fila['Rol'];
+            
+            // Asigna los valores a los marcadores.
+            $stmt_bitacora->bind_param(
+                "issssi", 
+                $idUsuario, 
+                $cedula, 
+                $nombreEmpleado, 
+                $apellidosEmpleado, 
+                $puesto, 
+                $rol
+            );
+            
+            if ($stmt_bitacora->execute()) {
+                echo "Registro en la bitácora insertado con éxito.";
+            } else {
+                die("Error al insertar en la bitácora: " . $stmt_bitacora->error);
+            }
+            
+            $stmt_bitacora->close();
+            
                 // Redirigir según el rol del usuario
                 if ($fila['Rol'] == 1) {
                     echo '<script language="javascript">location.href = "/Pages/Menu Admin.php";</script>';
