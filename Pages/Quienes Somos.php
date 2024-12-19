@@ -251,7 +251,9 @@
         <div class="brands-background">
             <h2 class="product-category">Nuestras Marcas</h2>
             <div class="container-product">
-              <button class="nav-button" id="prevButton">◀</button>
+              <button class="nav-button" id="prevButton">
+                <img src="/Estilos/images/flecha atras.png" alt="">
+              </button>
               <div class="row-wrapper">
                 <div class="row" id="imageRow">
                     <div class="circle">
@@ -432,7 +434,9 @@
                     </div>   
                 </div>   
             </div>
-            <button class="nav-button" id="nextButton">▶</button>
+            <button class="nav-button" id="nextButton">
+              <img src="/Estilos/images/flecha adelante.png" alt="">
+            </button>
         </div>
         </div>
       </section>
