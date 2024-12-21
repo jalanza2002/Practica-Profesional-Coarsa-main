@@ -43,6 +43,7 @@
     <main class="main">
       <br />
       <!-- Contenedor de quienes somos que debería aparecer debajo del principal -->
+    <div class="textura">
       <div class="section">
         <h1>¿Quiénes somos?</h1>
         <p>
@@ -88,6 +89,13 @@
         </p>
         <br><br>
       </div>
+    </div>
+
+
+
+
+
+  
       <!-- esturctura de la historia COARSA-->
       <div class="title">Nuestra historia</div>
       <div class="timeline-container">

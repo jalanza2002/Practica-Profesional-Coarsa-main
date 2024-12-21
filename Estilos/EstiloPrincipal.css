@@ -16,22 +16,18 @@
     height: 100%;
     overflow-x: hidden; 
     overflow-y: auto; 
+    
   }
   section{
     overflow: auto;
   }
   
   /* Estilo principal de la página */
- 
-  .main,
+  .main
   .footer {
     background-color: #fff;
-    background-image: url('Estilos/Pape'); /* Ruta a tu imagen */
-    background-size: cover; /* Ajusta para cubrir todo el fondo */
-    background-repeat: no-repeat; /* Evita que se repita */
-    background-position: center; /* Centra la textura */
-    background-attachment: fixed; /* Fija la textura al fondo */
   }
+  
   
   /* Logo */
   .logo {
@@ -81,6 +77,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    
   }
   
   /* Contenido de texto */
