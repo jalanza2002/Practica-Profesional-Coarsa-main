@@ -41,7 +41,7 @@ $vacantes = getVacantesConnection();
 </head>
 <body>
     <div >
-        <a href="/Pages/Quienes Somos.php">
+        <a href="/Pages/Index.php">
             <img src="/Estilos/images/fecha atras.png" alt="16px" class="back-arrow">
         </a>
     </div>
