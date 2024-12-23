@@ -25,7 +25,7 @@
   /* Estilo principal de la página */
   .main
   .footer {
-    background-color: #fff;
+    background-color: white;
   }
   
   
@@ -69,7 +69,7 @@
   
   /* Estilo general */
   main {
-    background-color: #f5f5f5;
+    background-color: white;
     color: #1a4e8a;
     text-align: center;
     padding: 20px;
@@ -81,6 +81,8 @@
   }
   
   /* Contenido de texto */
+
+
   h1 {
     font-size: 36px;
     margin-bottom: 20px;
@@ -265,23 +267,21 @@
     flex-direction: row; /* Cambio a fila para poner los botones dentro */
     position: relative; /* Asegura que los botones estén dentro del contenedor */
 }
+.row-wrapper {
+  width: 100%;
+  overflow-x:hidden;
+  position: relative;
+}
+.row-wrapper::-webkit-scrollbar {
+  display: none; /* Oculta la barra de desplazamiento en Chrome, Safari y Edge */
+}
 
 .row {
     display: flex;
     gap: 20px; /* Espaciado entre los círculos */
-    animation: scrollImages 70s linear infinite; /* Desplazamiento continuo */
     flex-wrap: nowrap; /* Evita que las imágenes se muevan a la siguiente fila */
     justify-content: center; /* Centra las imágenes horizontalmente */
     width: 100%;
-}
-.row-wrapper {
-  overflow-x:scroll;
-  width: 90%; /* Limita el ancho visible */
-  margin: 0 auto; /* Centra el contenido */
-  scroll-behavior: smooth;
-}
-.row-wrapper::-webkit-scrollbar {
-  display: none; /* Oculta la barra de desplazamiento en Chrome, Safari y Edge */
 }
 
 .circle {
@@ -302,16 +302,6 @@
     height: 110%;
     object-fit: contain;
 }
-
-@keyframes scrollImages {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
 .nav-button {
   border: none;
   width: 50px;
@@ -680,13 +670,14 @@
   
   footer .content p span {
     font-weight: bold;
-    color: #1a73e8;
+    color: #0d61cf;
   }
   
   footer .content p span.address {
     font-weight: normal;
     color: #000;
   }
+  
   
   footer .social-icons {
     margin-top: 20px;

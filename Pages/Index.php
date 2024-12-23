@@ -500,11 +500,15 @@
             <h1>Contáctenos</h1>
             <p>
               <span> Teléfono: </span>
+              <span class="address">
               +506 2447-1959
+              </span>
             </p>
             <p>
               <span> Correo electrónico: </span>
+              <span class="address">
               servicioalcliente@coarsacr.com
+              </span>
             </p>
             <p>
               <span> Dirección: </span>
@@ -515,7 +519,9 @@
             </p>
             <p>
               <span> Horario de atención: </span>
+              <span class="address">
               De lunes a viernes de 7 am a 5 pm.
+              </span>
             </p>
             <div class="social-icons">
               <a class="whatsapp" href="https://wa.me/87071162">
@@ -591,29 +597,95 @@ document.querySelector('.next-btn').addEventListener('click', function() {
 <!--                                  Carousel de las marcas
  ******************************************************************************************-->
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    const prevButton = document.getElementById("prevButton");
-    const nextButton = document.getElementById("nextButton");
-    const rowWrapper = document.querySelector(".row-wrapper");
+document.addEventListener("DOMContentLoaded", function () {
+  const prevButton = document.getElementById("prevButton");
+  const nextButton = document.getElementById("nextButton");
+  const imageRows = document.querySelectorAll('.row'); // Seleccionamos todas las filas de imágenes
+  const circles = document.querySelectorAll(".circle"); // Seleccionamos todos los círculos de imágenes
+  
+  let scrollPosition = 0;
 
-    let scrollAmount = 0;
+  // Calcular el ancho total de las imágenes en la fila
+  const rowWidth = imageRows[0].scrollWidth;
+  
+  // Función para desplazar a la derecha
+  function scrollNext() {
+    scrollPosition += 200;
+    if (scrollPosition >= rowWidth) {
+      scrollPosition -= rowWidth; // Reiniciar al principio
+    }
+    imageRows.forEach((row) => {
+      row.scrollTo({
+        left: scrollPosition,
+        behavior: "smooth",
+      });
+    });
+  }
 
-    prevButton.addEventListener("click", function() {
-        rowWrapper.scrollBy({
-            left: -200,
-            behavior: "smooth"
-        });
+  // Función para desplazar a la izquierda
+  function scrollPrev() {
+    scrollPosition -= 200;
+    if (scrollPosition < 0) {
+      scrollPosition += rowWidth; // Ir al final
+    }
+    imageRows.forEach((row) => {
+      row.scrollTo({
+        left: scrollPosition,
+        behavior: "smooth",
+      });
+    });
+  }
+
+  // Movimiento automático de los círculos
+  let movePosition = 0;
+
+  function moveCircles() {
+    circles.forEach((circle) => {
+      circle.style.transform = `translateX(-${movePosition}px)`; // Mover cada círculo
     });
 
-    nextButton.addEventListener("click", function() {
-        rowWrapper.scrollBy({
-            left: 200,
-            behavior: "smooth"
-        });
-    });
+    // Verificar si se ha llegado al final
+    if (movePosition >= imageRows[0].scrollWidth) {
+      movePosition = 0; // Reiniciar la posición al principio
+    } else {
+      movePosition += 1; // Desplazarse gradualmente
+    }
+  }
+
+  // Función para mover a la izquierda
+  function moveLeft() {
+    movePosition -= 300;
+    if (movePosition < 0) {
+      movePosition = imageRows[0].offsetWidth - 50;
+    }
+    moveCircles();
+  }
+
+  // Función para mover a la derecha
+  function moveRight() {
+    movePosition += 50;
+    if (movePosition >= imageRows[0].scrollWidth) {
+      movePosition = 0; // Reiniciar la posición al principio
+    }
+    moveCircles();
+  }
+
+  // Evento de desplazamiento hacia la izquierda
+  prevButton.addEventListener('click', moveLeft);
+
+  // Evento de desplazamiento hacia la derecha
+  nextButton.addEventListener('click', moveRight);
+
+  // Iniciar el movimiento continuo de los círculos
+  setInterval(moveCircles, 30); // Ajusta la velocidad del bucle
+
+  // Event listeners para los botones de desplazamiento
+  prevButton.addEventListener("click", scrollPrev);
+  nextButton.addEventListener("click", scrollNext);
 });
+
 </script>
-    
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
