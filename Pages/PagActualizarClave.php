@@ -53,7 +53,7 @@ $conexion->close();
     <center>
     <img  src="/Estilos/images/Logo coarsa SOLIDO.jpg">
     <form method="POST">
-        <input type="email" name="txtcorreo" required placeholder="Digite su Correo">
+        <input type="txt" name="txtcorreo" required placeholder="Digite su Correo">
         <br>
         <br>
         <input type="password" name="nuevaContrasena" required placeholder="Digite la Nueva Clave">

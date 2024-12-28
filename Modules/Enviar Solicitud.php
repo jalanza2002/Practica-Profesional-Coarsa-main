@@ -125,7 +125,8 @@ function Enviar_Solicitud() {
     $stmt->bindParam(':Estado', $Estado);
     if ($stmt->execute()) {
         
-    echo '<script language="javascript">location.href = "\Pages\FinalizacionTarea_Solicitud.php";</script>';
+        echo '<script language="javascript">alert("Se ha enviado su solicitud correctamente.");</script>';
+
     } else {
         echo "Error: No se pudo enviar la solicitud.";
         }
